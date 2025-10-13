@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function ObeyaPage() {
   const [selectedCourse, setSelectedCourse] = useState('');
@@ -52,10 +53,13 @@ export default function ObeyaPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center relative">
-              <img 
+              <Image 
                 src="/images/lag-logo.png" 
                 alt="Lean Agile Groep Logo" 
+                width={120}
+                height={40}
                 className="h-10 w-auto"
+                priority
               />
               <div className="absolute -top-1 -right-1 w-3 h-3 bg-primary-500 rounded-sm rotate-45"></div>
             </Link>
@@ -169,7 +173,7 @@ export default function ObeyaPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Wat is Obeya?</h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                 Obeya is een visual management methodiek die oorspronkelijk uit de Toyota Productie Systeem komt. 
-                Het woord "Obeya" betekent "grote kamer" in het Japans en verwijst naar een centrale ruimte waar 
+                Het woord &quot;Obeya&quot; betekent &quot;grote kamer&quot; in het Japans en verwijst naar een centrale ruimte waar 
                 teams samenkomen om strategieën te bespreken, problemen op te lossen en voortgang te monitoren.
               </p>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
@@ -203,9 +207,9 @@ export default function ObeyaPage() {
             <div className="bg-gray-100 p-8 rounded-2xl">
               <h3 className="text-xl font-semibold text-gray-900 mb-4">Obeya in de praktijk</h3>
               <div className="space-y-4">
-                <div className="bg-white p-4 rounded-lg">
+              <div className="bg-white p-4 rounded-lg">
                   <h4 className="font-semibold text-gray-900 mb-2">Visual Management</h4>
-                  <p className="text-gray-600 text-sm">KPI's, metrics en voortgang zichtbaar maken voor iedereen</p>
+                  <p className="text-gray-600 text-sm">KPI&#39;s, metrics en voortgang zichtbaar maken voor iedereen</p>
                 </div>
                 <div className="bg-white p-4 rounded-lg">
                   <h4 className="font-semibold text-gray-900 mb-2">Problem Solving</h4>

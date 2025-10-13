@@ -1,13 +1,11 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
 import Navigation from '../../components/Navigation';
 import SignupSection from '../../components/SignupSection';
 import HeroSection from '../../components/HeroSection';
 
 export default function ScrumMasterVervolgPage() {
-  const [selectedCourse, setSelectedCourse] = useState('');
 
   const courses = [
     {

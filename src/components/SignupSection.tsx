@@ -39,21 +39,29 @@ export default function SignupSection({ preselectedCourse = '' }: SignupSectionP
     province: '',
     course: preselectedCourse,
     costCenter: '',
-    message: ''
+    message: '',
+    termsAccepted: false,
+    privacyAccepted: false
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
+    const target = e.target as HTMLInputElement;
+    const { name, value } = target;
+    const newValue = target.type === 'checkbox' ? target.checked : value;
     setFormData(prev => ({
       ...prev,
-      [name]: value
+      [name]: newValue
     }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formData.termsAccepted || !formData.privacyAccepted) {
+      alert('U moet akkoord gaan met de algemene voorwaarden en privacyverklaring om door te gaan.');
+      return;
+    }
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
@@ -76,7 +84,9 @@ export default function SignupSection({ preselectedCourse = '' }: SignupSectionP
           province: '',
           course: preselectedCourse,
           costCenter: '',
-          message: ''
+          message: '',
+          termsAccepted: false,
+          privacyAccepted: false
         });
       } else {
         setSubmitStatus('error');
@@ -156,8 +166,8 @@ export default function SignupSection({ preselectedCourse = '' }: SignupSectionP
 
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <label htmlFor="province" className="block text-sm font-semibold text-gray-700 mb-2">
-                  Provincie
+                <label htmlFor="province" className="block text-sm text-left font-semibold text-gray-700 mb-2">
+                In welke provincie(s) zou je de training kunnen volgen
                 </label>
                 <select
                   id="province"
@@ -220,6 +230,36 @@ export default function SignupSection({ preselectedCourse = '' }: SignupSectionP
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-sm transition-all resize-none"
                 placeholder="Heeft u specifieke vragen of opmerkingen?"
               />
+            </div>
+
+            <div className="space-y-4 text-left">
+              <label htmlFor="termsAccepted" className="flex items-start gap-3 text-sm text-gray-700">
+                <input
+                  type="checkbox"
+                  id="termsAccepted"
+                  name="termsAccepted"
+                  checked={formData.termsAccepted}
+                  onChange={handleInputChange}
+                  className="mt-1 h-5 w-5 text-primary-600 border-gray-300 rounded focus:ring-2 focus:ring-primary-500"
+                />
+                <span>
+                  Ik ga akkoord met de <a href="/algemene-voorwaarden" target="_blank" rel="noopener noreferrer" className="text-primary-600 underline">algemene voorwaarden</a> *
+                </span>
+              </label>
+
+              <label htmlFor="privacyAccepted" className="flex items-start gap-3 text-sm text-gray-700">
+                <input
+                  type="checkbox"
+                  id="privacyAccepted"
+                  name="privacyAccepted"
+                  checked={formData.privacyAccepted}
+                  onChange={handleInputChange}
+                  className="mt-1 h-5 w-5 text-primary-600 border-gray-300 rounded focus:ring-2 focus:ring-primary-500"
+                />
+                <span>
+                  Ik ga akkoord met de <a href="/privacyverklaring" target="_blank" rel="noopener noreferrer" className="text-primary-600 underline">privacyverklaring</a> *
+                </span>
+              </label>
             </div>
 
             <button

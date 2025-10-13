@@ -42,7 +42,7 @@ export default function Home() {
         <div className="relative z-20 container mx-auto px-6 lg:px-8 py-16">
           <div className="max-w-3xl">
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
-               <span className="font-black italic tracking-wider text-scrum-400 drop-shadow-lg">Agile</span> Trainingen
+               <span className="font-black italic tracking-wider text-scrum-400 drop-shadow-lg">Agile</span> Trainingen voor de politie operatie
             </h1>
             <p className="text-xl text-gray-100 mb-6 leading-relaxed max-w-3xl">
               Lean Agile Groep en Scrum Academy bundelen onze krachten om de politie te ondersteunen bij het versterken van wendbaarheid en samenwerking.
@@ -86,7 +86,13 @@ export default function Home() {
             <p className="text-lg text-gray-700 leading-relaxed">
               Onze trainingen zijn praktijkgericht, interactief en nuchter, zodat teams direct zelf aan de slag kunnen met meer samenwerking, werkplezier en resultaat.
             </p>
+
+            <div className="font-bold text-gray-900 my-10">
+            Doelgroep hier
           </div>
+          </div>
+
+        
 
           {/* Right Column: Grid of Cards */}
           <div className="grid md:grid-cols-2 gap-8">
@@ -192,6 +198,7 @@ export default function Home() {
                   </p>
                 </div>
               </div>
+              
               
               <div className="space-y-3">
                 <a href="/product-owner" className="flex items-center justify-between bg-gray-50 p-4 rounded-lg hover:bg-primary-50 hover:border-primary-200 border border-transparent transition-all duration-200 group">
@@ -352,6 +359,13 @@ export default function Home() {
               <h3 className="text-xl font-semibold text-gray-900 mb-4">Kan ik een training op locatie volgen?</h3>
               <p className="text-gray-700 leading-relaxed">
                 Ja, we bieden zowel open trainingen als incompany trainingen aan. Voor grote groepen kunnen we de training op jullie locatie geven.
+              </p>
+            </div>
+
+            <div className="bg-gray-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200">
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Ik wil een snellere startdatum, kan dat?</h3>
+              <p className="text-gray-700 leading-relaxed">
+                PENDING
               </p>
             </div>
             

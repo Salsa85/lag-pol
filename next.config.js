@@ -5,6 +5,7 @@ const nextConfig = {
   images: {
     unoptimized: true
   },
+  output: 'standalone',
   // Remove GitHub Pages specific settings
 }
 

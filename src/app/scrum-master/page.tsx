@@ -1,13 +1,11 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
 import Navigation from '../../components/Navigation';
 import SignupSection from '../../components/SignupSection';
 import HeroSection from '../../components/HeroSection';
 
 export default function ScrumMasterPage() {
-  const [selectedCourse, setSelectedCourse] = useState('');
 
   const courses = [
     {
@@ -34,7 +32,7 @@ export default function ScrumMasterPage() {
         'Gebaseerd op \'Training from the Back of the Room\': deelnemers leren actief en ervaringsgericht'
       ],
       details: {
-        duration: '4 dagdelen, 3,5 uur per dagdeel',
+        duration: '2 dagen',
         certificate: 'PSM1',
         trainers: '1 vaste trainer die deelnemers ook na de opleiding coacht',
         materials: 'Toolkit met coachkaarten en markers, overzichtskaarten met termen en schema\'s'

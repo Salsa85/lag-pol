@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function ProductOwnerPage() {
   const [selectedCourse, setSelectedCourse] = useState('');
@@ -48,10 +49,13 @@ export default function ProductOwnerPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center relative">
-              <img 
+              <Image 
                 src="/images/lag-logo.png" 
                 alt="Lean Agile Groep Logo" 
+                width={120}
+                height={40}
                 className="h-10 w-auto"
+                priority
               />
               <div className="absolute -top-1 -right-1 w-3 h-3 bg-primary-500 rounded-sm rotate-45"></div>
             </Link>

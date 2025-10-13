@@ -17,20 +17,7 @@ const courses = [
   'Facilitator in Obeya'
 ];
 
-const provinces = [
-  'Drenthe',
-  'Flevoland',
-  'Friesland',
-  'Gelderland',
-  'Groningen',
-  'Limburg',
-  'Noord-Brabant',
-  'Noord-Holland',
-  'Overijssel',
-  'Utrecht',
-  'Zeeland',
-  'Zuid-Holland'
-];
+// provinces removed – not used in this fixed banner variant
 
 export default function FixedSignup({ preselectedCourse = '' }: FixedSignupProps) {
   const [formData, setFormData] = useState({

@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 
 interface NavigationProps {
@@ -17,14 +18,7 @@ export default function Navigation({
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [hoverTimeout, setHoverTimeout] = useState<NodeJS.Timeout | null>(null);
 
-  const handleButtonClick = () => {
-    if (buttonLink.startsWith('#')) {
-      const element = document.getElementById(buttonLink.substring(1));
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  };
+  // removed unused click handler
 
   const handleMouseEnter = () => {
     if (hoverTimeout) {
@@ -130,10 +124,13 @@ export default function Navigation({
             <div className="flex items-center space-x-8">
               {/* Logo */}
               <Link href="/" className="flex items-center relative">
-                <img 
+                <Image 
                   src="/images/lag-logo.png" 
                   alt="Lean Agile Groep Logo" 
+                  width={120}
+                  height={40}
                   className="h-10 w-auto"
+                  priority
                 />
                 <div className="absolute -top-1 -right-1 w-3 h-3 bg-primary-500 rounded-sm rotate-45"></div>
               </Link>
@@ -144,6 +141,7 @@ export default function Navigation({
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
                   className="flex items-center space-x-2 text-gray-700 hover:text-primary-600 font-medium transition-colors duration-200 py-2"
+                  aria-label={buttonText}
                 >
                   <span>Trainingen</span>
                   <svg className={`w-4 h-4 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -208,7 +206,7 @@ export default function Navigation({
                   <div className="mt-8 pt-6 border-t border-gray-200">
                     <div className="text-center">
                       <Link
-                        href="/#training-section"
+                        href={buttonLink}
                         className="inline-block bg-primary-500 hover:bg-primary-600 text-white px-8 py-3 rounded-lg font-medium transition-colors duration-200"
                       >
                         Bekijk alle trainingen
