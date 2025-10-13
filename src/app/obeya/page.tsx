@@ -177,7 +177,7 @@ export default function ObeyaPage() {
                 teams samenkomen om strategieën te bespreken, problemen op te lossen en voortgang te monitoren.
               </p>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                In een Obeya room worden alle belangrijke informatie, KPI's, problemen en acties visueel weergegeven 
+                In een Obeya room worden alle belangrijke informatie, KPI&#39;s, problemen en acties visueel weergegeven 
                 op muren en whiteboards. Dit zorgt voor transparantie, alignment en snellere besluitvorming.
               </p>
               
