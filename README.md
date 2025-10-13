@@ -1,4 +1,14 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Politie Training Landing Page
+
+A modern landing page for Lean Agile Groep's police training courses, built with Next.js and Tailwind CSS.
+
+## Features
+
+- Responsive design
+- Modern UI with Tailwind CSS
+- Course information and signup forms
+- Dark theme with brand colors
+- Combined Scrum Academy and Lean Agile Groep branding
 
 ## Getting Started
 
@@ -16,21 +26,62 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Plesk Server Deployment
 
-## Learn More
+This project is configured for Plesk server deployment:
 
-To learn more about Next.js, take a look at the following resources:
+1. **Clone the repository** on your Plesk server:
+   ```bash
+   git clone git@github.com:Salsa85/lag-pol.git
+   cd lag-pol
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. **Build the application**:
+   ```bash
+   npm run build
+   ```
 
-## Deploy on Vercel
+4. **Start the application**:
+   ```bash
+   npm start
+   # or using PM2 for production
+   pm2 start ecosystem.config.js
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+5. **Configure Plesk**:
+   - Set up a Node.js application in Plesk
+   - Point to the project directory
+   - Set the application root to the project folder
+   - Set the startup file to `server.js`
+   - Configure the domain and SSL certificate
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Environment Variables
+
+Create a `.env` file in the project root with:
+```
+NODE_ENV=production
+PORT=3000
+```
+
+## Tech Stack
+
+- Next.js 15
+- React 19
+- Tailwind CSS v4
+- TypeScript
+- GSAP for animations
+- OGL for 3D effects (DarkVeil)
+
+## Project Structure
+
+- `/src/app` - Next.js App Router pages
+- `/src/components` - Reusable React components
+- `/public` - Static assets
+- `/.github/workflows` - GitHub Actions deployment configuration
