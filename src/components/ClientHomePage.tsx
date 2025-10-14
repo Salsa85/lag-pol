@@ -2,7 +2,7 @@
 
 import ClickSpark from './ClickSpark';
 import Navigation from './Navigation';
-import SignupSection from './SignupSection';
+import ClientSignupSection from './ClientSignupSection';
 import DarkVeil from './DarkVeil';
 
 export default function ClientHomePage() {
@@ -19,7 +19,7 @@ export default function ClientHomePage() {
         <Navigation showMargin={false} />
 
         {/* Hero Section */}
-        <section className="md:rounded-2xl md:mx-5 relative text-white overflow-hidden py-24 flex items-center bg-gradient-to-br from-dark-900 via-dark-800 to-primary-500">
+        <section className="relative text-white overflow-hidden py-24 flex items-center bg-gradient-to-br from-dark-900 via-dark-800 to-primary-500">
           {/* Glowing background effect */}
           <div className="absolute inset-0 bg-gradient-to-r from-scrum-500/20 via-transparent to-primary-500/20 blur-3xl"></div>
           
@@ -40,7 +40,7 @@ export default function ClientHomePage() {
           <div className="relative z-20 container mx-auto px-6 lg:px-8 py-16">
             <div className="max-w-3xl">
               <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
-                 <span className="font-black italic tracking-wider text-scrum-400 drop-shadow-lg">Agile</span> Trainingen voor de politie operatie
+                 <span className="font-black italic tracking-wider text-scrum-400 drop-shadow-lg">Agile</span> Trainingen voor de Politieoperatie
               </h1>
               <p className="text-xl text-gray-100 mb-6 leading-relaxed max-w-3xl">
                 Lean Agile Groep en Scrum Academy bundelen onze krachten om de politie te ondersteunen bij het versterken van wendbaarheid en samenwerking.
@@ -85,9 +85,16 @@ export default function ClientHomePage() {
                 Onze trainingen zijn praktijkgericht, interactief en nuchter, zodat teams direct zelf aan de slag kunnen met meer samenwerking, werkplezier en resultaat.
               </p>
 
-              <div className="font-bold text-gray-900 my-10">
-              Doelgroep hier
-            </div>
+              <div className="my-10">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Voor wie zijn deze trainingen?</h3>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  Onze Agile trainingen zijn specifiek ontwikkeld voor <strong>operatie en bedrijfsvoering</strong> binnen de politieorganisatie. 
+                  Teams die direct samenwerken met de operationele praktijk en wendbaarheid nodig hebben in hun dagelijkse werk.
+                </p>
+                <p className="text-gray-600 text-sm">
+                  Dit is geen algemene trainingswebshop, maar een gespecialiseerd aanbod voor politieprofessionals die hun samenwerking en resultaten willen verbeteren.
+                </p>
+              </div>
             </div>
 
           
@@ -127,52 +134,66 @@ export default function ClientHomePage() {
         </section>
 
         {/* Training Types Section */}
-        <section id="training-section" className="py-24 px-6 lg:px-8 bg-white">
-          <div className="max-w-7xl mx-auto">
+        <section id="training-section" className="py-24 px-6 lg:px-8 relative overflow-hidden bg-gradient-to-br from-dark-900 via-dark-800 to-primary-500">
+          {/* DarkVeil as background */}
+          <div style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0, zIndex: 1, opacity: 0.8 }}>
+            <DarkVeil 
+              hueShift={280}
+              speed={0.5}
+              noiseIntensity={0}
+              scanlineIntensity={0}
+              scanlineFrequency={0}
+              warpAmount={0}
+            />
+          </div>
+          
+          {/* Subtle overlay for text readability */}
+          <div className="absolute inset-0 bg-dark-900/60 z-10"></div>
+          <div className="relative z-20 max-w-7xl mx-auto">
             <div className="text-center mb-16">
               <div className="flex items-center justify-center mb-6">
                 <div className="w-8 h-8 bg-primary-100 rounded-lg mr-4 flex items-center justify-center">
                   <div className="w-3 h-3 bg-primary-500 rounded-sm rotate-45"></div>
                 </div>
-                <h2 className="text-4xl font-bold text-gray-900">Onze trainingen</h2>
+                <h2 className="text-4xl font-bold text-white">Onze trainingen</h2>
                 <div className="w-12 h-1 bg-primary-500 rounded-full ml-4"></div>
               </div>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
                 Kies de training die het beste past bij jouw rol en ontwikkelingsbehoeften binnen de politieorganisatie.
               </p>
             </div>
             
             <div className="grid lg:grid-cols-2 gap-12">
               {/* Scrum Master Trainingen */}
-              <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-100">
+              <div className="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 border border-white/20">
                 <div className="text-center mb-8">
                   <div className="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
                     <svg className="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-4">Scrum Master</h3>
+                  <h3 className="text-2xl font-semibold text-white mb-4">Scrum Master</h3>
                   <div className="h-12 mb-6 flex items-center">
-                    <p className="text-gray-600 leading-relaxed">
+                    <p className="text-gray-200 leading-relaxed">
                       Ontwikkel vaardigheden om teams te begeleiden in een veeleisende praktijk.
                     </p>
                   </div>
                 </div>
                 
                 <div className="space-y-3">
-                  <a href="/scrum-master" className="flex items-center justify-between bg-gray-50 p-4 rounded-lg hover:bg-primary-50 hover:border-primary-200 border border-transparent transition-all duration-200 group">
-                    <span className="font-medium text-gray-900 group-hover:text-primary-700">Scrum Master Basis</span>
+                  <a href="/scrum-master" className="flex items-center justify-between bg-white/20 p-4 rounded-lg hover:bg-primary-500/30 hover:border-primary-400 border border-white/30 transition-all duration-200 group">
+                    <span className="font-medium text-white group-hover:text-primary-200">Scrum Master Basis</span>
                     <div className="flex items-center space-x-3">
-                      <span className="text-sm bg-primary-500 text-white px-3 py-1 rounded-full font-medium">4 dagdelen</span>
+                      <span className="text-sm bg-primary-500 text-white px-3 py-1 rounded-full font-medium">2 dagen</span>
                       <svg className="w-4 h-4 text-gray-400 group-hover:text-primary-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
                     </div>
                   </a>
-                  <a href="/scrum-master-vervolg" className="flex items-center justify-between bg-gray-50 p-4 rounded-lg hover:bg-accent-50 hover:border-accent-200 border border-transparent transition-all duration-200 group">
-                    <span className="font-medium text-gray-900 group-hover:text-accent-700">Scrum Master Vervolg</span>
+                  <a href="/scrum-master-vervolg" className="flex items-center justify-between bg-white/20 p-4 rounded-lg hover:bg-accent-500/30 hover:border-accent-400 border border-white/30 transition-all duration-200 group">
+                    <span className="font-medium text-white group-hover:text-accent-200">Scrum Master Vervolg</span>
                     <div className="flex items-center space-x-3">
-                      <span className="text-sm bg-accent-500 text-white px-3 py-1 rounded-full font-medium">4 dagdelen</span>
+                      <span className="text-sm bg-accent-500 text-white px-3 py-1 rounded-full font-medium">2 dagen</span>
                       <svg className="w-4 h-4 text-gray-400 group-hover:text-accent-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
@@ -182,16 +203,16 @@ export default function ClientHomePage() {
               </div>
 
               {/* Product Owner Trainingen */}
-              <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-100">
+              <div className="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 border border-white/20">
                 <div className="text-center mb-8">
                   <div className="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
                     <svg className="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-4">Product Owner</h3>
-                  <div className="h-12 mb-6 flex items-center">
-                    <p className="text-gray-600 leading-relaxed">
+                  <h3 className="text-2xl font-semibold text-white mb-4">Product Owner</h3>
+                  <div className="h-12 mb-6 flex items-center justify-center">
+                    <p className="text-gray-200 leading-relaxed text-center">
                       Leer richting en waarde creëren in een complexe praktijk.
                     </p>
                   </div>
@@ -199,8 +220,8 @@ export default function ClientHomePage() {
                 
                 
                 <div className="space-y-3">
-                  <a href="/product-owner" className="flex items-center justify-between bg-gray-50 p-4 rounded-lg hover:bg-primary-50 hover:border-primary-200 border border-transparent transition-all duration-200 group">
-                    <span className="font-medium text-gray-900 group-hover:text-primary-700">Product Owner Basis</span>
+                  <a href="/product-owner" className="flex items-center justify-between bg-white/20 p-4 rounded-lg hover:bg-primary-500/30 hover:border-primary-400 border border-white/30 transition-all duration-200 group">
+                    <span className="font-medium text-white group-hover:text-primary-200">Product Owner Basis</span>
                     <div className="flex items-center space-x-3">
                       <span className="text-sm bg-primary-500 text-white px-3 py-1 rounded-full font-medium">2 dagen</span>
                       <svg className="w-4 h-4 text-gray-400 group-hover:text-primary-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -208,8 +229,8 @@ export default function ClientHomePage() {
                       </svg>
                     </div>
                   </a>
-                  <a href="/product-owner" className="flex items-center justify-between bg-gray-50 p-4 rounded-lg hover:bg-accent-50 hover:border-accent-200 border border-transparent transition-all duration-200 group">
-                    <span className="font-medium text-gray-900 group-hover:text-accent-700">Product Owner Gevorderd</span>
+                  <a href="/product-owner-vervolg" className="flex items-center justify-between bg-white/20 p-4 rounded-lg hover:bg-accent-500/30 hover:border-accent-400 border border-white/30 transition-all duration-200 group">
+                    <span className="font-medium text-white group-hover:text-accent-200">Product Owner Vervolg</span>
                     <div className="flex items-center space-x-3">
                       <span className="text-sm bg-accent-500 text-white px-3 py-1 rounded-full font-medium">2 dagen</span>
                       <svg className="w-4 h-4 text-gray-400 group-hover:text-accent-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -221,24 +242,24 @@ export default function ClientHomePage() {
               </div>
 
               {/* Agile Coach Training */}
-              <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-100">
+              <div className="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 border border-white/20">
                 <div className="text-center mb-8">
                   <div className="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
                     <svg className="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-4">Agile Coach</h3>
+                  <h3 className="text-2xl font-semibold text-white mb-4">Agile Coach</h3>
                   <div className="h-12 mb-6 flex items-center">
-                    <p className="text-gray-600 leading-relaxed">
+                    <p className="text-gray-200 leading-relaxed">
                       Word een ervaren Agile Coach die duurzame verandering kan begeleiden.
                     </p>
                   </div>
                 </div>
                 
                 <div className="space-y-3">
-                  <a href="/agile-coach" className="flex items-center justify-between bg-gray-50 p-4 rounded-lg hover:bg-primary-50 hover:border-primary-200 border border-transparent transition-all duration-200 group">
-                    <span className="font-medium text-gray-900 group-hover:text-primary-700">Agile Coach Opleiding</span>
+                  <a href="/agile-coach" className="flex items-center justify-between bg-white/20 p-4 rounded-lg hover:bg-primary-500/30 hover:border-primary-400 border border-white/30 transition-all duration-200 group">
+                    <span className="font-medium text-white group-hover:text-primary-200">Agile Coach Opleiding</span>
                     <div className="flex items-center space-x-3">
                       <span className="text-sm bg-primary-500 text-white px-3 py-1 rounded-full font-medium">4 dagen</span>
                       <svg className="w-4 h-4 text-gray-400 group-hover:text-primary-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -250,24 +271,24 @@ export default function ClientHomePage() {
               </div>
 
               {/* Agile Leiderschap */}
-              <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-100">
+              <div className="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 border border-white/20">
                 <div className="text-center mb-8">
                   <div className="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
                     <svg className="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-4">Agile Leiderschap</h3>
+                  <h3 className="text-2xl font-semibold text-white mb-4">Agile Leiderschap</h3>
                   <div className="h-12 mb-6 flex items-center">
-                    <p className="text-gray-600 leading-relaxed">
+                    <p className="text-gray-200 leading-relaxed">
                       Ontwikkel een mindset gericht op vertrouwen, wendbaarheid en resultaat.
                     </p>
                   </div>
                 </div>
                 
                 <div className="space-y-3">
-                  <a href="/agile-leiderschap" className="flex items-center justify-between bg-gray-50 p-4 rounded-lg hover:bg-primary-50 hover:border-primary-200 border border-transparent transition-all duration-200 group">
-                    <span className="font-medium text-gray-900 group-hover:text-primary-700">Agile Leiderschap Opleiding</span>
+                  <a href="/agile-leiderschap" className="flex items-center justify-between bg-white/20 p-4 rounded-lg hover:bg-primary-500/30 hover:border-primary-400 border border-white/30 transition-all duration-200 group">
+                    <span className="font-medium text-white group-hover:text-primary-200">Agile Leiderschap Opleiding</span>
                     <div className="flex items-center space-x-3">
                       <span className="text-sm bg-primary-500 text-white px-3 py-1 rounded-full font-medium">1.5 dagen</span>
                       <svg className="w-4 h-4 text-gray-400 group-hover:text-primary-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -279,24 +300,24 @@ export default function ClientHomePage() {
               </div>
 
               {/* Obeya Trainingen */}
-              <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-100 lg:col-span-2">
+              <div className="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 border border-white/20">
                 <div className="text-center mb-8">
                   <div className="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
                     <svg className="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-4">Obeya Trainingen</h3>
+                  <h3 className="text-2xl font-semibold text-white mb-4">Obeya Trainingen</h3>
                   <div className="h-12 mb-6 flex items-center">
-                    <p className="text-gray-600 leading-relaxed">
+                    <p className="text-gray-200 leading-relaxed">
                       Leer werken met de Obeya-methodiek voor effectief management en strategie-implementatie.
                     </p>
                   </div>
                 </div>
                 
-                <div className="grid md:grid-cols-2 gap-4">
-                  <a href="/obeya" className="flex items-center justify-between bg-gray-50 p-4 rounded-lg hover:bg-primary-50 hover:border-primary-200 border border-transparent transition-all duration-200 group">
-                    <span className="font-medium text-gray-900 group-hover:text-primary-700">Leading with Obeya</span>
+                <div className="space-y-3">
+                  <a href="/obeya" className="flex items-center justify-between bg-white/20 p-4 rounded-lg hover:bg-primary-500/30 hover:border-primary-400 border border-white/30 transition-all duration-200 group">
+                    <span className="font-medium text-white group-hover:text-primary-200">Leading with Obeya</span>
                     <div className="flex items-center space-x-3">
                       <span className="text-sm bg-primary-500 text-white px-3 py-1 rounded-full font-medium">2 dagen</span>
                       <svg className="w-4 h-4 text-gray-400 group-hover:text-primary-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -304,11 +325,49 @@ export default function ClientHomePage() {
                       </svg>
                     </div>
                   </a>
-                  <a href="/obeya" className="flex items-center justify-between bg-gray-50 p-4 rounded-lg hover:bg-accent-50 hover:border-accent-200 border border-transparent transition-all duration-200 group">
-                    <span className="font-medium text-gray-900 group-hover:text-accent-700">Facilitator in Obeya</span>
+                  <a href="/obeya" className="flex items-center justify-between bg-white/20 p-4 rounded-lg hover:bg-accent-500/30 hover:border-accent-400 border border-white/30 transition-all duration-200 group">
+                    <span className="font-medium text-white group-hover:text-accent-200">Facilitator in Obeya</span>
                     <div className="flex items-center space-x-3">
                       <span className="text-sm bg-accent-500 text-white px-3 py-1 rounded-full font-medium">2 dagen</span>
                       <svg className="w-4 h-4 text-gray-400 group-hover:text-accent-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </a>
+                </div>
+              </div>
+
+              {/* Maatwerk Trainingen */}
+              <div className="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 border border-white/20">
+                <div className="text-center mb-8">
+                  <div className="w-16 h-16 bg-accent-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <svg className="w-8 h-8 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-semibold text-white mb-4">Maatwerk Trainingen</h3>
+                  <div className="h-12 mb-6 flex items-center">
+                    <p className="text-gray-200 leading-relaxed">
+                      Op maat gemaakte trainingen en trajecten voor teamspecifieke behoeften en uitdagingen.
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="space-y-3">
+                  <a href="/contact" className="flex items-center justify-between bg-white/20 p-4 rounded-lg hover:bg-accent-500/30 hover:border-accent-400 border border-white/30 transition-all duration-200 group">
+                    <span className="font-medium text-white group-hover:text-accent-200">Team-specifieke trajecten</span>
+                    <div className="flex items-center space-x-3">
+                      <span className="text-sm bg-accent-500 text-white px-3 py-1 rounded-full font-medium">Op maat</span>
+                      <svg className="w-4 h-4 text-gray-400 group-hover:text-accent-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </a>
+                  <a href="/contact" className="flex items-center justify-between bg-white/20 p-4 rounded-lg hover:bg-primary-500/30 hover:border-primary-400 border border-white/30 transition-all duration-200 group">
+                    <span className="font-medium text-white group-hover:text-primary-200">Organisatie-ontwikkeling</span>
+                    <div className="flex items-center space-x-3">
+                      <span className="text-sm bg-primary-500 text-white px-3 py-1 rounded-full font-medium">Langdurig</span>
+                      <svg className="w-4 h-4 text-gray-400 group-hover:text-primary-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
                     </div>
@@ -319,11 +378,8 @@ export default function ClientHomePage() {
           </div>
         </section>
 
-        {/* Signup Section */}
-        <SignupSection />
-
-        {/* FAQ Section */}
-        <section className="py-20 px-6 lg:px-8 bg-white">
+           {/* FAQ Section */}
+           <section className="py-20 px-6 lg:px-8 bg-white">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <div className="flex items-center justify-center mb-6">
@@ -376,6 +432,10 @@ export default function ClientHomePage() {
             </div>
           </div>
         </section>
+        
+        {/* Signup Section */}
+        <ClientSignupSection />
+
 
         {/* Footer */}
         <footer className="bg-gray-900 text-white py-16 px-6 lg:px-8">

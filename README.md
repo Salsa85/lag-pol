@@ -64,11 +64,31 @@ This project is configured for Plesk server deployment:
 
 ### Environment Variables
 
-Create a `.env` file in the project root with:
-```
+Create a `.env.local` file in the project root with:
+
+```bash
+# Application Configuration
 NODE_ENV=production
 PORT=3000
+
+# Mailtrap Configuration (for email sending)
+MAILTRAP_USER=your_mailtrap_username
+MAILTRAP_PASS=your_mailtrap_password
 ```
+
+#### Mailtrap Setup
+
+1. **Sign up for Mailtrap** at [mailtrap.io](https://mailtrap.io)
+2. **Create a new inbox** in your Mailtrap dashboard
+3. **Get your credentials**:
+   - Go to "SMTP Settings" in your inbox
+   - Copy the username and password
+   - Update the `.env.local` file with your credentials
+4. **Test the setup** by submitting the contact form
+
+The application will send:
+- **Admin notification** to `info@leanagilegroep.nl` with form details
+- **User confirmation** to the person who submitted the form
 
 ## Tech Stack
 

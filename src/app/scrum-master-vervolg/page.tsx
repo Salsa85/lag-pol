@@ -1,12 +1,12 @@
 import Link from 'next/link';
-import ClientNavigation from '../../components/ClientNavigation';
+import Navigation from '../../components/Navigation';
 import ClientSignupSection from '../../components/ClientSignupSection';
 import HeroSection from '../../components/HeroSection';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Scrum Master Vervolg Training - Politie',
-  description: 'Verdiep je Scrum Master vaardigheden voor ervaren professionals. 4 dagdelen gevorderde training voor complexe teamdynamiek en organisatieontwikkeling.',
+  description: 'Verdiep je Scrum Master vaardigheden voor ervaren professionals. 2 dagen gevorderde training voor complexe teamdynamiek en organisatieontwikkeling.',
   keywords: [
     'Scrum Master vervolg politie',
     'Agile gevorderd training',
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: 'Scrum Master Vervolg Training - Politie',
-    description: 'Verdiep je Scrum Master vaardigheden voor ervaren professionals. 4 dagdelen gevorderde training.',
+    description: 'Verdiep je Scrum Master vaardigheden voor ervaren professionals. 2 dagen gevorderde training.',
     type: 'website',
   },
 };
@@ -27,7 +27,7 @@ export default function ScrumMasterVervolgPage() {
     {
       id: 'gevorderd',
       title: 'Scrum Master Vervolg',
-      duration: '4 dagdelen van 3,5 uur',
+      duration: '2 dagen van 3,5 uur',
       description: 'Deze training is bedoeld voor Scrum Masters met ervaring in meerdere teams die hun rol willen verdiepen. Deelnemers versterken hun vaardigheden in coachen, faciliteren, teamdynamiek, stakeholdermanagement en organisatieontwikkeling.',
       detailedDescription: 'Zij zorgen voor meer wendbaarheid binnen en buiten de teams. De focus ligt op het ontwikkelen tot een stevige Scrum Master: iemand die effectief omgaat met weerstand, ondermijning en conflicten, en tegelijk betrokkenheid en productiviteit verhoogt. Ook is er aandacht voor het begeleiden van Product Owners, het beïnvloeden van management en het bouwen aan een wendbare organisatiecultuur.',
       topics: [
@@ -50,7 +50,7 @@ export default function ScrumMasterVervolgPage() {
         'Gebaseerd op \'Training from the Back of the Room\': deelnemers leren actief en ervaringsgericht'
       ],
       details: {
-        duration: '4 dagdelen, 3,5 uur per dagdeel',
+        duration: '2 dagen, 3,5 uur per dagdeel',
         certificate: 'PSM2',
         trainers: '1 vaste trainer die deelnemers ook na de opleiding coacht',
         materials: 'Toolkit met geavanceerde werkvormen, stakeholder- en teamdynamiekanalyses, coach formats'
@@ -61,7 +61,7 @@ export default function ScrumMasterVervolgPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <ClientNavigation showMargin={false} />
+      <Navigation showMargin={false} />
 
       {/* Hero Section */}
       <HeroSection 

@@ -1,24 +1,24 @@
 import { Metadata } from 'next';
 import CoursePageLayout from '../../components/layouts/CoursePageLayout';
-import { productOwnerCourse, productOwnerMetadata } from '../../data/courses';
+import { productOwnerVervolgCourse, productOwnerVervolgMetadata } from '../../data/courses';
 
 export const metadata: Metadata = {
-  title: productOwnerMetadata.title,
-  description: productOwnerMetadata.description,
-  keywords: productOwnerMetadata.keywords,
-  openGraph: productOwnerMetadata.openGraph,
+  title: productOwnerVervolgMetadata.title,
+  description: productOwnerVervolgMetadata.description,
+  keywords: productOwnerVervolgMetadata.keywords,
+  openGraph: productOwnerVervolgMetadata.openGraph,
 };
 
-export default function ProductOwnerPage() {
-  const courses = [productOwnerCourse];
+export default function ProductOwnerVervolgPage() {
+  const courses = [productOwnerVervolgCourse];
 
   const relatedTraining = {
     title: "Vervolg je Agile reis",
     description: "Ontdek andere trainingen die perfect aansluiten bij jouw ontwikkeling.",
     links: [
       {
-        href: "/product-owner-vervolg",
-        text: "Product Owner Vervolg",
+        href: "/product-owner",
+        text: "Product Owner Basis",
         variant: "accent" as const
       },
       {
@@ -42,9 +42,9 @@ export default function ProductOwnerPage() {
   return (
     <CoursePageLayout
       courses={courses}
-      heroTitle="Product Owner Trainingen"
-      heroSubtitle="Ontwikkel je tot richtinggevende en waardegedreven leider. Leer hoe je als Product Owner teams kunt helpen om effectiever samen te werken en betere resultaten te behalen."
-      preselectedCourse="Product Owner Basis / Beginner"
+      heroTitle="Product Owner Vervolg Training"
+      heroSubtitle="Ontwikkel je tot ervaren procesverantwoordelijke en strategische waardecreërende leider. Leer hoe je waarde helder kunt definiëren, meten en vergroten binnen een complexe en dynamische omgeving."
+      preselectedCourse="Product Owner Vervolg / Gevorderd"
       relatedTraining={relatedTraining}
     />
   );

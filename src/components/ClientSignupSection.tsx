@@ -11,7 +11,7 @@ export default function ClientSignupSection({ preselectedCourse = "" }: ClientSi
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    province: '',
+    province: [] as string[],
     course: preselectedCourse,
     costCenter: '',
     message: '',
@@ -24,10 +24,19 @@ export default function ClientSignupSection({ preselectedCourse = "" }: ClientSi
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value, type } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value
-    }));
+    
+    if (name === 'province' && type === 'select-multiple') {
+      const selectedOptions = Array.from((e.target as HTMLSelectElement).selectedOptions, option => option.value);
+      setFormData(prev => ({
+        ...prev,
+        [name]: selectedOptions
+      }));
+    } else {
+      setFormData(prev => ({
+        ...prev,
+        [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value
+      }));
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -35,6 +44,11 @@ export default function ClientSignupSection({ preselectedCourse = "" }: ClientSi
     
     if (!formData.termsAccepted || !formData.privacyAccepted) {
       alert('Je moet akkoord gaan met de algemene voorwaarden en privacyverklaring.');
+      return;
+    }
+    
+    if (formData.province.length === 0) {
+      alert('Je moet ten minste één provincie selecteren.');
       return;
     }
 
@@ -55,7 +69,7 @@ export default function ClientSignupSection({ preselectedCourse = "" }: ClientSi
         setFormData({
           name: '',
           email: '',
-          province: '',
+          province: [],
           course: preselectedCourse,
           costCenter: '',
           message: '',
@@ -119,7 +133,8 @@ export default function ClientSignupSection({ preselectedCourse = "" }: ClientSi
                   value={formData.name}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-sm"
+                  placeholder="Je volledige naam"
+                  className="w-full px-4 py-3 border border-white/30 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-sm bg-white/10 text-white placeholder-gray-300"
                 />
               </div>
 
@@ -134,39 +149,76 @@ export default function ClientSignupSection({ preselectedCourse = "" }: ClientSi
                   value={formData.email}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-sm"
+                  placeholder="je.email@politie.nl"
+                  className="w-full px-4 py-3 border border-white/30 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-sm bg-white/10 text-white placeholder-gray-300"
                 />
               </div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <label htmlFor="province" className="block text-sm font-medium text-white mb-2">
-                  Provincie
-                </label>
-                <select
-                  id="province"
-                  name="province"
-                  value={formData.province}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-sm"
-                >
-                  <option value="">Selecteer provincie</option>
-                  <option value="Drenthe">Drenthe</option>
-                  <option value="Flevoland">Flevoland</option>
-                  <option value="Friesland">Friesland</option>
-                  <option value="Gelderland">Gelderland</option>
-                  <option value="Groningen">Groningen</option>
-                  <option value="Limburg">Limburg</option>
-                  <option value="Noord-Brabant">Noord-Brabant</option>
-                  <option value="Noord-Holland">Noord-Holland</option>
-                  <option value="Overijssel">Overijssel</option>
-                  <option value="Utrecht">Utrecht</option>
-                  <option value="Zeeland">Zeeland</option>
-                  <option value="Zuid-Holland">Zuid-Holland</option>
-                </select>
+            <div>
+              <label className="block text-sm font-medium text-white mb-3">
+                In welke provincie(s) ben je bereid de training te volgen
+              </label>
+              <div className="relative">
+                <div className="w-full min-h-[120px] border border-white/30 rounded-lg bg-white/10 p-3 focus-within:ring-2 focus-within:ring-primary-500 focus-within:border-primary-500">
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    {formData.province.map((province, index) => (
+                      <span
+                        key={index}
+                        className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary-500 text-white"
+                      >
+                        {province}
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setFormData(prev => ({
+                              ...prev,
+                              province: prev.province.filter((_, i) => i !== index)
+                            }));
+                          }}
+                          className="ml-2 text-white hover:text-gray-200 focus:outline-none"
+                        >
+                          ×
+                        </button>
+                      </span>
+                    ))}
+                  </div>
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+                    {[
+                      'Drenthe', 'Flevoland', 'Friesland', 'Gelderland', 'Groningen', 'Limburg',
+                      'Noord-Brabant', 'Noord-Holland', 'Overijssel', 'Utrecht', 'Zeeland', 'Zuid-Holland'
+                    ].map((province) => (
+                      <button
+                        key={province}
+                        type="button"
+                        onClick={() => {
+                          if (formData.province.includes(province)) {
+                            setFormData(prev => ({
+                              ...prev,
+                              province: prev.province.filter(p => p !== province)
+                            }));
+                          } else {
+                            setFormData(prev => ({
+                              ...prev,
+                              province: [...prev.province, province]
+                            }));
+                          }
+                        }}
+                        className={`px-3 py-2 text-sm rounded-lg border transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 ${
+                          formData.province.includes(province)
+                            ? 'bg-primary-500 text-white border-primary-500'
+                            : 'bg-white/20 text-white border-white/30 hover:bg-white/30 hover:border-white/50'
+                        }`}
+                      >
+                        {province}
+                      </button>
+                    ))}
+                  </div>
+                </div>
               </div>
+            </div>
 
+            <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <label htmlFor="course" className="block text-sm font-medium text-white mb-2">
                   Training *
@@ -177,9 +229,9 @@ export default function ClientSignupSection({ preselectedCourse = "" }: ClientSi
                   value={formData.course}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-sm"
+                  className="w-full px-4 py-3 border border-white/30 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-sm bg-white/10 text-white placeholder-gray-300"
                 >
-                  <option value="">Selecteer training</option>
+                  <option value="" className="bg-gray-800 text-white">Selecteer training</option>
                   <option value="Scrum Master Basis / Beginner">Scrum Master Basis</option>
                   <option value="Scrum Master Vervolg / Gevorderd">Scrum Master Vervolg</option>
                   <option value="Product Owner Basis / Beginner">Product Owner Basis</option>
@@ -202,7 +254,8 @@ export default function ClientSignupSection({ preselectedCourse = "" }: ClientSi
                 name="costCenter"
                 value={formData.costCenter}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-sm"
+                placeholder="Bijv. 12345"
+                className="w-full px-4 py-3 border border-white/30 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-sm bg-white/10 text-white placeholder-gray-300"
               />
             </div>
 
@@ -216,7 +269,7 @@ export default function ClientSignupSection({ preselectedCourse = "" }: ClientSi
                 rows={4}
                 value={formData.message}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-sm"
+                className="w-full px-4 py-3 border border-white/30 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-sm bg-white/10 text-white placeholder-gray-300"
                 placeholder="Vertel ons meer over je wensen of vragen..."
               />
             </div>

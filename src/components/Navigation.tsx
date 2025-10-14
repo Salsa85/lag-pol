@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 interface NavigationProps {
   buttonText?: string;
@@ -44,8 +44,10 @@ export default function Navigation({
   };
 
   const headerClasses = showMargin 
-    ? "m-10 bg-white/95 backdrop-blur-md border-b border-gray-200/50 sticky top-0 z-50"
-    : "bg-white/95 backdrop-blur-md border-b border-gray-200/50 sticky top-0 z-50";
+    ? "m-10 absolute top-0 left-0 right-0 z-[9999]"
+    : "absolute top-0 left-0 right-0 z-[9999]";
+
+  const textColorClasses = "text-white";
 
   const courses = [
     {
@@ -57,8 +59,8 @@ export default function Navigation({
       ),
       color: "primary",
       courses: [
-        { name: "Scrum Master Basis", link: "/scrum-master", duration: "4 dagdelen" },
-        { name: "Scrum Master Vervolg", link: "/scrum-master-vervolg", duration: "4 dagdelen" }
+        { name: "Scrum Master Basis", link: "/scrum-master", duration: "2 dagen" },
+        { name: "Scrum Master Vervolg", link: "/scrum-master-vervolg", duration: "2 dagen" }
       ]
     },
     {
@@ -71,7 +73,7 @@ export default function Navigation({
       color: "primary",
       courses: [
         { name: "Product Owner Basis", link: "/product-owner", duration: "2 dagen" },
-        { name: "Product Owner Gevorderd", link: "/product-owner", duration: "2 dagen" }
+        { name: "Product Owner Vervolg", link: "/product-owner-vervolg", duration: "2 dagen" }
       ]
     },
     {
@@ -115,7 +117,7 @@ export default function Navigation({
 
   return (
     <header className={headerClasses}>
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="container mx-auto px-6 lg:px-8">
 
         {/* Main navigation row */}
         <div className="pt-4 pb-4 relative">
@@ -136,11 +138,11 @@ export default function Navigation({
               </Link>
 
               {/* Trainingen Dropdown */}
-              <div className="relative group">
+              <div className="relative group ml-10">
                 <button
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
-                  className="flex items-center space-x-2 text-gray-700 hover:text-primary-600 font-medium transition-colors duration-200 py-2"
+                  className={`flex items-center space-x-2 ${textColorClasses} hover:text-primary-600 font-medium transition-colors duration-200 py-2`}
                   aria-label={buttonText}
                 >
                   <span>Trainingen</span>
@@ -161,20 +163,23 @@ export default function Navigation({
             )}
 
             {/* Right side - Contact Info */}
-            <div className="flex items-center space-x-3 text-sm text-gray-600">
+            <div className="flex items-center space-x-3 text-sm text-white">
               <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
               <span className="font-medium">Contact:</span> 
               <span className="text-primary-600 font-semibold">088-5326720</span>
             </div>
           </div>
           
-          {/* Mega Menu - Positioned relative to navigation container */}
-          {isDropdownOpen && (
-            <div
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMegaMenuLeave}
-              className="absolute top-full -top-5 left-0 right-0 bg-white shadow-xl border-t border-gray-200 z-50 rounded-xl"
-            >
+                    {/* Mega Menu - Positioned relative to navigation container */}
+                    <div
+                      onMouseEnter={handleMouseEnter}
+                      onMouseLeave={handleMegaMenuLeave}
+                      className={`absolute top-full -top-5 left-0 right-0 bg-white shadow-xl border-t border-gray-200 z-50 rounded-xl transition-all duration-300 ease-in-out ${
+                        isDropdownOpen 
+                          ? 'opacity-100 visible transform translate-y-0' 
+                          : 'opacity-0 invisible transform -translate-y-2 pointer-events-none'
+                      }`}
+                    >
               <div className="w-full px-6 lg:px-8 py-8">
                 <div className="max-w-7xl mx-auto">
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
@@ -216,7 +221,6 @@ export default function Navigation({
                 </div>
               </div>
             </div>
-          )}
         </div>
       </div>
     </header>
