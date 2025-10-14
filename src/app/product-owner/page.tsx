@@ -1,11 +1,28 @@
-'use client';
-
-import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import ClientNavigation from '../../components/ClientNavigation';
+import ClientSignupSection from '../../components/ClientSignupSection';
+import HeroSection from '../../components/HeroSection';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Product Owner Training - Politie',
+  description: 'Leer richting en waarde creëren in een complexe praktijk. Praktijkgerichte Product Owner training voor de politieorganisatie.',
+  keywords: [
+    'Product Owner training politie',
+    'Product Owner opleiding',
+    'Agile product management',
+    'waarde creatie politie',
+    'product backlog management'
+  ],
+  openGraph: {
+    title: 'Product Owner Training - Politie',
+    description: 'Leer richting en waarde creëren in een complexe praktijk. Praktijkgerichte Product Owner training.',
+    type: 'website',
+  },
+};
 
 export default function ProductOwnerPage() {
-  const [selectedCourse, setSelectedCourse] = useState('');
 
   const courses = [
     {

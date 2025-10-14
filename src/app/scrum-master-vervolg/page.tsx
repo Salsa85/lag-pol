@@ -1,9 +1,25 @@
-'use client';
-
 import Link from 'next/link';
-import Navigation from '../../components/Navigation';
-import SignupSection from '../../components/SignupSection';
+import ClientNavigation from '../../components/ClientNavigation';
+import ClientSignupSection from '../../components/ClientSignupSection';
 import HeroSection from '../../components/HeroSection';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Scrum Master Vervolg Training - Politie',
+  description: 'Verdiep je Scrum Master vaardigheden voor ervaren professionals. 4 dagdelen gevorderde training voor complexe teamdynamiek en organisatieontwikkeling.',
+  keywords: [
+    'Scrum Master vervolg politie',
+    'Agile gevorderd training',
+    'Scrum Master gevorderd',
+    'PSM2 certificering',
+    'teamdynamiek politie'
+  ],
+  openGraph: {
+    title: 'Scrum Master Vervolg Training - Politie',
+    description: 'Verdiep je Scrum Master vaardigheden voor ervaren professionals. 4 dagdelen gevorderde training.',
+    type: 'website',
+  },
+};
 
 export default function ScrumMasterVervolgPage() {
 
@@ -45,11 +61,7 @@ export default function ScrumMasterVervolgPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <Navigation 
-        buttonText="AANMELDEN" 
-        buttonLink="/#signup-section" 
-        showMargin={false} 
-      />
+      <ClientNavigation showMargin={false} />
 
       {/* Hero Section */}
       <HeroSection 
@@ -165,7 +177,7 @@ export default function ScrumMasterVervolgPage() {
       </section>
 
       {/* Signup Section */}
-      <SignupSection preselectedCourse="Scrum Master Vervolg / Gevorderd" />
+      <ClientSignupSection preselectedCourse="Scrum Master Vervolg / Gevorderd" />
 
       {/* Related Training Section */}
       <section className="py-20 px-6 lg:px-8 bg-gray-50">

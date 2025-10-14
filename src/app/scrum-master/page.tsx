@@ -1,9 +1,25 @@
-'use client';
-
 import Link from 'next/link';
-import Navigation from '../../components/Navigation';
-import SignupSection from '../../components/SignupSection';
+import ClientNavigation from '../../components/ClientNavigation';
+import ClientSignupSection from '../../components/ClientSignupSection';
 import HeroSection from '../../components/HeroSection';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Scrum Master Basis Training - Politie',
+  description: 'Ontwikkel vaardigheden om teams te begeleiden in een veeleisende praktijk. 4 dagdelen praktijkgerichte Scrum Master training speciaal voor de politie.',
+  keywords: [
+    'Scrum Master training politie',
+    'Agile training politie',
+    'Scrum basis opleiding',
+    'PSM1 certificering',
+    'team begeleiding politie'
+  ],
+  openGraph: {
+    title: 'Scrum Master Basis Training - Politie',
+    description: 'Ontwikkel vaardigheden om teams te begeleiden in een veeleisende praktijk. 4 dagdelen praktijkgerichte Scrum Master training.',
+    type: 'website',
+  },
+};
 
 export default function ScrumMasterPage() {
 
@@ -43,11 +59,7 @@ export default function ScrumMasterPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <Navigation 
-        buttonText="AANMELDEN" 
-        buttonLink="/#signup-section" 
-        showMargin={false} 
-      />
+      <ClientNavigation showMargin={false} />
 
       {/* Hero Section */}
       <HeroSection 
@@ -163,7 +175,7 @@ export default function ScrumMasterPage() {
       </section>
 
       {/* Signup Section */}
-      <SignupSection preselectedCourse="Scrum Master Basis / Beginner" />
+      <ClientSignupSection preselectedCourse="Scrum Master Basis / Beginner" />
 
       {/* Related Training Section */}
       <section className="py-20 px-6 lg:px-8 bg-gray-50">
