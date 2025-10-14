@@ -1,8 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    serverComponentsExternalPackages: ['ogl']
-  },
+  serverExternalPackages: ['ogl'],
   compress: true,
   poweredByHeader: false,
   generateEtags: true,

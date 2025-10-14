@@ -1,8 +1,5 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import ClientNavigation from '../../components/ClientNavigation';
-import ClientSignupSection from '../../components/ClientSignupSection';
-import HeroSection from '../../components/HeroSection';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -131,12 +128,7 @@ export default function ProductOwnerPage() {
             {courses.map((course) => (
               <div 
                 key={course.id}
-                className={`bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 border-2 cursor-pointer ${
-                  selectedCourse === course.id 
-                    ? 'border-primary-500 bg-primary-50' 
-                    : 'border-gray-100 hover:border-primary-200'
-                }`}
-                onClick={() => setSelectedCourse(course.id)}
+                className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 border-2 cursor-pointer border-gray-100 hover:border-primary-200"
               >
                 <div className="flex items-center justify-between mb-6">
                   <h3 className="text-2xl font-bold text-gray-900">{course.title}</h3>
@@ -165,13 +157,6 @@ export default function ProductOwnerPage() {
                   <p className="text-gray-600">{course.target}</p>
                 </div>
                 
-                {selectedCourse === course.id && (
-                  <div className="bg-primary-100 p-4 rounded-lg">
-                    <p className="text-primary-800 font-medium text-center">
-                      ✓ Deze training is geselecteerd
-                    </p>
-                  </div>
-                )}
               </div>
             ))}
           </div>

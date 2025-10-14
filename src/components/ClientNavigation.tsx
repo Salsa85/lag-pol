@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function ClientNavigation({ showMargin = true }: { showMargin?: boolean }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -165,12 +166,12 @@ export default function ClientNavigation({ showMargin = true }: { showMargin?: b
                     </div>
                     
                     <div className="mt-6 pt-4 border-t border-gray-200">
-                      <a
-                        href="/#training-section"
-                        className="block w-full text-center bg-primary-500 text-white py-2 px-4 rounded-lg font-medium hover:bg-primary-600 transition-colors duration-200"
-                      >
-                        Bekijk alle trainingen
-                      </a>
+                    <Link
+                      href="/#training-section"
+                      className="block w-full text-center bg-primary-500 text-white py-2 px-4 rounded-lg font-medium hover:bg-primary-600 transition-colors duration-200"
+                    >
+                      Bekijk alle trainingen
+                    </Link>
                     </div>
                   </div>
                 </div>
@@ -184,12 +185,12 @@ export default function ClientNavigation({ showMargin = true }: { showMargin?: b
               <p className="text-sm text-gray-600">Contact</p>
               <p className="font-semibold text-gray-900">088-5326720</p>
             </div>
-            <a
+            <Link
               href="/#signup-section"
               className="bg-primary-500 hover:bg-primary-600 text-white px-6 py-2 rounded-lg font-semibold transition-colors duration-200"
             >
               Aanmelden
-            </a>
+            </Link>
           </div>
         </div>
       </div>
