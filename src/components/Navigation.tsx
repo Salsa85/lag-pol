@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 
 interface NavigationProps {
   buttonText?: string;
@@ -16,7 +16,8 @@ export default function Navigation({
   showMargin = true 
 }: NavigationProps) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [hoverTimeout, setHoverTimeout] = useState<NodeJS.Timeout | null>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [hoverTimeout, setHoverTimeout] = useState<ReturnType<typeof setTimeout> | null>(null);
 
   // removed unused click handler
 
@@ -109,8 +110,8 @@ export default function Navigation({
       ),
       color: "primary",
       courses: [
-        { name: "Leading with Obeya", link: "/obeya", duration: "2 dagen" },
-        { name: "Facilitator in Obeya", link: "/obeya", duration: "2 dagen" }
+        { name: "Leading with Obeya", link: "/leading-with-obeya", duration: "4 dagen" },
+        { name: "Facilitator in Obeya", link: "/facilitator-in-obeya", duration: "2 dagen" }
       ]
     }
   ];
@@ -122,23 +123,24 @@ export default function Navigation({
         {/* Main navigation row */}
         <div className="pt-4 pb-4 relative">
           <div className="flex items-center justify-between">
-            {/* Left side - Logo + Trainingen */}
-            <div className="flex items-center space-x-8">
-              {/* Logo */}
-              <Link href="/" className="flex items-center relative">
+            {/* Left side - Logo */}
+            <div className="flex items-center">
+              <Link href="/" className="flex items-center">
                 <Image 
                   src="/images/lag-logo.png" 
                   alt="Lean Agile Groep Logo" 
-                  width={120}
-                  height={40}
-                  className="h-10 w-auto"
+                  width={160}
+                  height={48}
+                  className="h-8 md:h-12 w-auto"
                   priority
                 />
-                <div className="absolute -top-1 -right-1 w-3 h-3 bg-primary-500 rounded-sm rotate-45"></div>
               </Link>
+            </div>
 
+            {/* Desktop Navigation */}
+            <div className="hidden lg:flex items-center space-x-8">
               {/* Trainingen Dropdown */}
-              <div className="relative group ml-10">
+              <div className="relative group">
                 <button
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
@@ -151,35 +153,90 @@ export default function Navigation({
                   </svg>
                 </button>
               </div>
+
+              {/* Contact Info */}
+              <div className="flex items-center space-x-3 text-sm text-white">
+                <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
+                <span className="font-medium">Contact:</span> 
+                <span className="text-primary-400 font-semibold">088-5326720</span>
+              </div>
             </div>
 
-            {/* Invisible bridge to prevent gap */}
-            {isDropdownOpen && (
-              <div 
-                className="absolute top-full left-0 right-0 h-2 z-40"
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-              ></div>
-            )}
-
-            {/* Right side - Contact Info */}
-            <div className="flex items-center space-x-3 text-sm text-white">
-              <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
-              <span className="font-medium">Contact:</span> 
-              <span className="text-primary-600 font-semibold">088-5326720</span>
-            </div>
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="lg:hidden flex items-center justify-center w-10 h-10 text-white hover:text-primary-400 transition-colors duration-200"
+              aria-label="Toggle mobile menu"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {isMobileMenuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
           </div>
+
+          {/* Mobile Menu */}
+          {isMobileMenuOpen && (
+            <div className="lg:hidden mt-4 bg-white/95 backdrop-blur-md rounded-lg shadow-lg border border-gray-200/50">
+              <div className="px-4 py-6 space-y-4">
+                {/* Mobile Trainingen Section */}
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-3">Trainingen</h3>
+                  <div className="space-y-2">
+                    {courses.map((category, index) => (
+                      <div key={index} className="space-y-2">
+                        <h4 className="font-medium text-gray-700 text-sm">{category.category}</h4>
+                        <div className="ml-4 space-y-1">
+                          {category.courses.map((course, courseIndex) => (
+                            <Link
+                              key={courseIndex}
+                              href={course.link}
+                              className="block py-2 text-sm text-gray-600 hover:text-primary-600 transition-colors duration-200"
+                              onClick={() => setIsMobileMenuOpen(false)}
+                            >
+                              {course.name}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Mobile Contact Info */}
+                <div className="pt-4 border-t border-gray-200">
+                  <div className="flex items-center space-x-3 text-sm text-gray-600">
+                    <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
+                    <span className="font-medium">Contact:</span> 
+                    <span className="text-primary-600 font-semibold">088-5326720</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Invisible bridge to prevent gap */}
+          {isDropdownOpen && (
+            <div 
+              className="absolute top-full left-0 right-0 h-2 z-40"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            ></div>
+          )}
           
-                    {/* Mega Menu - Positioned relative to navigation container */}
-                    <div
-                      onMouseEnter={handleMouseEnter}
-                      onMouseLeave={handleMegaMenuLeave}
-                      className={`absolute top-full -top-5 left-0 right-0 bg-white shadow-xl border-t border-gray-200 z-50 rounded-xl transition-all duration-300 ease-in-out ${
-                        isDropdownOpen 
-                          ? 'opacity-100 visible transform translate-y-0' 
-                          : 'opacity-0 invisible transform -translate-y-2 pointer-events-none'
-                      }`}
-                    >
+          {/* Desktop Mega Menu - Hidden on mobile */}
+          <div
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMegaMenuLeave}
+            className={`hidden lg:block absolute top-full -top-5 left-0 right-0 bg-white shadow-xl border-t border-gray-200 z-50 rounded-xl transition-all duration-300 ease-in-out ${
+              isDropdownOpen 
+                ? 'opacity-100 visible transform translate-y-0' 
+                : 'opacity-0 invisible transform -translate-y-2 pointer-events-none'
+            }`}
+          >
               <div className="w-full px-6 lg:px-8 py-8">
                 <div className="max-w-7xl mx-auto">
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">

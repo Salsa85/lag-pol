@@ -20,7 +20,7 @@ export default function LearningOutcomesSection({ courses }: LearningOutcomesSec
         
         {courses.map((course) => (
           <div key={course.id} className="grid md:grid-cols-2 gap-8">
-            {course.topics.map((topic, index) => (
+            {(course.topics || []).map((topic, index) => (
               <div key={index} className="flex items-start">
                 <div className="w-2 h-2 bg-primary-500 rounded-full mr-4 mt-2 flex-shrink-0"></div>
                 <span className="text-gray-100 leading-relaxed text-lg">{topic}</span>

@@ -1,24 +1,24 @@
 import CoursePageLayout from '../../components/layouts/CoursePageLayout';
-import { agileLeiderschapCourse, agileLeiderschapMetadata } from '../../data/courses';
+import { facilitatorInObeyaCourse, facilitatorInObeyaMetadata } from '../../data/courses';
 import { Metadata } from 'next';
 
-export const metadata: Metadata = agileLeiderschapMetadata;
+export const metadata: Metadata = facilitatorInObeyaMetadata;
 
-export default function AgileLeiderschapPage() {
-  const courses = [agileLeiderschapCourse];
+export default function FacilitatorInObeyaPage() {
+  const courses = [facilitatorInObeyaCourse];
 
   const relatedTraining = {
     title: "Vervolg je Agile reis",
     description: "Ontdek andere trainingen die perfect aansluiten bij jouw ontwikkeling.",
     links: [
       {
-        href: "/scrum-master",
-        text: "Scrum Master Training",
+        href: "/leading-with-obeya",
+        text: "Leading with Obeya",
         variant: "primary" as const
       },
       {
-        href: "/product-owner",
-        text: "Product Owner Training",
+        href: "/agile-leiderschap",
+        text: "Agile Leiderschap Opleiding",
         variant: "primary" as const
       },
       {
@@ -37,9 +37,9 @@ export default function AgileLeiderschapPage() {
   return (
     <CoursePageLayout
       courses={courses}
-      heroTitle="Agile Leiderschap Opleiding"
-      heroSubtitle="Ontwikkel je tot een wendbare leider die teams kan begeleiden in een veranderende wereld. Leer hoe je als leidinggevende teams kunt helpen om effectiever samen te werken en betere resultaten te behalen."
-      preselectedCourse="Agile Leiderschap Opleiding"
+      heroTitle="Facilitator in Obeya"
+      heroSubtitle="Leer hoe je Obeya teams effectief kunt faciliteren. Ontwikkel vaardigheden om teams te begeleiden in het werken met Obeya en de dialoog goed te voeren."
+      preselectedCourse="Facilitator in Obeya"
       relatedTraining={relatedTraining}
     />
   );

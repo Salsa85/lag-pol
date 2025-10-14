@@ -34,18 +34,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
-    {
-      url: `${baseUrl}/agile-coach`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/agile-leiderschap`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
+        {
+          url: `${baseUrl}/agile-coach`,
+          lastModified: new Date(),
+          changeFrequency: 'monthly',
+          priority: 0.8,
+        },
+        {
+          url: `${baseUrl}/agile-leiderschap`,
+          lastModified: new Date(),
+          changeFrequency: 'monthly',
+          priority: 0.8,
+        },
+        {
+          url: `${baseUrl}/leading-with-obeya`,
+          lastModified: new Date(),
+          changeFrequency: 'monthly',
+          priority: 0.8,
+        },
+        {
+          url: `${baseUrl}/facilitator-in-obeya`,
+          lastModified: new Date(),
+          changeFrequency: 'monthly',
+          priority: 0.8,
+        },
     {
       url: `${baseUrl}/obeya`,
       lastModified: new Date(),

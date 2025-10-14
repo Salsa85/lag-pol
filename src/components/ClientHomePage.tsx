@@ -1,11 +1,14 @@
 'use client';
 
+import { useState } from 'react';
 import ClickSpark from './ClickSpark';
 import Navigation from './Navigation';
 import ClientSignupSection from './ClientSignupSection';
 import DarkVeil from './DarkVeil';
 
 export default function ClientHomePage() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <ClickSpark
       sparkColor='red'
@@ -354,24 +357,30 @@ export default function ClientHomePage() {
                 </div>
                 
                 <div className="space-y-3">
-                  <a href="/contact" className="flex items-center justify-between bg-white/20 p-4 rounded-lg hover:bg-accent-500/30 hover:border-accent-400 border border-white/30 transition-all duration-200 group">
+                  <button 
+                    onClick={() => setIsModalOpen(true)}
+                    className="w-full flex items-center justify-between bg-white/20 p-4 rounded-lg border border-white/30 hover:bg-accent-500/30 hover:border-accent-400 transition-all duration-200 group"
+                  >
                     <span className="font-medium text-white group-hover:text-accent-200">Team-specifieke trajecten</span>
                     <div className="flex items-center space-x-3">
-                      <span className="text-sm bg-accent-500 text-white px-3 py-1 rounded-full font-medium">Op maat</span>
+                      <span className="text-sm bg-accent-500 text-white px-3 py-1 rounded-full font-medium">Aanvraag</span>
                       <svg className="w-4 h-4 text-gray-400 group-hover:text-accent-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
                     </div>
-                  </a>
-                  <a href="/contact" className="flex items-center justify-between bg-white/20 p-4 rounded-lg hover:bg-primary-500/30 hover:border-primary-400 border border-white/30 transition-all duration-200 group">
+                  </button>
+                  <button 
+                    onClick={() => setIsModalOpen(true)}
+                    className="w-full flex items-center justify-between bg-white/20 p-4 rounded-lg border border-white/30 hover:bg-primary-500/30 hover:border-primary-400 transition-all duration-200 group"
+                  >
                     <span className="font-medium text-white group-hover:text-primary-200">Organisatie-ontwikkeling</span>
                     <div className="flex items-center space-x-3">
-                      <span className="text-sm bg-primary-500 text-white px-3 py-1 rounded-full font-medium">Langdurig</span>
+                      <span className="text-sm bg-primary-500 text-white px-3 py-1 rounded-full font-medium">Aanvraag</span>
                       <svg className="w-4 h-4 text-gray-400 group-hover:text-primary-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
                     </div>
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
@@ -478,6 +487,74 @@ export default function ClientHomePage() {
           </div>
         </footer>
       </div>
+
+      {/* Contact Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full mx-4">
+            <div className="p-6">
+              <div className="flex items-center justify-between mb-6">
+                <h3 className="text-2xl font-bold text-gray-900">Contact opnemen</h3>
+                <button
+                  onClick={() => setIsModalOpen(false)}
+                  className="text-gray-400 hover:text-gray-600 transition-colors"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+              
+              <div className="space-y-4 text-gray-700">
+                <p className="text-lg">
+                  Voor maatwerk trainingen kunt u contact met ons opnemen via:
+                </p>
+                
+                <div className="space-y-3">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-8 h-8 bg-primary-100 rounded-lg flex items-center justify-center">
+                      <svg className="w-4 h-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="font-semibold">Telefoon</p>
+                      <p className="text-primary-600 font-medium">088-5326720</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center space-x-3">
+                    <div className="w-8 h-8 bg-accent-100 rounded-lg flex items-center justify-center">
+                      <svg className="w-4 h-4 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="font-semibold">E-mail</p>
+                      <p className="text-accent-600 font-medium">info@leanagilegroep.nl</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="pt-4 border-t border-gray-200">
+                  <p className="text-sm text-gray-600">
+                    We nemen binnen 24 uur contact met u op om uw specifieke behoeften te bespreken.
+                  </p>
+                </div>
+              </div>
+              
+              <div className="mt-6 flex justify-end">
+                <button
+                  onClick={() => setIsModalOpen(false)}
+                  className="px-6 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition-colors font-medium"
+                >
+                  Sluiten
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </ClickSpark>
   );
 }

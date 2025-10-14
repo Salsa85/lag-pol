@@ -14,6 +14,9 @@ export const metadata: Metadata = {
     template: "%s | Lean Agile Groep"
   },
   description: "Praktijkgerichte Agile trainingen voor de politie. Ontwikkel wendbaarheid en samenwerking met Scrum Master, Product Owner en Agile Coach trainingen.",
+  icons: {
+    icon: '/favicon.ico',
+  },
   keywords: [
     "Agile trainingen politie",
     "Scrum Master politie",

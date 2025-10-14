@@ -36,9 +36,6 @@ export default function CoursePageLayout({
       {/* Header */}
       <Navigation showMargin={false} />
 
-      {/* Spacer for fixed navigation */}
-      <div className="h-20"></div>
-
       {/* Hero Section */}
       <HeroSection 
         title={heroTitle}
