@@ -123,8 +123,8 @@ export default function Navigation({
         {/* Main navigation row */}
         <div className="pt-4 pb-4 relative">
           <div className="flex items-center justify-between">
-            {/* Left side - Logo */}
-            <div className="flex items-center">
+            {/* Left side - Logo and Trainingen */}
+            <div className="flex items-center space-x-8">
               <Link href="/" className="flex items-center">
                 <Image 
                   src="/images/lag-logo.png" 
@@ -135,12 +135,9 @@ export default function Navigation({
                   priority
                 />
               </Link>
-            </div>
 
-            {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center space-x-8">
               {/* Trainingen Dropdown */}
-              <div className="relative group">
+              <div className="hidden lg:block relative group">
                 <button
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
@@ -153,13 +150,13 @@ export default function Navigation({
                   </svg>
                 </button>
               </div>
+            </div>
 
-              {/* Contact Info */}
-              <div className="flex items-center space-x-3 text-sm text-white">
-                <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
-                <span className="font-medium">Contact:</span> 
-                <span className="text-primary-400 font-semibold">088-5326720</span>
-              </div>
+            {/* Right side - Contact Info */}
+            <div className="hidden lg:flex items-center space-x-3 text-sm text-white">
+              <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
+              <span className="font-medium">Contact:</span> 
+              <span className="text-primary-400 font-semibold">088-5326720</span>
             </div>
 
             {/* Mobile Menu Button */}
