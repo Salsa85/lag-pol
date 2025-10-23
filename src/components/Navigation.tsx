@@ -123,18 +123,28 @@ export default function Navigation({
         {/* Main navigation row */}
         <div className="pt-4 pb-4 relative">
           <div className="flex items-center justify-between">
-            {/* Left side - Logo and Trainingen */}
+            {/* Left side - Logos and Trainingen */}
             <div className="flex items-center space-x-8">
-              <Link href="/" className="flex items-center">
+              <div className="flex items-center space-x-4">
+                <Link href="/" className="flex items-center">
+                  <Image 
+                    src="/images/lag-logo.png" 
+                    alt="Lean Agile Groep Logo" 
+                    width={160}
+                    height={48}
+                    className="h-8 md:h-12 w-auto"
+                    priority
+                  />
+                </Link>
+                <span className="text-white/60 text-xl font-light">+</span>
                 <Image 
-                  src="/images/lag-logo.png" 
-                  alt="Lean Agile Groep Logo" 
-                  width={160}
-                  height={48}
-                  className="h-8 md:h-12 w-auto"
-                  priority
+                  src="/images/scrum_acadamy.svg" 
+                  alt="Scrum Academy Logo" 
+                  width={120}
+                  height={36}
+                  className="h-6 md:h-9 w-auto"
                 />
-              </Link>
+              </div>
 
               {/* Trainingen Dropdown */}
               <div className="hidden lg:block relative group">

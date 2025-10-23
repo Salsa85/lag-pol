@@ -127,7 +127,7 @@ export default function SignupModal({ isOpen, onClose, preselectedCourse = '' }:
           
           {submitStatus === 'success' && (
             <div className="mb-6 p-6 bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-black shadow-lg rounded-lg">
-              <p className="text-green-800 font-black text-lg">🎉 BEDANKT VOOR UW AANMELDING! WE NEMEN ZO SNEL MOGELIJK CONTACT MET U OP.</p>
+              <p className="text-scrum-800 font-black text-lg">🎉 BEDANKT VOOR UW AANMELDING! WE NEMEN ZO SNEL MOGELIJK CONTACT MET U OP.</p>
             </div>
           )}
 

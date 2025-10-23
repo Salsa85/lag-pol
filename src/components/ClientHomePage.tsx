@@ -75,11 +75,8 @@ export default function ClientHomePage() {
             {/* Left Column: Text Content */}
             <div className="text-left">
               <div className="flex items-center mb-6">
-                <div className="w-12 h-1 bg-primary-500 rounded-full mr-4"></div>
+                <div className="w-12 h-1 bg-scrum-500 rounded-full mr-4"></div>
                 <h2 className="text-4xl font-bold text-gray-900">Wie zijn wij?</h2>
-                <div className="w-8 h-8 bg-primary-100 rounded-lg ml-4 flex items-center justify-center">
-                  <div className="w-3 h-3 bg-primary-500 rounded-sm rotate-45"></div>
-                </div>
               </div>
               <p className="text-xl text-gray-600 leading-relaxed mb-8">
                 Wij zijn Lean Agile Groep en Scrum Academy. Samen bundelen we onze expertise in Agile, Lean en Scrum om de Politie wendbaarder en effectiever te maken.
@@ -155,11 +152,8 @@ export default function ClientHomePage() {
           <div className="relative z-20 max-w-7xl mx-auto">
             <div className="text-center mb-16">
               <div className="flex items-center justify-center mb-6">
-                <div className="w-8 h-8 bg-primary-100 rounded-lg mr-4 flex items-center justify-center">
-                  <div className="w-3 h-3 bg-primary-500 rounded-sm rotate-45"></div>
-                </div>
+                <div className="w-12 h-1 bg-scrum-500 rounded-full mr-4"></div>
                 <h2 className="text-4xl font-bold text-white">Onze trainingen</h2>
-                <div className="w-12 h-1 bg-primary-500 rounded-full ml-4"></div>
               </div>
               <p className="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
                 Kies de training die het beste past bij jouw rol en ontwikkelingsbehoeften binnen de politieorganisatie.
@@ -392,11 +386,8 @@ export default function ClientHomePage() {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <div className="flex items-center justify-center mb-6">
-                <div className="w-8 h-8 bg-primary-100 rounded-lg mr-4 flex items-center justify-center">
-                  <div className="w-3 h-3 bg-primary-500 rounded-sm rotate-45"></div>
-                </div>
+                <div className="w-12 h-1 bg-scrum-500 rounded-full mr-4"></div>
                 <h2 className="text-4xl font-bold text-gray-900">Veelgestelde vragen</h2>
-                <div className="w-12 h-1 bg-primary-500 rounded-full ml-4"></div>
               </div>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 Alles wat je moet weten over onze Agile trainingen voor de politie.

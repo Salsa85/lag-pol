@@ -119,7 +119,7 @@ export default function SignupSection({ preselectedCourse = '' }: SignupSectionP
         <div className="bg-white/95 backdrop-blur-sm p-10 rounded-2xl shadow-xl border border-white/20 max-w-2xl mx-auto">
           {submitStatus === 'success' && (
             <div className="mb-8 p-6 bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-xl shadow-sm">
-              <p className="text-green-800 font-semibold text-lg">🎉 BEDANKT VOOR UW AANMELDING! WE NEMEN ZO SNEL MOGELIJK CONTACT MET U OP.</p>
+              <p className="text-scrum-800 font-semibold text-lg">🎉 BEDANKT VOOR UW AANMELDING! WE NEMEN ZO SNEL MOGELIJK CONTACT MET U OP.</p>
             </div>
           )}
 

@@ -47,7 +47,10 @@ export default function CoursePageLayout({
         <div className="max-w-6xl mx-auto">
           {courses.map((course) => (
             <div key={course.id}>
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">{course.title}</h2>
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-1 bg-scrum-500 rounded-full mr-4"></div>
+                <h2 className="text-4xl font-bold text-gray-900">{course.title}</h2>
+              </div>
               <div className="text-xl text-gray-600 mb-8 leading-relaxed">
                 {course.description}
               </div>

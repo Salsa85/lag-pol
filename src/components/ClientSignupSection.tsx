@@ -106,7 +106,7 @@ export default function ClientSignupSection({ preselectedCourse = "" }: ClientSi
         <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-xl border border-white/20 p-8">
           {submitStatus === 'success' && (
             <div className="mb-6 p-4 bg-green-100 border border-green-200 rounded-xl shadow-sm">
-              <p className="text-green-800 font-semibold text-center">
+              <p className="text-scrum-800 font-semibold text-center">
                 ✅ Aanmelding succesvol verzonden! We nemen zo snel mogelijk contact met je op.
               </p>
             </div>

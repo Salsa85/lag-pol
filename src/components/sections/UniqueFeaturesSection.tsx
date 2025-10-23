@@ -10,11 +10,8 @@ export default function UniqueFeaturesSection({ courses }: UniqueFeaturesSection
       <div className="max-w-6xl mx-auto">
         <div className="mb-16">
           <div className="flex items-center mb-6">
-            <div className="w-8 h-8 bg-accent-100 rounded-lg mr-4 flex items-center justify-center">
-              <div className="w-3 h-3 bg-accent-500 rounded-sm rotate-45"></div>
-            </div>
+            <div className="w-12 h-1 bg-scrum-500 rounded-full mr-4"></div>
             <h2 className="text-4xl font-bold text-gray-900">Wat maakt deze training uniek</h2>
-            <div className="w-12 h-1 bg-accent-500 rounded-full ml-4"></div>
           </div>
         </div>
         

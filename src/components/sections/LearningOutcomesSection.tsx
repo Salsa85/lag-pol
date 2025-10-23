@@ -10,11 +10,8 @@ export default function LearningOutcomesSection({ courses }: LearningOutcomesSec
       <div className="max-w-6xl mx-auto">
         <div className="mb-16">
           <div className="flex items-center mb-6">
-            <div className="w-12 h-1 bg-primary-500 rounded-full mr-4"></div>
+            <div className="w-12 h-1 bg-scrum-500 rounded-full mr-4"></div>
             <h2 className="text-4xl font-bold text-white">Wat leer je</h2>
-            <div className="w-8 h-8 bg-primary-100 rounded-lg ml-4 flex items-center justify-center">
-              <div className="w-3 h-3 bg-primary-500 rounded-sm rotate-45"></div>
-            </div>
           </div>
         </div>
         
