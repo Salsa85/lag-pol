@@ -57,7 +57,9 @@ export async function POST(request: NextRequest) {
             <p><strong>E-mail:</strong> ${body.email}</p>
             <p><strong>Training:</strong> ${body.course}</p>
             <p><strong>Provincie(s):</strong> ${Array.isArray(body.province) ? body.province.join(', ') : body.province}</p>
-            ${body.costCenter ? `<p><strong>Kostenplaats:</strong> ${body.costCenter}</p>` : ''}
+            ${body.costCenter ? `<p><strong>Besluitnummer studiefaciliteiten:</strong> ${body.costCenter}</p>` : ''}
+            ${body.eenheid ? `<p><strong>Eenheid:</strong> ${body.eenheid}</p>` : ''}
+            ${body.team ? `<p><strong>Team:</strong> ${body.team}</p>` : ''}
             ${body.message ? `<p><strong>Opmerkingen:</strong> ${body.message}</p>` : ''}
             <p><strong>Datum:</strong> ${new Date().toLocaleString('nl-NL')}</p>
           </div>
@@ -92,7 +94,9 @@ export async function POST(request: NextRequest) {
             <h3 style="color: #1e40af; margin-top: 0;">Jouw aanmelding:</h3>
             <p><strong>Training:</strong> ${body.course}</p>
             <p><strong>Provincie(s):</strong> ${Array.isArray(body.province) ? body.province.join(', ') : body.province}</p>
-            ${body.costCenter ? `<p><strong>Kostenplaats:</strong> ${body.costCenter}</p>` : ''}
+            ${body.costCenter ? `<p><strong>Besluitnummer studiefaciliteiten:</strong> ${body.costCenter}</p>` : ''}
+            ${body.eenheid ? `<p><strong>Eenheid:</strong> ${body.eenheid}</p>` : ''}
+            ${body.team ? `<p><strong>Team:</strong> ${body.team}</p>` : ''}
             ${body.message ? `<p><strong>Opmerkingen:</strong> ${body.message}</p>` : ''}
           </div>
           

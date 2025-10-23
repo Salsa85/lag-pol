@@ -14,8 +14,9 @@ export default function ClientSignupSection({ preselectedCourse = "" }: ClientSi
     province: [] as string[],
     course: preselectedCourse,
     costCenter: '',
+    eenheid: '',
+    team: '',
     message: '',
-    termsAccepted: false,
     privacyAccepted: false
   });
 
@@ -42,13 +43,28 @@ export default function ClientSignupSection({ preselectedCourse = "" }: ClientSi
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!formData.termsAccepted || !formData.privacyAccepted) {
-      alert('Je moet akkoord gaan met de algemene voorwaarden en privacyverklaring.');
+    if (!formData.privacyAccepted) {
+      alert('Je moet akkoord gaan met de privacyverklaring.');
       return;
     }
     
     if (formData.province.length === 0) {
       alert('Je moet ten minste één provincie selecteren.');
+      return;
+    }
+
+    if (!formData.costCenter.trim()) {
+      alert('Besluitnummer studiefaciliteiten is verplicht.');
+      return;
+    }
+
+    if (!formData.eenheid.trim()) {
+      alert('Eenheid is verplicht.');
+      return;
+    }
+
+    if (!formData.team.trim()) {
+      alert('Team is verplicht.');
       return;
     }
 
@@ -72,8 +88,9 @@ export default function ClientSignupSection({ preselectedCourse = "" }: ClientSi
           province: [],
           course: preselectedCourse,
           costCenter: '',
+          eenheid: '',
+          team: '',
           message: '',
-          termsAccepted: false,
           privacyAccepted: false
         });
       } else {
@@ -149,7 +166,7 @@ export default function ClientSignupSection({ preselectedCourse = "" }: ClientSi
                   value={formData.email}
                   onChange={handleInputChange}
                   required
-                  placeholder="je.email@politie.nl"
+                  placeholder="np12345@politie.nl"
                   className="w-full px-4 py-3 border border-white/30 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-sm bg-white/10 text-white placeholder-gray-300"
                 />
               </div>
@@ -158,6 +175,14 @@ export default function ClientSignupSection({ preselectedCourse = "" }: ClientSi
             <div>
               <label className="block text-sm font-medium text-white mb-3">
                 In welke provincie(s) ben je bereid de training te volgen
+                <span className="ml-2 relative group">
+                  <svg className="w-4 h-4 inline text-gray-300 hover:text-white cursor-help" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-10">
+                    (voorkeur - het is niet gegarandeerd dat het gaat lukken in de geselecteerde provincie)
+                  </div>
+                </span>
               </label>
               <div className="relative">
                 <div className="w-full min-h-[120px] border border-white/30 rounded-lg bg-white/10 p-3 focus-within:ring-2 focus-within:ring-primary-500 focus-within:border-primary-500">
@@ -246,7 +271,7 @@ export default function ClientSignupSection({ preselectedCourse = "" }: ClientSi
 
             <div>
               <label htmlFor="costCenter" className="block text-sm font-medium text-white mb-2">
-                Kostenplaats
+                Besluitnummer studiefaciliteiten *
               </label>
               <input
                 type="text"
@@ -255,8 +280,43 @@ export default function ClientSignupSection({ preselectedCourse = "" }: ClientSi
                 value={formData.costCenter}
                 onChange={handleInputChange}
                 placeholder="Bijv. 12345"
+                required
                 className="w-full px-4 py-3 border border-white/30 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-sm bg-white/10 text-white placeholder-gray-300"
               />
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <label htmlFor="eenheid" className="block text-sm font-medium text-white mb-2">
+                  Eenheid *
+                </label>
+                <input
+                  type="text"
+                  id="eenheid"
+                  name="eenheid"
+                  value={formData.eenheid}
+                  onChange={handleInputChange}
+                  placeholder="Bijv. Landelijke Eenheid"
+                  required
+                  className="w-full px-4 py-3 border border-white/30 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-sm bg-white/10 text-white placeholder-gray-300"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="team" className="block text-sm font-medium text-white mb-2">
+                  Team *
+                </label>
+                <input
+                  type="text"
+                  id="team"
+                  name="team"
+                  value={formData.team}
+                  onChange={handleInputChange}
+                  placeholder="Bijv. Team Alpha"
+                  required
+                  className="w-full px-4 py-3 border border-white/30 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-sm bg-white/10 text-white placeholder-gray-300"
+                />
+              </div>
             </div>
 
             <div>
@@ -275,20 +335,6 @@ export default function ClientSignupSection({ preselectedCourse = "" }: ClientSi
             </div>
 
             <div className="space-y-2 mt-6">
-              <div className="flex items-center">
-                <input
-                  type="checkbox"
-                  id="termsAccepted"
-                  name="termsAccepted"
-                  checked={formData.termsAccepted}
-                  onChange={handleInputChange}
-                  required
-                  className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
-                />
-                <label htmlFor="termsAccepted" className="ml-2 block text-sm text-white">
-                  Ik ga akkoord met de <Link href="/algemene-voorwaarden" className="text-primary-300 hover:underline">algemene voorwaarden</Link> *
-                </label>
-              </div>
               <div className="flex items-center">
                 <input
                   type="checkbox"

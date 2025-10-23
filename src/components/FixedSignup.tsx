@@ -134,7 +134,7 @@ export default function FixedSignup({ preselectedCourse = '' }: FixedSignupProps
               value={formData.email}
               onChange={handleInputChange}
               className="w-full px-4 py-3 border-2 border-black shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-sm transition-all rounded-lg"
-              placeholder="uw.email@politie.nl"
+              placeholder="np12345@politie.nl"
             />
           </div>
 
