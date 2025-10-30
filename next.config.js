@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Ensure Next.js resolves the correct workspace root when multiple lockfiles exist
+  outputFileTracingRoot: '/Users/rickdelacour/PhpstormProjects/politie',
   serverExternalPackages: ['ogl'],
   compress: true,
   poweredByHeader: false,
