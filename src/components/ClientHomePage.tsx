@@ -100,7 +100,9 @@ export default function ClientHomePage() {
                     pauseOnHover={true}
                     skewAmount={4}
                     easing="power1"
+                    onCardClick={() => {}}
                   >
+                    {/* @ts-expect-error - Card component from JSX file */}
                     <Card className="relative rounded-2xl shadow-2xl p-8 text-white overflow-hidden">
                       <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800)' }}></div>
                       <div className="absolute inset-0 bg-gradient-to-br from-[#014682] to-[#013a6c] opacity-75"></div>
@@ -115,6 +117,7 @@ export default function ClientHomePage() {
                         </div>
                       </div>
                     </Card>
+                    {/* @ts-expect-error - Card component from JSX file */}
                     <Card className="relative rounded-2xl shadow-2xl p-8 text-white overflow-hidden">
                       <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1552664730-d307ca884978?w=800)' }}></div>
                       <div className="absolute inset-0 bg-gradient-to-br from-[#f5b000] to-[#d19000] opacity-75"></div>
@@ -129,6 +132,7 @@ export default function ClientHomePage() {
                         </div>
                       </div>
                     </Card>
+                    {/* @ts-expect-error - Card component from JSX file */}
                     <Card className="relative rounded-2xl shadow-2xl p-8 text-white overflow-hidden">
                       <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800)' }}></div>
                       <div className="absolute inset-0 bg-gradient-to-br from-[#E81F83] to-[#db2777] opacity-75"></div>
@@ -143,6 +147,7 @@ export default function ClientHomePage() {
                         </div>
                       </div>
                     </Card>
+                    {/* @ts-expect-error - Card component from JSX file */}
                     <Card className="relative rounded-2xl shadow-2xl p-8 text-white overflow-hidden">
                       <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1551434678-e076c223a692?w=800)' }}></div>
                       <div className="absolute inset-0 bg-gradient-to-br from-[#3f8ac8] to-[#014682] opacity-75"></div>

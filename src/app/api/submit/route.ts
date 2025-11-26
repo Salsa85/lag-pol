@@ -77,7 +77,8 @@ export async function POST(request: NextRequest) {
       `,
     };
 
-    // Email content for user confirmation
+    // Email content for user confirmation (currently disabled to avoid rate limits)
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const userEmailContent = {
       from: '"Lean Agile Groep" <noreply@leanagilegroep.nl>',
       to: body.email,

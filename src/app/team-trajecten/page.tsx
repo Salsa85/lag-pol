@@ -63,7 +63,7 @@ Deelnemers ervaren directe begeleiding bij uitdagingen die ze tegenkomen en krij
               <h2 className="text-3xl font-bold text-gray-900">Het opstarten van een team</h2>
             </div>
             <div className="text-lg text-gray-700 leading-relaxed">
-              Nadat de Triage Startbekwaamheid zijn doorlopen worden eventuele Product Owners en Scrum Masters opgeleid en start het team met wendbaar werken. We spreken hiervoor coachingsmomenten af om in de werksituatie de invoer van Agile werken te begeleiden. Hierbij zorgen we ervoor dat PO's, SM's en Agile Coaches de vertaalslag naar de praktijk maken. We begeleiden hen hierbij vanaf de eerste stappen met hun team tot Agile werken de nieuwe manier van werken is geworden.
+              Nadat de Triage Startbekwaamheid zijn doorlopen worden eventuele Product Owners en Scrum Masters opgeleid en start het team met wendbaar werken. We spreken hiervoor coachingsmomenten af om in de werksituatie de invoer van Agile werken te begeleiden. Hierbij zorgen we ervoor dat PO&apos;s, SM&apos;s en Agile Coaches de vertaalslag naar de praktijk maken. We begeleiden hen hierbij vanaf de eerste stappen met hun team tot Agile werken de nieuwe manier van werken is geworden.
             </div>
           </div>
 
