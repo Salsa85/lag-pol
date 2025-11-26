@@ -258,12 +258,12 @@ export default function ClientSignupSection({ preselectedCourse = "" }: ClientSi
                 >
                   <option value="" className="bg-gray-800 text-white">Selecteer training</option>
                   <option value="Scrum Master Basis / Beginner">Scrum Master Basis</option>
-                  <option value="Scrum Master Vervolg / Gevorderd">Scrum Master Vervolg</option>
+                  <option value="Scrum Master Verdiept / Gevorderd">Scrum Master Verdiept</option>
                   <option value="Product Owner Basis / Beginner">Product Owner Basis</option>
                   <option value="Product Owner Gevorderd">Product Owner Gevorderd</option>
                   <option value="Agile Coach Opleiding">Agile Coach Opleiding</option>
                   <option value="Agile Leiderschap Opleiding">Agile Leiderschap Opleiding</option>
-                  <option value="Leading with Obeya">Leading with Obeya</option>
+                  <option value="Sturen met Obeya">Sturen met Obeya</option>
                   <option value="Facilitator in Obeya">Facilitator in Obeya</option>
                 </select>
               </div>

@@ -3,7 +3,7 @@ import CoursePageLayout from '../../components/layouts/CoursePageLayout';
 import { Course } from '../../data/courses';
 
 export const metadata: Metadata = {
-  title: 'Scrum Master Vervolg Training - Politie',
+  title: 'Scrum Master Verdiept Training - Politie',
   description: 'Verdiep je Scrum Master vaardigheden voor ervaren professionals. 2 dagen gevorderde training voor complexe teamdynamiek en organisatieontwikkeling.',
   keywords: [
     'Scrum Master vervolg politie',
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     'teamdynamiek politie'
   ],
   openGraph: {
-    title: 'Scrum Master Vervolg Training - Politie',
+    title: 'Scrum Master Verdiept Training - Politie',
     description: 'Verdiep je Scrum Master vaardigheden voor ervaren professionals. 2 dagen gevorderde training.',
     type: 'website',
   },
@@ -23,7 +23,7 @@ export default function ScrumMasterVervolgPage() {
   const courses: Course[] = [
     {
       id: 'gevorderd',
-      title: 'Scrum Master Vervolg',
+      title: 'Scrum Master Verdiept',
       duration: '2 dagen van 3,5 uur',
       description:
         'Deze training is bedoeld voor Scrum Masters met ervaring in meerdere teams die hun rol willen verdiepen. Deelnemers versterken hun vaardigheden in coachen, faciliteren, teamdynamiek, stakeholdermanagement en organisatieontwikkeling.',
@@ -62,19 +62,9 @@ export default function ScrumMasterVervolgPage() {
   return (
     <CoursePageLayout
       courses={courses}
-      heroTitle="Scrum Master Vervolg Training"
+      heroTitle="Scrum Master Verdiept Training"
       heroSubtitle="Verdiep je Scrum Master vaardigheden en ontwikkel je tot een stevige Scrum Master die effectief omgaat met weerstand, conflicten en organisatieontwikkeling."
-      preselectedCourse="Scrum Master Vervolg / Gevorderd"
-      relatedTraining={{
-        title: 'Verbreed je Agile expertise',
-        description:
-          'Ontdek andere trainingen die je verder helpen in je Agile carrière.',
-        links: [
-          { href: '/scrum-master', text: 'Scrum Master Basis', variant: 'primary' },
-          { href: '/agile-coach', text: 'Agile Coach Training', variant: 'accent' },
-          { href: '/', text: 'Alle trainingen', variant: 'gray' },
-        ],
-      }}
+      preselectedCourse="Scrum Master Verdiept / Gevorderd"
     />
   );
 }

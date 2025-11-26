@@ -12,11 +12,6 @@ export default function Footer({ showTrainingLinks = true }: FooterProps) {
           <div>
             <h3 className="text-xl font-semibold mb-4">Lean Agile Groep</h3>
             <p className="text-gray-100 mb-4">Praktijkgerichte Agile trainingen voor de politie.</p>
-            <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">LinkedIn</a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">Facebook</a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">Instagram</a>
-            </div>
           </div>
           <div>
             <h3 className="text-xl font-semibold mb-4">Contact</h3>
@@ -28,7 +23,7 @@ export default function Footer({ showTrainingLinks = true }: FooterProps) {
               <h3 className="text-xl font-semibold mb-4">Trainingen</h3>
               <ul className="text-gray-100 space-y-2">
                 <li><Link href="/scrum-master" className="hover:text-white">Scrum Master Basis</Link></li>
-                <li><Link href="/scrum-master-vervolg" className="hover:text-white">Scrum Master Vervolg</Link></li>
+                <li><Link href="/scrum-master-vervolg" className="hover:text-white">Scrum Master Verdiept</Link></li>
                 <li><Link href="/product-owner" className="hover:text-white">Product Owner</Link></li>
                 <li><Link href="/agile-coach" className="hover:text-white">Agile Coach</Link></li>
                 <li><Link href="/obeya" className="hover:text-white">Obeya</Link></li>

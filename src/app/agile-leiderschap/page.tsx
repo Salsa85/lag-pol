@@ -12,19 +12,14 @@ export default function AgileLeiderschapPage() {
     description: "Ontdek andere trainingen die perfect aansluiten bij jouw ontwikkeling.",
     links: [
       {
-        href: "/scrum-master",
-        text: "Scrum Master Training",
-        variant: "primary" as const
-      },
-      {
         href: "/product-owner",
         text: "Product Owner Training",
         variant: "primary" as const
       },
       {
-        href: "/agile-coach",
-        text: "Agile Coach Opleiding",
-        variant: "accent" as const
+        href: "/leading-with-obeya",
+        text: "Sturen met Obeya",
+        variant: "primary" as const
       },
       {
         href: "/",

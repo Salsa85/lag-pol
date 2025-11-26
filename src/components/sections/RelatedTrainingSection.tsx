@@ -27,7 +27,7 @@ export default function RelatedTrainingSection({ title, description, links }: Re
     <section className="py-20 px-6 lg:px-8 bg-gray-50">
       <div className="max-w-4xl mx-auto text-center">
         <div className="flex items-center justify-center mb-6">
-          <div className="w-12 h-1 bg-scrum-500 rounded-full mr-4"></div>
+          <div className="w-12 h-1 bg-primary-500 rounded-full mr-4"></div>
           <h2 className="text-3xl font-bold text-gray-900">{title}</h2>
         </div>
         <p className="text-xl text-gray-600 mb-8">

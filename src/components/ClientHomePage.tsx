@@ -4,7 +4,7 @@ import { useState } from 'react';
 import ClickSpark from './ClickSpark';
 import Navigation from './Navigation';
 import ClientSignupSection from './ClientSignupSection';
-import DarkVeil from './DarkVeil';
+import CardSwap, { Card } from './CardSwap';
 
 export default function ClientHomePage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -22,48 +22,143 @@ export default function ClientHomePage() {
         <Navigation showMargin={false} />
 
         {/* Hero Section */}
-        <section className="relative text-white overflow-hidden py-24 flex items-center bg-gradient-to-br from-dark-900 via-dark-800 to-primary-500">
-          {/* Glowing background effect */}
-          <div className="absolute inset-0 bg-gradient-to-r from-scrum-500/20 via-transparent to-primary-500/20 blur-3xl"></div>
-          
-          {/* DarkVeil as background */}
-          <div style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0, zIndex: 1, opacity: 0.8 }}>
-            <DarkVeil 
-              hueShift={280}
-              speed={0.5}
-              noiseIntensity={0}
-              scanlineIntensity={0}
-              scanlineFrequency={0}
-              warpAmount={0}
-            />
-          </div>
-          
-          {/* Subtle overlay for text readability */}
-          <div className="absolute inset-0 bg-dark-900/60 z-10"></div>
-          <div className="relative z-20 container mx-auto px-6 lg:px-8 py-16">
-            <div className="max-w-3xl">
-              <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
-                 <span className="font-black italic tracking-wider text-scrum-400 drop-shadow-lg">Agile</span> Trainingen voor de Politieoperatie
-              </h1>
-              <p className="text-xl text-gray-100 mb-6 leading-relaxed max-w-3xl">
-                Lean Agile Groep en Scrum Academy bundelen onze krachten om de politie te ondersteunen bij het versterken van wendbaarheid en samenwerking.
-              </p>
-              <p className="text-lg text-gray-200 mb-10 leading-relaxed max-w-2xl">
-                Met praktijkgerichte Agile trainingen helpen we teams binnen de politieorganisatie om sneller in te spelen op veranderingen, beter samen te werken en duurzame resultaten te behalen.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button 
-                  onClick={() => document.getElementById('training-section')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="bg-primary-500 hover:bg-primary-600 text-white px-8 py-3 rounded-lg font-semibold text-lg transition-all duration-200 shadow-lg hover:shadow-xl"
-                >
-                  Bekijk de trainingen
-                </button>
-                <button 
-                  onClick={() => document.getElementById('signup-section')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white px-8 py-3 rounded-lg font-semibold text-lg transition-all duration-200 border border-white/20"
-                >
-                  Aanmelden
-                </button>
+        <section className="relative flex items-center overflow-hidden bg-white pt-20 lg:pt-32">
+          {/* Modern gradient background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-primary-100/50"></div>
+
+          {/* Geometric accent shapes */}
+          <div className="absolute top-20 right-10 w-72 h-72 bg-primary-200/20 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 left-10 w-96 h-96 bg-primary-300/10 rounded-full blur-3xl"></div>
+
+          <div className="relative z-10 container mx-auto px-6 lg:px-8 py-12 lg:py-20">
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+              {/* Left Column - Main Content */}
+              <div className="space-y-8">
+                {/* Main Heading */}
+                <h1 className="text-4xl md:text-5xl lg:text-5xl font-bold text-gray-900 leading-tight">
+                  <span className="text-primary-500 italic font-black tracking-tight">Agile</span>{' '}
+                  <span>Trainingen voor de</span>
+                  <span className="block mt-2">Politieoperatie</span>
+                </h1>
+
+                {/* Description */}
+                <p className="text-xl md:text-2xl text-gray-700 leading-relaxed max-w-2xl font-light">
+                  Praktijkgerichte Agile trainingen die teams helpen sneller te reageren, beter samen te werken en duurzame resultaten te behalen.
+                </p>
+
+                {/* CTA Buttons */}
+                <div className="flex flex-col md:flex-row gap-4 pt-4">
+                  <button 
+                    onClick={() => document.getElementById('training-section')?.scrollIntoView({ behavior: 'smooth' })}
+                    className="group relative bg-primary-500 hover:bg-primary-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+                  >
+                    <span className="relative z-10">Bekijk de trainingen</span>
+                    <svg className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                  </button>
+                  <button 
+                    onClick={() => document.getElementById('signup-section')?.scrollIntoView({ behavior: 'smooth' })}
+                    className="bg-white hover:bg-gray-50 text-primary-700 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 border-2 border-primary-200 hover:border-primary-300 shadow-md hover:shadow-lg"
+                  >
+                    Direct aanmelden
+                  </button>
+                </div>
+
+                {/* Trust indicators */}
+                <div className="flex items-center gap-8 pt-8 border-t border-gray-200">
+                  <div className="flex items-center gap-2">
+                    <svg className="w-5 h-5 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span className="text-sm text-gray-600">Praktijkgericht</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <svg className="w-5 h-5 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                    <span className="text-sm text-gray-600">Interactief</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <svg className="w-5 h-5 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                    <span className="text-sm text-gray-600">Certificering</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Column - CardSwap */}
+              <div className="hidden lg:flex justify-end relative">
+                <div className="relative" style={{ height: '500px', marginBottom: '-100px', marginRight: '-40px' }}>
+                  <CardSwap
+                    width={450}
+                    height={440}
+                    cardDistance={50}
+                    verticalDistance={60}
+                    delay={4000}
+                    pauseOnHover={true}
+                    skewAmount={4}
+                    easing="power1"
+                  >
+                    <Card className="relative rounded-2xl shadow-2xl p-8 text-white overflow-hidden">
+                      <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800)' }}></div>
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#014682] to-[#013a6c] opacity-75"></div>
+                      <div className="relative z-10">
+                        <h3 className="text-3xl font-bold mb-4">Scrum Master</h3>
+                        <p className="text-lg mb-6 opacity-90">Ontwikkel vaardigheden om teams te begeleiden in een veeleisende praktijk.</p>
+                        <div className="flex items-center gap-2 text-blue-100">
+                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                          <span className="font-medium">2 dagen</span>
+                        </div>
+                      </div>
+                    </Card>
+                    <Card className="relative rounded-2xl shadow-2xl p-8 text-white overflow-hidden">
+                      <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1552664730-d307ca884978?w=800)' }}></div>
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#f5b000] to-[#d19000] opacity-75"></div>
+                      <div className="relative z-10">
+                        <h3 className="text-3xl font-bold mb-4">Product Owner</h3>
+                        <p className="text-lg mb-6 opacity-90">Leer productvisie te ontwikkelen en waarde te maximaliseren voor de organisatie.</p>
+                        <div className="flex items-center gap-2 text-yellow-100">
+                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                          <span className="font-medium">2 dagen</span>
+                        </div>
+                      </div>
+                    </Card>
+                    <Card className="relative rounded-2xl shadow-2xl p-8 text-white overflow-hidden">
+                      <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800)' }}></div>
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#E81F83] to-[#db2777] opacity-75"></div>
+                      <div className="relative z-10">
+                        <h3 className="text-3xl font-bold mb-4">Agile Coach</h3>
+                        <p className="text-lg mb-6 opacity-90">Word een aanjager van wendbaar werken en borging van Agile methodes.</p>
+                        <div className="flex items-center gap-2 text-pink-100">
+                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                          <span className="font-medium">4 dagen</span>
+                        </div>
+                      </div>
+                    </Card>
+                    <Card className="relative rounded-2xl shadow-2xl p-8 text-white overflow-hidden">
+                      <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1551434678-e076c223a692?w=800)' }}></div>
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#3f8ac8] to-[#014682] opacity-75"></div>
+                      <div className="relative z-10">
+                        <h3 className="text-3xl font-bold mb-4">Obeya Trainingen</h3>
+                        <p className="text-lg mb-6 opacity-90">Leer werken met de Obeya-methodiek voor effectief management en strategie-implementatie.</p>
+                        <div className="flex items-center gap-2 text-blue-100">
+                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                          <span className="font-medium">2-4 dagen</span>
+                        </div>
+                      </div>
+                    </Card>
+                  </CardSwap>
+                </div>
               </div>
             </div>
           </div>
@@ -71,28 +166,44 @@ export default function ClientHomePage() {
 
         {/* About Section */}
         <section className="py-20 px-6 lg:px-8 bg-white">
-          <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+          <div className="container mx-auto px-6 lg:px-8 grid lg:grid-cols-2 gap-16 items-center">
             {/* Left Column: Text Content */}
-            <div className="text-left">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-1 bg-scrum-500 rounded-full mr-4"></div>
-                <h2 className="text-4xl font-bold text-gray-900">Wie zijn wij?</h2>
+            <div className="text-left space-y-6">
+              <div className="flex items-center">
+                <div className="w-12 h-1 bg-primary-500 rounded-full mr-4"></div>
+                <h2 className="text-4xl font-bold text-gray-900">Agile Trainingen voor de politieoperatie</h2>
               </div>
-              <p className="text-xl text-gray-600 leading-relaxed mb-8">
-                Wij zijn Lean Agile Groep en Scrum Academy. Samen bundelen we onze expertise in Agile, Lean en Scrum om de Politie wendbaarder en effectiever te maken.
+              <p className="text-xl text-gray-600 leading-relaxed">
+                Lean Agile Groep ondersteunt de politie bij het versterken van wendbaarheid en samenwerking. Dit doen we op twee manieren:
               </p>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                Onze trainingen zijn praktijkgericht, interactief en nuchter, zodat teams direct zelf aan de slag kunnen met meer samenwerking, werkplezier en resultaat.
-              </p>
+              <ol className="list-decimal list-inside space-y-4 text-lg text-gray-700 leading-relaxed">
+                <li>
+                  We bieden praktijkgerichte Agile trainingen aan op locatie waarvoor je je individueel kunt inschrijven.
+                  Op deze landingspagina laten we zien welke trainingen we hiervoor bieden en kun je je hiervoor inschrijven.
+                </li>
+                <li>
+                  Daarnaast bieden we op maat trajecten voor operationele teams. Hiervoor kun je op deze site een contactformulier invullen.
+                  We maken dan graag een afspraak om een offerte op maat te maken.
+                </li>
+              </ol>
 
-              <div className="my-10">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Voor wie zijn deze trainingen?</h3>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  Onze Agile trainingen zijn specifiek ontwikkeld voor <strong>operatie en bedrijfsvoering</strong> binnen de politieorganisatie. 
-                  Teams die direct samenwerken met de operationele praktijk en wendbaarheid nodig hebben in hun dagelijkse werk.
+              <div className="space-y-4 pt-4">
+                <h3 className="text-xl font-bold text-gray-900">Voor wie zijn de trainingen?</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Onze Agile trainingen zijn specifiek ontwikkeld voor operatie en bedrijfsvoering teams die direct adviseren of samenwerken (bedrijf voeren)
+                  met de operationele eenheden binnen de politieorganisatie. Teams die direct samenwerken met de operationele praktijk en wendbaarheid
+                  willen vergroten in hun dagelijkse werk.
                 </p>
-                <p className="text-gray-600 text-sm">
-                  Dit is geen algemene trainingswebshop, maar een gespecialiseerd aanbod voor politieprofessionals die hun samenwerking en resultaten willen verbeteren.
+                <p className="text-gray-700 leading-relaxed">
+                  Onze trainingen zijn praktijkgericht, interactief en nuchter, zodat teams direct zelf aan de slag kunnen
+                  met meer samenwerking, werkplezier en resultaat.
+                </p>
+                <p className="text-gray-700 leading-relaxed">
+                  Dit is geen algemene trainingswebshop, maar een gespecialiseerd aanbod voor politieprofessionals die hun samenwerking
+                  en resultaten willen verbeteren.
+                </p>
+                <p className="text-gray-700 leading-relaxed">
+                  Dit aanbod richt zich niet op ICT of bedrijfsvoering die niet direct adviseert of in lijn gekoppeld is aan de operatie.
                 </p>
               </div>
             </div>
@@ -135,24 +246,12 @@ export default function ClientHomePage() {
 
         {/* Training Types Section */}
         <section id="training-section" className="py-24 px-6 lg:px-8 relative overflow-hidden bg-gradient-to-br from-dark-900 via-dark-800 to-primary-500">
-          {/* DarkVeil as background */}
-          <div style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0, zIndex: 1, opacity: 0.8 }}>
-            <DarkVeil 
-              hueShift={280}
-              speed={0.5}
-              noiseIntensity={0}
-              scanlineIntensity={0}
-              scanlineFrequency={0}
-              warpAmount={0}
-            />
-          </div>
-          
           {/* Subtle overlay for text readability */}
           <div className="absolute inset-0 bg-dark-900/60 z-10"></div>
           <div className="relative z-20 max-w-7xl mx-auto">
             <div className="text-center mb-16">
               <div className="flex items-center justify-center mb-6">
-                <div className="w-12 h-1 bg-scrum-500 rounded-full mr-4"></div>
+                <div className="w-12 h-1 bg-primary-500 rounded-full mr-4"></div>
                 <h2 className="text-4xl font-bold text-white">Onze trainingen</h2>
               </div>
               <p className="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
@@ -188,7 +287,7 @@ export default function ClientHomePage() {
                     </div>
                   </a>
                   <a href="/scrum-master-vervolg" className="flex items-center justify-between bg-white/20 p-4 rounded-lg hover:bg-accent-500/30 hover:border-accent-400 border border-white/30 transition-all duration-200 group">
-                    <span className="font-medium text-white group-hover:text-accent-200">Scrum Master Vervolg</span>
+                    <span className="font-medium text-white group-hover:text-accent-200">Scrum Master Verdiept</span>
                     <div className="flex items-center space-x-3">
                       <span className="text-sm bg-accent-500 text-white px-3 py-1 rounded-full font-medium">2 dagen</span>
                       <svg className="w-4 h-4 text-gray-400 group-hover:text-accent-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -227,7 +326,7 @@ export default function ClientHomePage() {
                     </div>
                   </a>
                   <a href="/product-owner-vervolg" className="flex items-center justify-between bg-white/20 p-4 rounded-lg hover:bg-accent-500/30 hover:border-accent-400 border border-white/30 transition-all duration-200 group">
-                    <span className="font-medium text-white group-hover:text-accent-200">Product Owner Vervolg</span>
+                    <span className="font-medium text-white group-hover:text-accent-200">Product Owner Verdiept</span>
                     <div className="flex items-center space-x-3">
                       <span className="text-sm bg-accent-500 text-white px-3 py-1 rounded-full font-medium">2 dagen</span>
                       <svg className="w-4 h-4 text-gray-400 group-hover:text-accent-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -314,7 +413,7 @@ export default function ClientHomePage() {
                 
                 <div className="space-y-3">
                   <a href="/obeya" className="flex items-center justify-between bg-white/20 p-4 rounded-lg hover:bg-primary-500/30 hover:border-primary-400 border border-white/30 transition-all duration-200 group">
-                    <span className="font-medium text-white group-hover:text-primary-200">Leading with Obeya</span>
+                    <span className="font-medium text-white group-hover:text-primary-200">Sturen met Obeya</span>
                     <div className="flex items-center space-x-3">
                       <span className="text-sm bg-primary-500 text-white px-3 py-1 rounded-full font-medium">2 dagen</span>
                       <svg className="w-4 h-4 text-gray-400 group-hover:text-primary-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -335,7 +434,7 @@ export default function ClientHomePage() {
               </div>
 
               {/* Maatwerk trajecten */}
-              <div className="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 border border-white/20">
+              <div id="team-trajecten" className="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 border border-white/20">
                 <div className="text-center mb-8">
                   <div className="w-16 h-16 bg-accent-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
                     <svg className="w-8 h-8 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -386,7 +485,7 @@ export default function ClientHomePage() {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <div className="flex items-center justify-center mb-6">
-                <div className="w-12 h-1 bg-scrum-500 rounded-full mr-4"></div>
+                <div className="w-12 h-1 bg-primary-500 rounded-full mr-4"></div>
                 <h2 className="text-4xl font-bold text-gray-900">Veelgestelde vragen</h2>
               </div>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">

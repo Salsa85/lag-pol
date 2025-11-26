@@ -18,18 +18,8 @@ export default function ScrumMasterPage() {
     links: [
       {
         href: "/scrum-master-vervolg",
-        text: "Scrum Master Vervolg",
-        variant: "accent" as const
-      },
-      {
-        href: "/product-owner",
-        text: "Product Owner Training",
+        text: "Scrum Master Verdiept",
         variant: "primary" as const
-      },
-      {
-        href: "/",
-        text: "Alle trainingen",
-        variant: "gray" as const
       }
     ]
   };

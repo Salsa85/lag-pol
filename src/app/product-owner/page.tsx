@@ -18,17 +18,12 @@ export default function ProductOwnerPage() {
     links: [
       {
         href: "/product-owner-vervolg",
-        text: "Product Owner Vervolg",
+        text: "Product Owner Verdiept",
         variant: "accent" as const
       },
       {
-        href: "/scrum-master",
-        text: "Scrum Master Training",
-        variant: "primary" as const
-      },
-      {
-        href: "/agile-coach",
-        text: "Agile Coach Opleiding",
+        href: "/agile-leiderschap",
+        text: "Agile Leiderschap Opleiding",
         variant: "primary" as const
       },
       {
@@ -42,8 +37,8 @@ export default function ProductOwnerPage() {
   return (
     <CoursePageLayout
       courses={courses}
-      heroTitle="Product Owner Trainingen"
-      heroSubtitle="Ontwikkel je tot richtinggevende en waardegedreven leider. Leer hoe je als Product Owner teams kunt helpen om effectiever samen te werken en betere resultaten te behalen."
+      heroTitle="Product Owner Basis"
+      heroSubtitle="Ontwikkel je tot richtinggevende en waardegedreven leider met faciliterend leiderschap. Leer hoe je als Product Owner teams kunt helpen om effectiever samen te werken en betere resultaten te behalen."
       preselectedCourse="Product Owner Basis / Beginner"
       relatedTraining={relatedTraining}
     />

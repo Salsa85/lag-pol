@@ -13,18 +13,13 @@ export default function FacilitatorInObeyaPage() {
     links: [
       {
         href: "/leading-with-obeya",
-        text: "Leading with Obeya",
+        text: "Sturen met Obeya",
         variant: "primary" as const
       },
       {
         href: "/agile-leiderschap",
         text: "Agile Leiderschap Opleiding",
         variant: "primary" as const
-      },
-      {
-        href: "/agile-coach",
-        text: "Agile Coach Opleiding",
-        variant: "accent" as const
       },
       {
         href: "/",
@@ -38,7 +33,7 @@ export default function FacilitatorInObeyaPage() {
     <CoursePageLayout
       courses={courses}
       heroTitle="Facilitator in Obeya"
-      heroSubtitle="Leer hoe je Obeya teams effectief kunt faciliteren. Ontwikkel vaardigheden om teams te begeleiden in het werken met Obeya en de dialoog goed te voeren."
+      heroSubtitle="Ontwikkel de vaardigheden om Obeya sessies te faciliteren en teams te begeleiden in het gebruik van de Obeya-methodiek."
       preselectedCourse="Facilitator in Obeya"
       relatedTraining={relatedTraining}
     />

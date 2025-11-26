@@ -17,18 +17,8 @@ export default function ProductOwnerVervolgPage() {
     description: "Ontdek andere trainingen die perfect aansluiten bij jouw ontwikkeling.",
     links: [
       {
-        href: "/product-owner",
-        text: "Product Owner Basis",
-        variant: "accent" as const
-      },
-      {
-        href: "/scrum-master",
-        text: "Scrum Master Training",
-        variant: "primary" as const
-      },
-      {
-        href: "/agile-coach",
-        text: "Agile Coach Opleiding",
+        href: "/agile-leiderschap",
+        text: "Agile Leiderschap Opleiding",
         variant: "primary" as const
       },
       {
@@ -42,9 +32,9 @@ export default function ProductOwnerVervolgPage() {
   return (
     <CoursePageLayout
       courses={courses}
-      heroTitle="Product Owner Vervolg Training"
-      heroSubtitle="Ontwikkel je tot ervaren procesverantwoordelijke en strategische waardecreërende leider. Leer hoe je waarde helder kunt definiëren, meten en vergroten binnen een complexe en dynamische omgeving."
-      preselectedCourse="Product Owner Vervolg / Gevorderd"
+      heroTitle="Product Owner Verdiept"
+      heroSubtitle="Ontwikkel je tot ervaren procesverantwoordelijke en waardegedreven leider. Leer hoe je waarde helder kunt definiëren, meten en vergroten binnen een complexe en dynamische omgeving."
+      preselectedCourse="Product Owner Verdiept / Gevorderd"
       relatedTraining={relatedTraining}
     />
   );

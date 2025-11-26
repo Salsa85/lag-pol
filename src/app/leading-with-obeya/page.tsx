@@ -22,11 +22,6 @@ export default function LeadingWithObeyaPage() {
         variant: "primary" as const
       },
       {
-        href: "/scrum-master",
-        text: "Scrum Master Training",
-        variant: "primary" as const
-      },
-      {
         href: "/",
         text: "Alle trainingen",
         variant: "gray" as const
@@ -37,9 +32,9 @@ export default function LeadingWithObeyaPage() {
   return (
     <CoursePageLayout
       courses={courses}
-      heroTitle="Leading with Obeya"
+      heroTitle="Sturen met Obeya de team kickstart"
       heroSubtitle="Leer hoe je als managementteam effectief kunt werken met Obeya. Ontwikkel vaardigheden om strategie naar tactiek te vertalen en teams te begeleiden naar betere resultaten."
-      preselectedCourse="Leading with Obeya"
+      preselectedCourse="Sturen met Obeya de team kickstart"
       relatedTraining={relatedTraining}
     />
   );

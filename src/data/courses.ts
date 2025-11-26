@@ -13,6 +13,18 @@ export interface Course {
     trainers: string;
     materials: string;
   };
+  price?: {
+    basePrice: number;
+    baseParticipants: number;
+    maxParticipants: number;
+    note?: string;
+  };
+  practicalDetails?: {
+    requirements?: string[];
+    preparationTime?: string;
+    additionalInfo?: string;
+    requirementsTitle?: string;
+  };
 }
 
 export interface CourseMetadata {
@@ -31,15 +43,17 @@ export const scrumMasterCourse: Course = {
   title: 'Scrum Master Basis',
   duration: '2 dagen van 3,5 uur',
   description: 'In deze training ontwikkelen startende Scrum Masters de vaardigheden om één of meerdere teams te begeleiden in een veeleisende praktijk. Vaak doen ze dat deels vanuit een meewerkende rol.',
-  detailedDescription: 'Ze leren hoe agile werken niet alleen wordt toegepast, maar duurzaam toegepast wordt in de samenwerking, structuur en cultuur van het team. De nadruk ligt op praktisch handelen, reflecteren en het versterken van teamdynamiek. Deelnemers groeien in hun rol, zodat ze uiteindelijk zelfstandig en met vertrouwen teams kunnen begeleiden, zonder afhankelijk te zijn van externe begeleiding.',
+  detailedDescription: 'Ze leren hoe agile werken niet alleen wordt toegepast, maar duurzaam toegepast wordt in de samenwerking, structuur en cultuur van het team. De nadruk ligt op praktisch handelen, reflecteren en het versterken van teamdynamiek. Deelnemers groeien in hun rol, zodat ze uiteindelijk zelfstandig en met vertrouwen teams kunnen begeleiden, zonder afhankelijk te zijn van externe begeleiding. Na afloop van deze training kun je een Scrum team faciliteren als Scrum Master.',
   topics: [
     'Introductie Agile mindset en waarden',
-    'Scrum theorie en simulatieoefeningen',
-    'Uitleg van Scrum framework; overbrengen op collega\'s van het basisteam',
+    'Scrum theorie en de verschillende rollen',
+    'Oefenen van de theorie in de praktijk met simulatieoefeningen',
+    'Uitleg van het Scrum framework',
+    'Communicatiestijlen en omgaan met weerstand als Scrum Master',
+    'Ondersteuning van de Product Owner (backlog, prioritering, planning)',
     'Omgaan met procesmatige valkuilen',
-    'Communicatiestijlen en omgaan met weerstand',
-    'Faciliteren van retrospectives, reviews, stand-ups, etc.',
-    'Ondersteuning van de Product Owner (backlog, prioritering)'
+    'Faciliteren van retrospectives, reviews, stand-ups, etc. als Scrum Master',
+    'Feedback geven en reflecteren op eigen ontwikkeling'
   ],
   target: 'Startende Scrum Masters die teams willen begeleiden in een veeleisende praktijk',
   uniqueFeatures: [
@@ -51,9 +65,26 @@ export const scrumMasterCourse: Course = {
   ],
   details: {
     duration: '2 dagen',
-    certificate: 'PSM1',
+    certificate: 'Bewijs van deelname',
     trainers: '1 vaste trainer die deelnemers ook na de opleiding coacht',
-    materials: 'Toolkit met coachkaarten en markers, overzichtskaarten met termen en schema\'s'
+    materials: 'Trainingsmateriaal digitaal'
+  },
+  practicalDetails: {
+    requirements: [
+      'Er een beschikbaar Agile team of team is dat wil starten en waarin je je rol kan vervullen.',
+      'Je affiniteit met de materie hebt en je competenties matchen met de rol waarvoor je training gaat volgen.',
+      'Je aangemeld en betrokken ben bij de community van Wendbare (Agile) politie in MS teams.',
+      'Je ontwikkeltijd hebt en tijd beschikbaar bent voor de uitvoering van de rol.',
+      'Je de quickscan en e-learning Scrum op flowsparks hebt gedaan'
+    ],
+    preparationTime: '2-4 uur',
+    additionalInfo: 'Na afloop van de training ontvang je een certificaat van deelname. Daarnaast ontvang je het trainingsmateriaal digitaal.'
+  },
+  price: {
+    basePrice: 1414,
+    baseParticipants: 5,
+    maxParticipants: 12,
+    note: 'Wanneer er meer deelnemers zijn wordt de prijs lager, deze wordt namelijk doorgerekend voor het aantal deelnemers.'
   }
 };
 
@@ -64,18 +95,19 @@ export const productOwnerCourse: Course = {
   description: 'In deze training ontwikkelen Product Owners zich tot richtinggevende en waardegedreven leiders binnen hun team. Ze leren hoe wendbaar werken geen doel op zich is, maar een middel om sneller en beter bij te dragen aan resultaten die er écht toe doen.',
   detailedDescription: 'De focus ligt op het herkennen en realiseren van waarde in een complexe praktijk, waar prioriteiten constant verschuiven en samenwerken cruciaal is. Denk aan het versnellen van besluitvorming, het vergroten van eigenaarschap en het versterken van vertrouwen, binnen én buiten het team.',
   topics: [
-    'Introductie Agile mindset en waarden',
-    'Scrum theorie en simulatieoefeningen',
+    'Hoe je Agile en Scrum uitlegt en effectief toepast in je organisatie',
+    'Scrum theorie en de verschillende rollen',
+    'Oefenen van de theorie in de praktijk met praktische oefeningen',
     'Visie op toegevoegde waarde vertalen naar de backlog',
-    'Faciliterend leiderschap, samenwerken met Scrum Master: rolduidelijkheid',
-    'Stakeholder management en Backlog Refinement',
-    'Forecasting en sprint planning en gebruik story en features points',
-    'Effectief backlog-beheer en prioritering',
-    'Feedback geven en teamfocus creëren'
+    'Faciliterend leiderschap, in samenwerking met Scrum Master',
+    'Hoe je stakeholders meeneemt, je team motiveert en grip houdt op het resultaat',
+    'Wat je moet doen bij de verfijning van functionaliteit (Backlog items) (refinement)',
+    'Plannen m.b.v. sprints en inschatten (forecasting), zodat je realistische keuzes maakt en teams vooruithelpt',
+    'Feedback geven en Teamfocus creëren'
   ],
   target: 'Product Owners die richtinggevende en waardegedreven leiders willen worden',
   uniqueFeatures: [
-    'Deelnemers werken aan hun eigen Product Backlog (praktijk gaat altijd boven theorie)',
+    'Men werkt aan eigen backlog. Dat betekent mogelijk huiswerk vooraf waarbij ze hun eigen backlog (deels) meenemen. Goed om daar verwachtingsmanagement op te doen.',
     'Deelnemers brengen hun eigen stakeholders in beeld (dus géén simulatie)',
     'Slide-vrij (Powerpoint-vrij)',
     'Ontwikkeld o.b.v. Politie-context',
@@ -84,32 +116,50 @@ export const productOwnerCourse: Course = {
   ],
   details: {
     duration: '2 dagen',
-    certificate: 'PSPO1',
+    certificate: 'Bewijs van deelname',
     trainers: '1 vaste trainer die deelnemers ook na de opleiding coacht',
-    materials: 'Toolkit met markers en kaarten met termen en schema\'s'
+    materials: 'Trainingsmateriaal digitaal, inclusief digitale Politie Poker game'
+  },
+  practicalDetails: {
+    requirements: [
+      'Er een beschikbaar Agile team of team is dat wil starten en waarin je je rol kan vervullen.',
+      'Je affiniteit met de materie hebt en je competenties matchen met de rol waarvoor je training gaat volgen.',
+      'Je de E-learning "quickscan: Hoe Agile ben jij?" hebt afgerond (ca 30 minuten en met verdieping 1 uur)',
+      'Je de E-learning "Scrum" hebt afgerond (ca 1.5 uur tot 2 uur)',
+      'Je de Quickscan op leiderschap hebt afgerond (komt binnenkort beschikbaar)'
+    ],
+    preparationTime: '3 uur',
+    additionalInfo: 'Na afloop van de training ontvang je een certificaat van deelname. Daarnaast ontvang je het trainingsmateriaal digitaal.'
+  },
+  price: {
+    basePrice: 1414,
+    baseParticipants: 5,
+    maxParticipants: 12,
+    note: 'Wanneer er meer deelnemers zijn wordt de prijs lager, deze wordt namelijk doorgerekend voor het aantal deelnemers.'
   }
 };
 
 export const productOwnerVervolgCourse: Course = {
   id: 'vervolg',
-  title: 'Product Owner Vervolg',
+  title: 'Product Owner Verdiept',
   duration: '2 dagen van 3,5 uur',
-  description: 'In onze aanpak draait wendbaar werken niet alleen om snelheid en flexibiliteit, maar vooral om het creëren van waarde binnen een complexe en dynamische omgeving. De rol die de Product Owner vervult is niet simpelweg het organiseren van taken, maar juist het strategisch sturen van ontwikkelingen.',
-  detailedDescription: 'In deze training ontwikkelen deelnemers zich tot ervaren procesverantwoordelijke en leggen ze helder uit waarom deze rol onmisbaar is. Zij ontdekken hoe het werken vanuit waarde en het stimuleren van innovatie elkaar versterkt. Ze leren waarde helder te definiëren, te meten en te vergroten. Dit gebeurt door experimenten, meetbare doelen en impactanalyse. Daarnaast ontwikkelen deelnemers communicatie- en visualisatietechnieken die collega\'s motiveren om effectiever samen te werken en betere resultaten te bereiken.',
+  description: 'In onze aanpak draait wendbaar werken niet alleen om snelheid en flexibiliteit, maar vooral om het creëren van waarde binnen een complexe en dynamische omgeving. De rol van de Product Owner gaat verder dan het organiseren van taken; het draait om waardegedreven richting geven aan het werk en bepalen wat belangrijk is om als volgende op te pakken, om de hoogst mogelijke waarde te halen.',
+  detailedDescription: 'In deze training ontwikkelen deelnemers zich tot ervaren procesverantwoordelijke en leggen ze helder uit waarom deze rol onmisbaar is. Zij ontdekken hoe het werken vanuit waarde en het stimuleren van experimenten elkaar versterkt. Ze leren waarde helder te definiëren, te meten en te vergroten. Dit gebeurt door experimenten, meetbare doelen en impactanalyse. Daarnaast ontwikkelen deelnemers communicatie- en visualisatietechnieken die collega\'s motiveren om effectiever samen te werken en betere resultaten te bereiken.',
   topics: [
-    'PO-bestaansrecht en context duiden (o.a. via Cynefin)',
-    'Visie, waarde en empirisch werken verbinden',
-    'Stakeholderdialoog: van mening naar gedeelde waarde',
-    'Productinnovatie en teamleren als continue cyclus',
-    'Communicatievaardigheden die inspireren en beïnvloeden',
-    'Agile Roadmapping, forecasting en waarde meten',
-    'Samenwerking met Scrum Master en Developers versterken',
-    'Leiderschap en innovatiekracht ontwikkelen'
+    'Introductie Agile waarden en principes (opfrisser voor welke ontwikkeling je verantwoordelijk bent)',
+    'Begrijpen waarom de rol van Product Owner bestaat en in welke complexe omgeving je werkt',
+    'Een duidelijke visie maken en die koppelen aan wat echt waarde toevoegt, stap voor stap',
+    'In gesprek gaan met betrokkenen om van losse meningen naar gedeelde doelen te komen',
+    'Blijven leren en ontwikkelen, zowel in je product- en/of vak ontwikkeling/verbetering als in je team',
+    'Communiceren op een manier die anderen raakt, motiveert en mee laat bewegen',
+    'Een realistische planning maken en inschatten (forecasting), verwachtingen helder krijgen en waarde zichtbaar maken',
+    'Sterker samenwerken met de Scrum Master en het ontwikkelteam, met heldere rollen',
+    'Je leiderschap verder ontwikkelen en ruimte maken voor nieuwe ideeën en experimenten'
   ],
-  target: 'Ervaren Product Owners die zich willen ontwikkelen tot strategische waardecreërende leiders',
+  target: 'Ervaren Product Owners die zich willen ontwikkelen tot waardegedreven leiders',
   uniqueFeatures: [
+    'Men werkt aan eigen backlog. Dat betekent mogelijk huiswerk vooraf waarbij ze hun eigen backlog (deels) meenemen. Goed om daar verwachtingsmanagement op te doen.',
     'Aandacht voor overlap tussen de rol van PO en SM',
-    'Deelnemers werken aan hun eigen Product Backlog (praktijk gaat altijd boven theorie)',
     'Slide-vrij (Powerpoint-vrij)',
     'Ontwikkeld o.b.v. Politie-context',
     'Begrijpelijke metaforen uit het dagelijks leven',
@@ -117,15 +167,31 @@ export const productOwnerVervolgCourse: Course = {
   ],
   details: {
     duration: '2 dagen, 3,5 uur per dagdeel',
-    certificate: 'PSPO2',
+    certificate: 'Bewijs van deelname',
     trainers: '1 vaste trainer die deelnemers ook na de opleiding coacht',
     materials: 'Toolkit met canvassen, visualisaties en templates (vision boards, impact maps, PDCA-schema\'s, Roadmaps, KPI-formats)'
+  },
+  practicalDetails: {
+    requirements: [
+      'De Product Owner Basis training hebt afgerond',
+      'Je al praktijkervaring hebt met de rol van Product Owner',
+      'Er een beschikbaar Agile team is waarin je je rol kan verdiepen',
+      'Je de ambitie hebt om je verder te ontwikkelen als waardegedreven leider'
+    ],
+    requirementsTitle: 'Deze training is geschikt voor jou wanneer je',
+    additionalInfo: 'Na afloop van de training ontvang je een certificaat van deelname. Daarnaast ontvang je het trainingsmateriaal digitaal. Het is mogelijk om via Scrum.org een examen te doen als het gewenst is om het Professional Product Owner I (PSPO I) certificering te behalen.'
+  },
+  price: {
+    basePrice: 960,
+    baseParticipants: 5,
+    maxParticipants: 12,
+    note: 'Wanneer er meer deelnemers zijn wordt de prijs lager, deze wordt namelijk doorgerekend voor het aantal deelnemers.'
   }
 };
 
 export const productOwnerVervolgMetadata: CourseMetadata = {
-  title: 'Product Owner Vervolg Training - Politie',
-  description: 'Ontwikkel je tot ervaren procesverantwoordelijke en strategische waardecreërende leider. 2 dagen praktijkgerichte Product Owner vervolg training speciaal voor de politie.',
+  title: 'Product Owner Verdiept Training - Politie',
+  description: 'Ontwikkel je tot ervaren procesverantwoordelijke en strategische waardecreërende leider. 2 dagen praktijkgerichte Product Owner verdiept training speciaal voor de politie.',
   keywords: [
     'Product Owner vervolg training politie',
     'Product Owner gevorderd opleiding',
@@ -134,7 +200,7 @@ export const productOwnerVervolgMetadata: CourseMetadata = {
     'productinnovatie politie'
   ],
   openGraph: {
-    title: 'Product Owner Vervolg Training - Politie',
+    title: 'Product Owner Verdiept Training - Politie',
     description: 'Ontwikkel je tot ervaren procesverantwoordelijke en strategische waardecreërende leider. 2 dagen praktijkgerichte Product Owner vervolg training.',
     type: 'website',
   },
@@ -181,15 +247,25 @@ export const agileCoachCourse: Course = {
   duration: '8 dagdelen van 3,5 uur',
   detailedDescription: 'Een Agile Coach helpt teams met het toepassen van Agile in het werk. De nadruk ligt vooral op het coachingsaspect. Als Agile Coach leer je niet alleen een productievere omgeving te creëren, maar help je ook (Scrum) teams om alles uit zichzelf te halen en maak je ze bewust van hoe Agile het team kan helpen om tot betere resultaten te komen.',
   topics: [
+    'Agile principes en waarden (met praatplaten die digitaal gedeeld worden)',
     'Je introduceert of verbetert Agile methodieken en technieken',
     'Je brengt mensen in beweging om te veranderen',
     'Van de Lean filosofie de Agile principes doorvoeren binnen de gehele organisatie',
     'Werken op individueel, team-, afdeling- en managementniveau',
-    'Aan de slag als Agile Coach in heel veel organisaties'
+    'Advisering op Agile leiderschap en begeleiding',
+    'Coachen van Scrum Masters bij hun Scrum Events',
+    'Het stimuleren van zelforganisatie en zelfsturing en het bouwen van performante teams',
+    'Het transformeren en begeleiden van de organisatie en reflecteren op eigen handelen door zelfreflectie, feedback, intervisie en coachgesprekken',
+    'Verdieping teamdynamiek',
+    'Verdieping facilitatie: het begeleiden van groepsgesprekken'
   ],
   target: 'Ervaren Scrum Masters, Product Owners en Agile professionals die teams willen begeleiden bij Agile transformaties',
   uniqueFeatures: [
-    'Aandacht voor opschaling van wendbaar werken',
+    'Aandacht voor opschaling van wendbaar werken: begrip van scaling frameworks (SaFe, Less) en wanneer deze geschikt zijn. Het IV/ICT politiemodel is gebaseerd op SaFe. Één Product Owner met verschillende Scrum teams met één backlog is al uitdagend.',
+    'Het gebruik van de kennisscan t.b.v. het bevorderen van multidisciplinair/functionele teams en de T-vorm',
+    'Triage startbekwaamheid: toelichting en gebruik van het canvas',
+    'Werkvormen en onderwerpen die praktisch toepasbaar zijn in de politiecontext',
+    'Agile team framen als: een team wat enorm goed is in leren, verbeteren & ontwikkelen (uitgangspunt voor elevator pitch)',
     'Competentie-gericht ("Kun je het?" i.p.v. "Weet je het?")',
     'Aandacht voor 1-op-1 coaching volgens de Coachingsboog van Lyssa Adkins',
     'Slide-vrij (Powerpoint-vrij)',
@@ -201,7 +277,23 @@ export const agileCoachCourse: Course = {
     duration: '8 dagdelen, 3,5 uur per dagdeel',
     certificate: 'Bewijs van deelname',
     trainers: '1 vaste trainer die deelnemers ook na de opleiding coacht',
-    materials: 'Toolkit met uitgebreide facilitatie materialen, markers en coachkaarten'
+    materials: 'Toolkit met coachkaarten, pokergame, leiderschapsgame en andere facilitatie materialen (digitaal gedeeld)'
+  },
+  practicalDetails: {
+    requirements: [
+      'Je de Scrum Master Basis training hebt afgerond',
+      'Je de E-learnings op flowsparks hebt afgerond',
+      'Je de 15 days toolbox hebt doorlopen',
+      'Je ontwikkeltijd hebt na de training om te kunnen coachen',
+      'Je mag coachen buiten je eigen team (getoetst)'
+    ],
+    additionalInfo: 'Na afloop van de training ontvang je een certificaat van deelname. Daarnaast ontvang je het trainingsmateriaal digitaal, inclusief praatplaten voor Agile principes.'
+  },
+  price: {
+    basePrice: 2828,
+    baseParticipants: 5,
+    maxParticipants: 12,
+    note: 'Wanneer er meer deelnemers zijn wordt de prijs lager, deze wordt namelijk doorgerekend voor het aantal deelnemers.'
   }
 };
 
@@ -210,19 +302,26 @@ export const agileLeiderschapCourse: Course = {
   title: 'Agile Leiderschap Opleiding',
   description: 'Ontwikkel je tot een wendbare leider die teams kan begeleiden in een veranderende wereld. Leer hoe je als leidinggevende teams kunt helpen om effectiever samen te werken en betere resultaten te behalen.',
   duration: '3 dagdelen van 3,5 uur',
-  detailedDescription: 'De Agile Leadership opleiding biedt leidinggevenden helderheid in nieuwe begrippen, rollen en verantwoordelijkheden. Tevens ontdekken zij hoe het leidinggeven aan agile professionals anders is dan aan traditionele professionals. Onze trainers combineren training en coaching en zijn zelf actief in transities op onder andere C-level. Zo ontstaat een goede mix van theorie en praktijk. Door de opleiding ontwikkelen leiders een mindset die past bij faciliterend leiderschap. Deze is gericht op vertrouwen, wendbaarheid en resultaat. Daarmee leggen we een stevig fundament onder een toekomstbestendige manier van werken, waarin leiders samen met teams waarde creëren voor organisatie én klant. Voor de Politie is deze opleiding van extra belang, gezien de -vanuit historie logische- hiërarchische aansturing niet altijd aansluit bij een veranderende werkomgeving.',
+  detailedDescription: 'De Agile Leadership-opleiding geeft jou als leidinggevende duidelijkheid over nieuwe begrippen, rollen en verantwoordelijkheden. Je ontdekt hoe je jouw eigen gedrag kunt aanpassen om professionals meer eigenaarschap te laten nemen. Ook leer je hoe je de waarden en principes van wendbaar werken vertaalt naar je dagelijkse praktijk, zodat jouw team meer ruimte, vertrouwen en duidelijkheid ervaart.\n\nDaarnaast krijg je handvatten om aandacht te houden voor belangrijke thema\'s in je team, ook wanneer de hectiek van de dag overheerst. Je staat stil bij welke taken en gewoontes niet meer passen bij wendbaar werken en hoe je op een duidelijke manier \'nee\' zegt om je team te beschermen en de focus te bewaren.\n\nDoor regelmatig op de werkvloer mee te kijken – \'walking the gemba\' – krijg je beter zicht op wat er echt speelt en kun je sneller inspelen op wat je team nodig heeft. Zo ontstaat een sterke mix van theorie en praktijk.\n\nTijdens de opleiding ontwikkel je een houding die past bij faciliterend leiderschap: vertrouwen geven, wendbaar blijven en sturen op resultaat. Daarmee leg je een stevig fundament onder een toekomstbestendige manier van werken, waarin jij samen met je team waarde creëert voor de organisatie én voor de maatschappij. Voor de Politie is dit extra belangrijk, omdat de historisch gegroeide hiërarchie niet altijd aansluit op de wendbare manier van werken die nu nodig is.',
   topics: [
     'Agile leiderschap; wat levert het op?',
     'Van controle naar vertrouwen',
     'Faciliteren van zelforganiserende teams',
-    'Ontwikkeling van zelfbewustzijn',
-    'Leidinggevende vaardigheden in Agile context',
-    'Coachen van Agile professionals'
+    'Ontwikkelen van zelfbewustzijn',
+    'Leidinggevende vaardigheden in een Agile context',
+    'Coachen van Agile professionals',
+    'Transparant te werken, zodat collega\'s en teams beter begrijpen waaraan gewerkt wordt en waarom',
+    'Sturen op het effect (outcome) in plaats van wat er is gedaan (output), zodat de waarde van het werk zichtbaar wordt',
+    'Welke eerste stappen je direct kunt zetten om het geleerde vanaf morgen toe te passen',
+    'Het tonen van imperfectie om een lerende en ontwikkelgerichte cultuur te bouwen',
+    'Hoe je het team meeneemt in het andere gedrag dat ze (moeten) gaan laten zien',
+    'Hoe zorgen voor feedback op je eigen gedrag op de werkvloer'
   ],
   target: 'Leidinggevenden en managers die hun teams willen begeleiden in een Agile omgeving. Specifiek ontwikkeld voor de Politie waar hiërarchische aansturing niet altijd aansluit bij een veranderende werkomgeving.',
   uniqueFeatures: [
     'Aandacht voor zelfbewustzijn',
     'Deelnemers worden naast agile leiders betere leidinggevenden (aandacht voor leidinggevende vaardigheden)',
+    'Toolkit met leiderschapscoach kaarten',
     'Slide-vrij (Powerpoint-vrij)',
     'Ontwikkeld o.b.v. Politie-context',
     'Begrijpelijke metaforen uit het dagelijks leven',
@@ -232,7 +331,21 @@ export const agileLeiderschapCourse: Course = {
     duration: '3 dagdelen, 3,5 uur per dagdeel',
     certificate: 'Bewijs van deelname',
     trainers: '1 vaste trainer die deelnemers ook na de opleiding coacht',
-    materials: 'Toolkit met leiderschapsmaterialen en coachkaarten'
+    materials: 'Toolkit met leiderschapscoach kaarten en andere facilitatie materialen (digitaal gedeeld)'
+  },
+  practicalDetails: {
+    requirements: [
+      'Je direct met het geleerde aan de slag kunt en wilt gaan',
+      'Je bereid bent om je eigen gedrag aan te passen om professionals meer eigenaarschap te laten nemen'
+    ],
+    requirementsTitle: 'Deze training is geschikt voor jou wanneer je',
+    additionalInfo: 'Deze training is voornamelijk zinvol wanneer je direct er mee aan de slag kan en wil. De nieuwe werkomgeving is er nog niet en leiding is onderdeel van de verandering. Sterker nog: leidinggevenden kunnen het maken of breken.\n\nNa afloop van de training ontvang je een certificaat van deelname. Daarnaast ontvang je het trainingsmateriaal digitaal.'
+  },
+  price: {
+    basePrice: 1400,
+    baseParticipants: 5,
+    maxParticipants: 12,
+    note: 'Wanneer er meer deelnemers zijn wordt de prijs lager, deze wordt namelijk doorgerekend voor het aantal deelnemers.'
   }
 };
 
@@ -255,44 +368,68 @@ export const agileLeiderschapMetadata: CourseMetadata = {
 
 export const leadingWithObeyaCourse: Course = {
   id: 'leading-with-obeya',
-  title: 'Leading with Obeya',
+  title: 'Sturen met Obeya de team kickstart',
   description: 'Leer hoe je als managementteam effectief kunt werken met Obeya. Ontwikkel vaardigheden om strategie naar tactiek te vertalen en teams te begeleiden naar betere resultaten.',
   duration: '4 dagdelen van 3,5 uur',
-  detailedDescription: 'De Leading with Obeya team kick start opleiding is bedoeld voor MT\'s die met Obeya gaan werken. Als start wordt de theorie van Obeya uitgelegd. Vervolgens wordt het team begeleid om zelf een Obeya bord vorm te geven. Hierna wordt de Obeya dialoog gevoerd en wordt geoefend samen deze gesprekken te blijven voeren. Hierbij betrekken we, indien mogelijk, de facilitator. Zo is het team na de training uitgerust om met Obeya te werken. Onze trainers combineren training en coaching en zijn zelf actief in het implementeren van Obeya op alle organisatieniveaus. Zo ontstaat een krachtige mix van theorie en praktijk. De opleiding helpt leiders om strategie naar tactiek te vertalen en echt praktisch te maken: in de praktijk stuurbaar. Zo worden resultaten bereikt en wordt er bijgestuurd waar dat nodig is. Hierdoor worden teams enthousiast en krijgen ze het vertrouwen om zelf resultaten te behalen.',
+  detailedDescription: 'De Sturen met Obeya team kickstart opleiding is bedoeld voor MT\'s die met Obeya gaan werken. Als start wordt de theorie van Obeya uitgelegd. Vervolgens wordt het team begeleid om zelf een Obeya bord vorm te geven. Hierna wordt de Obeya dialoog gevoerd en wordt geoefend samen deze gesprekken te blijven voeren. Hierbij betrekken we, indien mogelijk, de facilitator. Zo is het team na de training uitgerust om met Obeya te werken.\n\nOnze trainers combineren training en coaching en zijn zelf actief in het implementeren van Obeya op alle organisatieniveaus. Zo ontstaat een krachtige mix van theorie en praktijk. De opleiding helpt leiders om strategie naar tactiek te vertalen en echt praktisch te maken: in de praktijk stuurbaar. Zo worden resultaten bereikt en wordt er bijgestuurd waar dat nodig is. Hierdoor worden teams enthousiast en krijgen ze het vertrouwen om zelf resultaten te behalen.\n\nDeze training legt de relatie met Agile op MT niveau: Obeya is een manier om Agile principes en waarden toe te passen op managementniveau, waarbij transparantie, samenwerking en continue verbetering centraal staan.',
   topics: [
     'Herkomst Obeya en theoretische kennis onderdelen: strategie, doelen, prestaties, taken en moeilijke problemen, LWO referentiemodel',
-    'Inrichting Obeya voor eigen werksituatie en executie naar eigen team',
+    'Inrichting Obeya voor eigen werksituatie en uitvoering naar eigen team',
     'Toepassing Obeya: benodigde en invulling rollen en hoe werken we ermee als team?',
-    'Voeren prestatie-dialoog en gedragsverandering naar sturen op proces en eigenaarschap',
-    'SMART formuleren van OKR\'s en kort-cyclische doelen en sturen hierop',
-    'Doorvertaling naar de rest van de organisatie'
+    'Voeren prestatie-dialoog en gedragsverandering',
+    'Sturen op proces en eigenaarschap versterken',
+    'Van sturen naar prioriteren in de zin van doelstellingen',
+    'SMART formuleren van OKR\'s (doelstellingen en belangrijke resultaten) en kort-cyclische doelen en sturen hierop',
+    'Doorvertaling naar de rest van de organisatie',
+    'Belangrijkste thema\'s en werkvormen voor effectieve Obeya sessies',
+    'Relatie met Agile op MT niveau: hoe Obeya Agile principes en waarden toepast op managementniveau'
   ],
   target: 'Managementteams (MT\'s) die met Obeya gaan werken. Specifiek ontwikkeld voor de Politie om strategie naar tactiek te vertalen en teams te begeleiden naar betere resultaten.',
   uniqueFeatures: [
     'Het werkend krijgen van de Obeya, specifiek per MT',
+    'Terminologieën worden toegelicht: OKR\'s (doelstellingen en belangrijke resultaten) worden gebruikt in plaats van KPI\'s, omdat deze beter aansluiten bij de Obeya methodiek',
+    'Voordelen van Obeya: betere samenwerking en afstemming, sturen op basis van metingen en data, transparantie en snellere besluitvorming',
     'Ontwikkeld o.b.v. Politie-context',
     'Gebaseerd op \'Training from the Back of the Room\': deelnemers leren actief en ervaringsgericht door zelf te ontdekken, te doen en samen te werken, i.p.v. passief kennis te ontvangen'
   ],
   details: {
     duration: '4 dagdelen, 3.5 uur per dagdeel met tijd tussen dag 1 en 2 voor toepassing',
-    certificate: 'LCS certificering 1a',
+    certificate: 'LCS certificering 1a (Leading with Obeya)',
     trainers: '1 vaste trainer die deelnemers ook na de opleiding coacht in de toepassing van Obeya',
-    materials: 'Obeya toolkit en implementatie materialen'
+    materials: 'Obeya toolkit en implementatie materialen (digitaal gedeeld)'
+  },
+  practicalDetails: {
+    requirements: [
+      'Onderdeel van de teamtraining is de facilitator. Zijn competenties zijn gecheckt (vergelijkbaar met scrum master/agile coach)',
+      'Men heeft gecheckt of financiering van borden aanwezig is en wat ze willen aanschaffen wanneer ze hiermee verder gaan',
+      'Triage startbekwaamheid stap 1 en deels 2: bij ander team kijken is volbracht',
+      'TC\'s en hoger laten ontwikkeling actief terugkomen in R&O wat betreft ontwikkeling',
+      'Zowel naar boven als naar beneden in de organisatie is gecommuniceerd welke verandering ingezet wordt en wat men denkt dat het effect is op de omgeving',
+      'In de toekomst: de Agile leiderschaps quick scan (komt binnenkort beschikbaar)'
+    ],
+    requirementsTitle: 'Deze training is geschikt voor jou wanneer',
+    additionalInfo: 'Na afloop van de training ontvang je een certificaat van deelname (LCS certificering 1a). Daarnaast ontvang je het trainingsmateriaal digitaal.'
+  },
+  price: {
+    basePrice: 1295,
+    baseParticipants: 5,
+    maxParticipants: 12,
+    note: 'Wanneer er meer deelnemers zijn wordt de prijs lager, deze wordt namelijk doorgerekend voor het aantal deelnemers. De prijs is voor de hele training (team training).'
   }
 };
 
 export const leadingWithObeyaMetadata: CourseMetadata = {
-  title: 'Leading with Obeya - Politie',
-  description: 'Leer hoe je als managementteam effectief kunt werken met Obeya. 4 dagdelen praktijkgerichte Obeya training speciaal voor de politie.',
+  title: 'Sturen met Obeya de team kickstart - Politie',
+  description: 'Leer hoe je als managementteam effectief kunt werken met Obeya. 4 dagdelen praktijkgerichte Obeya team kickstart training speciaal voor de politie.',
   keywords: [
-    'Leading with Obeya politie',
+    'Sturen met Obeya politie',
     'Obeya training',
     'management team training',
     'strategie naar tactiek',
     'LCS certificering'
   ],
   openGraph: {
-    title: 'Leading with Obeya - Politie',
+    title: 'Sturen met Obeya de team kickstart - Politie',
     description: 'Leer hoe je als managementteam effectief kunt werken met Obeya. 4 dagdelen praktijkgerichte Obeya training.',
     type: 'website',
   },
@@ -301,29 +438,48 @@ export const leadingWithObeyaMetadata: CourseMetadata = {
 export const facilitatorInObeyaCourse: Course = {
   id: 'facilitator-in-obeya',
   title: 'Facilitator in Obeya',
-  description: 'Leer hoe je Obeya teams effectief kunt faciliteren. Ontwikkel vaardigheden om teams te begeleiden in het werken met Obeya en de dialoog goed te voeren.',
+  description: 'Ontwikkel de vaardigheden om Obeya sessies te faciliteren en teams te begeleiden in het gebruik van de Obeya-methodiek.',
   duration: '4 dagdelen van 3,5 uur',
-  detailedDescription: 'Deze opleiding is bedoeld voor mensen die Obeya teams gaan faciliteren in het werken met Obeya. Als start wordt de theorie van Obeya uitgelegd en vervolgens wordt de rol van facilitator verheldert: het is meer dan een voorzitter van een overleg zijn. Er wordt geleerd hoe het team een Obeya opzet, welke technieken hiervoor zijn, hoe je het team leert de Obeya dialoog goed te voeren en er wordt geoefend dit te faciliteren. Facilitators leren eerst de lead te pakken en deze daarna over te geven aan het team. Zij doen dit d.m.v. Voordoen, Samen doen, Zelf doen. De facilitators oefenen direct in de praktijk en ze worden begeleid door ons. Onze trainers combineren training en coaching en zijn zelf actief in het implementeren van Obeya op alle organisatieniveaus. Zo ontstaat een krachtige mix van theorie en praktijk. De opleiding zorgt ervoor dat Obeya facilitators in staat zijn een MT te begeleiden om Leading with Obeya in de praktijk werkend te krijgen. Hierdoor worden teams enthousiast en krijgen zij het vertrouwen om dit uiteindelijk zelf te doen.',
+  detailedDescription: 'Deze opleiding is bedoeld voor mensen die Obeya teams gaan faciliteren in het werken met Obeya. Als start wordt de theorie van Obeya uitgelegd en vervolgens wordt de rol van facilitator verheldert: je zet een Obeya ruimte op en helpt de performance dialoog met het team goed te voeren.\n\nEr wordt geleerd hoe je als facilitator het team helpt een Obeya op te zetten, welke technieken hiervoor zijn, hoe je het team leert de Obeya dialoog goed te voeren en er wordt geoefend dit te faciliteren. Facilitators leren eerst de lead te pakken en deze daarna over te geven aan het team. Zij doen dit d.m.v. voordoen, samen doen, zelf doen.\n\nDe facilitators oefenen direct in de praktijk en ze worden begeleid door ons. Onze trainers combineren training en coaching en zijn zelf actief in het implementeren van Obeya op alle organisatieniveaus. Zo ontstaat een krachtige mix van theorie en praktijk.\n\nDe opleiding zorgt ervoor dat Obeya facilitators in staat zijn een MT te begeleiden om Sturen met Obeya in de praktijk werkend te krijgen. Hierdoor worden teams enthousiast en krijgen zij het vertrouwen om dit uiteindelijk zelf te doen.\n\nAls facilitator neem je transparantie en andere Agile principes mee in het coachen. Je zorgt ervoor dat de Obeya-ruimte en overleggen openbaar zijn, zodat iedereen kan zien wat er gebeurt en leren van elkaar.',
   topics: [
-    'Herkomst Obeya en theoretische kennis onderdelen: strategie, doelen, prestaties, taken en moeilijke problemen, LWO referentiemodel',
-    'Rollen en routines bij de inrichting Obeya en executie naar eigen team',
+    'Herkomst Obeya en theoretische kennis onderdelen: strategie, doelen, prestaties, taken en moeilijke problemen',
+    'Rollen en routines bij de inrichting Obeya en uitvoering naar eigen team',
     'Toepassing Obeya: benodigde en invulling rollen en hoe mensen in hun rol te zetten',
-    'Voeren prestatie-dialoog en gedragsverandering bewerkstelligen: onderstroom en bovenstroom, mogelijke interventies en hoe in te zetten',
-    'SMART formuleren van OKR\'s en kort-cyclische doelen en inzetten verbeteringen',
-    'Faciliteren van Obeya dialoog en team begeleiding'
+    'Wat het inhoudt om facilitator te zijn en hoe je je rol goed neer zet bij het voeren van de prestatie-dialoog en gedragsverandering bewerkstelligen: onderstroom en bovenstroom, mogelijke interventies en hoe in te zetten',
+    'SMART formuleren van OKR\'s (doelstellingen en belangrijke resultaten) en kort-cyclische doelen en inzetten verbeteringen',
+    'Transparantie en Agile principes meenemen in het coachen',
+    'Zorgen dat de Obeya-ruimte en overleggen openbaar zijn'
   ],
   target: 'Mensen die Obeya teams gaan faciliteren in het werken met Obeya. Specifiek ontwikkeld voor de Politie om teams te begeleiden in het implementeren van Obeya.',
   uniqueFeatures: [
     'Deelnemers leren een MT op proces te begeleiden i.p.v. op inhoud',
     'Deelnemers leren wat neutraliteit is: \'Wat in deze kamer gebeurt, blijft in deze kamer\'',
+    'Transparantie en Agile principes worden meegenomen in het coachen: Obeya-ruimte en overleggen zijn openbaar',
+    'Voordoen, samen doen, zelf doen: facilitators leren eerst de lead te pakken en geven deze daarna over aan het team',
     'Ontwikkeld o.b.v. Politie-context',
     'Gebaseerd op \'Training from the Back of the Room\': deelnemers leren actief en ervaringsgericht door zelf te ontdekken, te doen en samen te werken, i.p.v. passief kennis te ontvangen'
   ],
   details: {
     duration: '4 dagdelen, 3.5 uur per dagdeel met tijd tussen dag 1 en 2 voor toepassing',
-    certificate: 'LCS certificering 1b',
+    certificate: 'LCS certificering 1b (Facilitator in Obeya)',
     trainers: '1 vaste trainer die deelnemers ook na de opleiding coacht in de toepassing van Obeya',
-    materials: 'Obeya facilitator toolkit en implementatie materialen'
+    materials: 'Obeya facilitator toolkit en implementatie materialen (digitaal gedeeld)'
+  },
+  practicalDetails: {
+    requirements: [
+      'De facilitator was onderdeel van de Sturen met Obeya team kickstart training',
+      'Ontwikkelruimte aanwezig t.b.v. het zijn van een goede procesbegeleider/facilitator',
+      'De facilitator heeft tijd beschikbaar voor deze rol en ontwikkeling',
+      'Komt terug in R&O wat betreft ontwikkeling'
+    ],
+    requirementsTitle: 'Deze training is geschikt voor jou wanneer',
+    additionalInfo: 'Na afloop van de training ontvang je een certificaat van deelname (LCS certificering 1b). Daarnaast ontvang je het trainingsmateriaal digitaal.'
+  },
+  price: {
+    basePrice: 1295,
+    baseParticipants: 5,
+    maxParticipants: 12,
+    note: 'Wanneer er meer deelnemers zijn wordt de prijs lager, deze wordt namelijk doorgerekend voor het aantal deelnemers. De prijs is voor de hele training (team training).'
   }
 };
 

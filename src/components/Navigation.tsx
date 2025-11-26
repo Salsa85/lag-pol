@@ -48,7 +48,7 @@ export default function Navigation({
     ? "m-10 absolute top-0 left-0 right-0 z-[9999]"
     : "absolute top-0 left-0 right-0 z-[9999]";
 
-  const textColorClasses = "text-white";
+  const textColorClasses = "text-gray-900";
 
   const courses = [
     {
@@ -61,7 +61,7 @@ export default function Navigation({
       color: "primary",
       courses: [
         { name: "Scrum Master Basis", link: "/scrum-master", duration: "2 dagen" },
-        { name: "Scrum Master Vervolg", link: "/scrum-master-vervolg", duration: "2 dagen" }
+        { name: "Scrum Master Verdiept", link: "/scrum-master-vervolg", duration: "2 dagen" }
       ]
     },
     {
@@ -74,7 +74,7 @@ export default function Navigation({
       color: "primary",
       courses: [
         { name: "Product Owner Basis", link: "/product-owner", duration: "2 dagen" },
-        { name: "Product Owner Vervolg", link: "/product-owner-vervolg", duration: "2 dagen" }
+        { name: "Product Owner Verdiept", link: "/product-owner-vervolg", duration: "2 dagen" }
       ]
     },
     {
@@ -110,7 +110,7 @@ export default function Navigation({
       ),
       color: "primary",
       courses: [
-        { name: "Leading with Obeya", link: "/leading-with-obeya", duration: "4 dagen" },
+        { name: "Sturen met Obeya", link: "/leading-with-obeya", duration: "4 dagen" },
         { name: "Facilitator in Obeya", link: "/facilitator-in-obeya", duration: "2 dagen" }
       ]
     }
@@ -121,11 +121,11 @@ export default function Navigation({
       <div className="container mx-auto px-6 lg:px-8">
 
         {/* Main navigation row */}
-        <div className="pt-4 pb-4 relative">
+        <div className="pt-6 pb-6 relative">
           <div className="flex items-center justify-between">
             {/* Left side - Logos and Trainingen */}
-            <div className="flex items-center space-x-8">
-              <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-12">
+              <div className="flex items-center">
                 <Link href="/" className="flex items-center">
                   <Image 
                     src="/images/lag-logo.png" 
@@ -136,14 +136,6 @@ export default function Navigation({
                     priority
                   />
                 </Link>
-                <span className="text-white/60 text-xl font-light">+</span>
-                <Image 
-                  src="/images/scrum_acadamy.svg" 
-                  alt="Scrum Academy Logo" 
-                  width={120}
-                  height={36}
-                  className="h-6 md:h-9 w-auto"
-                />
               </div>
 
               {/* Trainingen Dropdown */}
@@ -151,7 +143,7 @@ export default function Navigation({
                 <button
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
-                  className={`flex items-center space-x-2 ${textColorClasses} hover:text-primary-600 font-medium transition-colors duration-200 py-2`}
+                  className={`flex items-center space-x-2 ${textColorClasses} hover:text-primary-600 font-medium transition-colors duration-200 py-2 px-1`}
                   aria-label={buttonText}
                 >
                   <span>Trainingen</span>
@@ -160,19 +152,25 @@ export default function Navigation({
                   </svg>
                 </button>
               </div>
+              <Link
+                href="/team-trajecten"
+                className={`hidden lg:inline-flex ${textColorClasses} hover:text-primary-600 font-medium transition-colors duration-200 py-2 px-1`}
+              >
+                Team Trajecten
+              </Link>
             </div>
 
             {/* Right side - Contact Info */}
-            <div className="hidden lg:flex items-center space-x-3 text-sm text-white">
+            <div className="hidden lg:flex items-center space-x-4 text-sm text-gray-900">
               <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
               <span className="font-medium">Contact:</span> 
-              <span className="text-primary-400 font-semibold">088-5326720</span>
+              <span className="text-primary-600 font-semibold">088-5326720</span>
             </div>
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden flex items-center justify-center w-10 h-10 text-white hover:text-primary-400 transition-colors duration-200"
+              className="lg:hidden flex items-center justify-center w-10 h-10 text-gray-900 hover:text-primary-600 transition-colors duration-200"
               aria-label="Toggle mobile menu"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -212,6 +210,13 @@ export default function Navigation({
                     ))}
                   </div>
                 </div>
+                <Link
+                  href="/team-trajecten"
+                  className="block w-full text-center py-3 bg-gray-900 text-white rounded-lg font-semibold hover:bg-primary-600 transition-colors duration-200"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Team Trajecten
+                </Link>
 
                 {/* Mobile Contact Info */}
                 <div className="pt-4 border-t border-gray-200">

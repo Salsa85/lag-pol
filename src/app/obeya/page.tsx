@@ -10,7 +10,7 @@ export default function ObeyaPage() {
   const courses = [
     {
       id: 'leading',
-      title: 'Leading with Obeya',
+      title: 'Sturen met Obeya',
       duration: '2 dagen',
       price: '€1.295',
       description: 'Leer hoe je als leider effectief gebruik kunt maken van de Obeya-methodiek voor strategie-implementatie en team management.',

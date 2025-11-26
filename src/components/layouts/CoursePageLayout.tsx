@@ -5,6 +5,7 @@ import HeroSection from '../HeroSection';
 import LearningOutcomesSection from '../sections/LearningOutcomesSection';
 import UniqueFeaturesSection from '../sections/UniqueFeaturesSection';
 import PracticalDetailsSection from '../sections/PracticalDetailsSection';
+import PriceSection from '../sections/PriceSection';
 import RelatedTrainingSection from '../sections/RelatedTrainingSection';
 import Footer from '../sections/Footer';
 
@@ -13,7 +14,7 @@ interface CoursePageLayoutProps {
   heroTitle: string;
   heroSubtitle: string;
   preselectedCourse: string;
-  relatedTraining: {
+  relatedTraining?: {
     title: string;
     description: string;
     links: {
@@ -37,26 +38,37 @@ export default function CoursePageLayout({
       <Navigation showMargin={false} />
 
       {/* Hero Section */}
-      <HeroSection 
-        title={heroTitle}
-        subtitle={heroSubtitle}
-      />
+      {courses.map((course) => (
+        <HeroSection 
+          key={course.id}
+          title={heroTitle}
+          subtitle={heroSubtitle}
+          price={course.price ? {
+            basePrice: course.price.basePrice,
+            baseParticipants: course.price.baseParticipants,
+            maxParticipants: course.price.maxParticipants,
+            note: course.price.note
+          } : undefined}
+          courseDetails={{
+            duration: course.details.duration.split(',')[0].trim(),
+            certificate: course.details.certificate
+          }}
+        />
+      ))}
 
       {/* Course Overview Section */}
-      <section className="py-20 px-6 lg:px-8 bg-white">
-        <div className="max-w-6xl mx-auto">
+      <section className="py-16 px-6 lg:px-8 bg-white">
+        <div className="max-w-4xl mx-auto">
           {courses.map((course) => (
-            <div key={course.id}>
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-1 bg-scrum-500 rounded-full mr-4"></div>
-                <h2 className="text-4xl font-bold text-gray-900">{course.title}</h2>
-              </div>
-              <div className="text-xl text-gray-600 mb-8 leading-relaxed">
+            <div key={course.id} className="space-y-6">
+              <div className="text-xl text-gray-600 leading-relaxed">
                 {course.description}
               </div>
-              <div className="text-lg text-gray-700 leading-relaxed">
-                {course.detailedDescription}
-              </div>
+              {course.detailedDescription && (
+                <div className="text-lg text-gray-700 leading-relaxed whitespace-pre-line">
+                  {course.detailedDescription}
+                </div>
+              )}
             </div>
           ))}
         </div>
@@ -71,15 +83,20 @@ export default function CoursePageLayout({
       {/* Practical Details Section */}
       <PracticalDetailsSection courses={courses} />
 
+      {/* Price Section - Only show if price not in header */}
+      {courses.every(course => !course.price) && <PriceSection courses={courses} />}
+
       {/* Signup Section */}
       <ClientSignupSection preselectedCourse={preselectedCourse} />
 
       {/* Related Training Section */}
-      <RelatedTrainingSection 
-        title={relatedTraining.title}
-        description={relatedTraining.description}
-        links={relatedTraining.links}
-      />
+      {relatedTraining && (
+        <RelatedTrainingSection 
+          title={relatedTraining.title}
+          description={relatedTraining.description}
+          links={relatedTraining.links}
+        />
+      )}
 
       {/* Footer */}
       <Footer />

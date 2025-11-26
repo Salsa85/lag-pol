@@ -10,12 +10,12 @@ interface SignupModalProps {
 
 const courses = [
   'Scrum Master Basis / Beginner',
-  'Scrum Master Vervolg / Gevorderd',
+  'Scrum Master Verdiept / Gevorderd',
   'Product Owner Basis / Beginner',
   'Product Owner Basis / Gevorderd',
   'Agile Coach',
   'Agile Leiderschap Opleiding',
-  'Leading with Obeya',
+  'Sturen met Obeya',
   'Facilitator in Obeya'
 ];
 

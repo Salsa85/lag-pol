@@ -12,18 +12,8 @@ export default function AgileCoachPage() {
     description: "Ontdek andere trainingen die perfect aansluiten bij jouw ontwikkeling.",
     links: [
       {
-        href: "/scrum-master",
-        text: "Scrum Master Training",
-        variant: "primary" as const
-      },
-      {
-        href: "/product-owner",
-        text: "Product Owner Training",
-        variant: "primary" as const
-      },
-      {
-        href: "/agile-leiderschap",
-        text: "Agile Leiderschap Opleiding",
+        href: "/facilitator-in-obeya",
+        text: "Facilitator in Obeya",
         variant: "accent" as const
       },
       {
