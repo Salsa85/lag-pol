@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import ClickSpark from './ClickSpark';
 import Navigation from './Navigation';
 import ClientSignupSection from './ClientSignupSection';
@@ -417,7 +418,7 @@ export default function ClientHomePage() {
                 </div>
                 
                 <div className="space-y-3">
-                  <a href="/obeya" className="flex items-center justify-between bg-white/20 p-4 rounded-lg hover:bg-primary-500/30 hover:border-primary-400 border border-white/30 transition-all duration-200 group">
+                  <Link href="/leading-with-obeya" className="flex items-center justify-between bg-white/20 p-4 rounded-lg hover:bg-primary-500/30 hover:border-primary-400 border border-white/30 transition-all duration-200 group">
                     <span className="font-medium text-white group-hover:text-primary-200">Sturen met Obeya</span>
                     <div className="flex items-center space-x-3">
                       <span className="text-sm bg-primary-500 text-white px-3 py-1 rounded-full font-medium">2 dagen</span>
@@ -425,8 +426,8 @@ export default function ClientHomePage() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
                     </div>
-                  </a>
-                  <a href="/obeya" className="flex items-center justify-between bg-white/20 p-4 rounded-lg hover:bg-accent-500/30 hover:border-accent-400 border border-white/30 transition-all duration-200 group">
+                  </Link>
+                  <Link href="/facilitator-in-obeya" className="flex items-center justify-between bg-white/20 p-4 rounded-lg hover:bg-accent-500/30 hover:border-accent-400 border border-white/30 transition-all duration-200 group">
                     <span className="font-medium text-white group-hover:text-accent-200">Facilitator in Obeya</span>
                     <div className="flex items-center space-x-3">
                       <span className="text-sm bg-accent-500 text-white px-3 py-1 rounded-full font-medium">2 dagen</span>
@@ -434,7 +435,7 @@ export default function ClientHomePage() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
                     </div>
-                  </a>
+                  </Link>
                 </div>
               </div>
 
@@ -455,8 +456,8 @@ export default function ClientHomePage() {
                 </div>
                 
                 <div className="space-y-3">
-                  <button 
-                    onClick={() => setIsModalOpen(true)}
+                  <Link
+                    href="/team-trajecten"
                     className="w-full flex items-center justify-between bg-white/20 p-4 rounded-lg border border-white/30 hover:bg-accent-500/30 hover:border-accent-400 transition-all duration-200 group"
                   >
                     <span className="font-medium text-white group-hover:text-accent-200">Team-specifieke trajecten</span>
@@ -466,7 +467,7 @@ export default function ClientHomePage() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
                     </div>
-                  </button>
+                  </Link>
                   <button 
                     onClick={() => setIsModalOpen(true)}
                     className="w-full flex items-center justify-between bg-white/20 p-4 rounded-lg border border-white/30 hover:bg-primary-500/30 hover:border-primary-400 transition-all duration-200 group"

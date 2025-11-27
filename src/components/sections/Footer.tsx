@@ -24,9 +24,12 @@ export default function Footer({ showTrainingLinks = true }: FooterProps) {
               <ul className="text-gray-100 space-y-2">
                 <li><Link href="/scrum-master" className="hover:text-white">Scrum Master Basis</Link></li>
                 <li><Link href="/scrum-master-vervolg" className="hover:text-white">Scrum Master Verdiept</Link></li>
-                <li><Link href="/product-owner" className="hover:text-white">Product Owner</Link></li>
+                <li><Link href="/product-owner" className="hover:text-white">Product Owner Basis</Link></li>
+                <li><Link href="/product-owner-vervolg" className="hover:text-white">Product Owner Verdiept</Link></li>
                 <li><Link href="/agile-coach" className="hover:text-white">Agile Coach</Link></li>
-                <li><Link href="/obeya" className="hover:text-white">Obeya</Link></li>
+                <li><Link href="/agile-leiderschap" className="hover:text-white">Agile Leiderschap</Link></li>
+                <li><Link href="/leading-with-obeya" className="hover:text-white">Sturen met Obeya</Link></li>
+                <li><Link href="/facilitator-in-obeya" className="hover:text-white">Facilitator in Obeya</Link></li>
               </ul>
             </div>
           )}

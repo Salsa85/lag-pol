@@ -10,11 +10,18 @@ interface ClientSignupSectionProps {
 
 export default function ClientSignupSection({ preselectedCourse = "", variant = 'training' }: ClientSignupSectionProps) {
   const isTeamVariant = variant === 'team';
+  const trainingScheduleOptions = [
+    { value: 'Scrum Master: 2 en 3 maart in Utrecht', label: 'Scrum Master · 2 & 3 maart (Utrecht)' },
+    { value: 'Product Owner: 20 en 21 april in Utrecht', label: 'Product Owner · 20 & 21 april (Utrecht)' },
+    { value: 'Gecombineerde PO/SM: 9-12 februari in Utrecht', label: 'Gecombineerde PO/SM · 9-12 februari (Utrecht)' },
+    { value: 'Andere datum in overleg', label: 'Andere datum (in overleg)' },
+  ];
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     province: [] as string[],
     course: isTeamVariant ? 'Team trajecten' : preselectedCourse,
+    trainingDate: '',
     phone: '',
     costCenter: '',
     eenheid: '',
@@ -61,6 +68,10 @@ export default function ClientSignupSection({ preselectedCourse = "", variant = 
         alert('Besluitnummer studiefaciliteiten is verplicht.');
         return;
       }
+      if (!formData.trainingDate.trim()) {
+        alert('Selecteer een beschikbare trainingsdatum.');
+        return;
+      }
     }
 
     if (isTeamVariant) {
@@ -99,6 +110,7 @@ export default function ClientSignupSection({ preselectedCourse = "", variant = 
           email: '',
           province: [],
           course: isTeamVariant ? 'Team trajecten' : preselectedCourse,
+          trainingDate: '',
           phone: '',
           costCenter: '',
           eenheid: '',
@@ -279,11 +291,31 @@ export default function ClientSignupSection({ preselectedCourse = "", variant = 
                       <option value="Scrum Master Basis / Beginner">Scrum Master Basis</option>
                       <option value="Scrum Master Verdiept / Gevorderd">Scrum Master Verdiept</option>
                       <option value="Product Owner Basis / Beginner">Product Owner Basis</option>
-                      <option value="Product Owner Gevorderd">Product Owner Gevorderd</option>
+                      <option value="Product Owner Verdiept">Product Owner Verdiept</option>
                       <option value="Agile Coach Opleiding">Agile Coach Opleiding</option>
                       <option value="Agile Leiderschap Opleiding">Agile Leiderschap Opleiding</option>
                       <option value="Sturen met Obeya">Sturen met Obeya</option>
                       <option value="Facilitator in Obeya">Facilitator in Obeya</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label htmlFor="trainingDate" className="block text-sm font-medium text-white mb-2">
+                      Beschikbare data (volgens politieplanning) *
+                    </label>
+                    <select
+                      id="trainingDate"
+                      name="trainingDate"
+                      value={formData.trainingDate}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-3 border border-white/30 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-sm bg-white/10 text-white placeholder-gray-300"
+                    >
+                      <option value="" className="bg-gray-800 text-white">Selecteer datum</option>
+                      {trainingScheduleOptions.map((option) => (
+                        <option key={option.value} value={option.value} className="bg-gray-800 text-white">
+                          {option.label}
+                        </option>
+                      ))}
                     </select>
                   </div>
                 </div>
