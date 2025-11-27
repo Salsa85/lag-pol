@@ -120,7 +120,7 @@ Ri: Het team leert nu aan andere teams uit 'hoe zij het doen'. Ze zijn een voorb
       </section>
 
       {/* Signup Section */}
-      <ClientSignupSection preselectedCourse="" />
+      <ClientSignupSection preselectedCourse="Team trajecten" variant="team" />
 
       {/* Footer */}
       <Footer />

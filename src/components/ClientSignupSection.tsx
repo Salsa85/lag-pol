@@ -5,14 +5,17 @@ import Link from 'next/link';
 
 interface ClientSignupSectionProps {
   preselectedCourse?: string;
+  variant?: 'training' | 'team';
 }
 
-export default function ClientSignupSection({ preselectedCourse = "" }: ClientSignupSectionProps) {
+export default function ClientSignupSection({ preselectedCourse = "", variant = 'training' }: ClientSignupSectionProps) {
+  const isTeamVariant = variant === 'team';
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     province: [] as string[],
-    course: preselectedCourse,
+    course: isTeamVariant ? 'Team trajecten' : preselectedCourse,
+    phone: '',
     costCenter: '',
     eenheid: '',
     team: '',
@@ -53,9 +56,18 @@ export default function ClientSignupSection({ preselectedCourse = "" }: ClientSi
       return;
     }
 
-    if (!formData.costCenter.trim()) {
-      alert('Besluitnummer studiefaciliteiten is verplicht.');
-      return;
+    if (!isTeamVariant) {
+      if (!formData.costCenter.trim()) {
+        alert('Besluitnummer studiefaciliteiten is verplicht.');
+        return;
+      }
+    }
+
+    if (isTeamVariant) {
+      if (!formData.phone.trim()) {
+        alert('Telefoonnummer is verplicht.');
+        return;
+      }
     }
 
     if (!formData.eenheid.trim()) {
@@ -86,7 +98,8 @@ export default function ClientSignupSection({ preselectedCourse = "" }: ClientSi
           name: '',
           email: '',
           province: [],
-          course: preselectedCourse,
+          course: isTeamVariant ? 'Team trajecten' : preselectedCourse,
+          phone: '',
           costCenter: '',
           eenheid: '',
           team: '',
@@ -114,9 +127,13 @@ export default function ClientSignupSection({ preselectedCourse = "" }: ClientSi
       
       <div className="relative z-20 max-w-4xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-white mb-4">Aanmelden voor training</h2>
+          <h2 className="text-4xl font-bold text-white mb-4">
+            {isTeamVariant ? 'Heb je interesse in een team traject' : 'Aanmelden voor training'}
+          </h2>
           <p className="text-xl text-gray-200 max-w-2xl mx-auto">
-            Vul het formulier in en we nemen zo snel mogelijk contact met je op.
+            {isTeamVariant
+              ? 'Laat je gegevens achter en we plannen graag een moment om jullie teamtraject te bespreken.'
+              : 'Vul het formulier in en we nemen zo snel mogelijk contact met je op.'}
           </p>
         </div>
 
@@ -243,47 +260,69 @@ export default function ClientSignupSection({ preselectedCourse = "" }: ClientSi
               </div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6">
+            {!isTeamVariant && (
+              <>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="course" className="block text-sm font-medium text-white mb-2">
+                      Training *
+                    </label>
+                    <select
+                      id="course"
+                      name="course"
+                      value={formData.course}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-3 border border-white/30 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-sm bg-white/10 text-white placeholder-gray-300"
+                    >
+                      <option value="" className="bg-gray-800 text-white">Selecteer training</option>
+                      <option value="Scrum Master Basis / Beginner">Scrum Master Basis</option>
+                      <option value="Scrum Master Verdiept / Gevorderd">Scrum Master Verdiept</option>
+                      <option value="Product Owner Basis / Beginner">Product Owner Basis</option>
+                      <option value="Product Owner Gevorderd">Product Owner Gevorderd</option>
+                      <option value="Agile Coach Opleiding">Agile Coach Opleiding</option>
+                      <option value="Agile Leiderschap Opleiding">Agile Leiderschap Opleiding</option>
+                      <option value="Sturen met Obeya">Sturen met Obeya</option>
+                      <option value="Facilitator in Obeya">Facilitator in Obeya</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="costCenter" className="block text-sm font-medium text-white mb-2">
+                    Besluitnummer studiefaciliteiten *
+                  </label>
+                  <input
+                    type="text"
+                    id="costCenter"
+                    name="costCenter"
+                    value={formData.costCenter}
+                    onChange={handleInputChange}
+                    placeholder="Bijv. 12345"
+                    required
+                    className="w-full px-4 py-3 border border-white/30 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-sm bg-white/10 text-white placeholder-gray-300"
+                  />
+                </div>
+              </>
+            )}
+
+            {isTeamVariant && (
               <div>
-                <label htmlFor="course" className="block text-sm font-medium text-white mb-2">
-                  Training *
+                <label htmlFor="phone" className="block text-sm font-medium text-white mb-2">
+                  Telefoonnummer *
                 </label>
-                <select
-                  id="course"
-                  name="course"
-                  value={formData.course}
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  value={formData.phone}
                   onChange={handleInputChange}
+                  placeholder="Bijv. 06 1234 5678"
                   required
                   className="w-full px-4 py-3 border border-white/30 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-sm bg-white/10 text-white placeholder-gray-300"
-                >
-                  <option value="" className="bg-gray-800 text-white">Selecteer training</option>
-                  <option value="Scrum Master Basis / Beginner">Scrum Master Basis</option>
-                  <option value="Scrum Master Verdiept / Gevorderd">Scrum Master Verdiept</option>
-                  <option value="Product Owner Basis / Beginner">Product Owner Basis</option>
-                  <option value="Product Owner Gevorderd">Product Owner Gevorderd</option>
-                  <option value="Agile Coach Opleiding">Agile Coach Opleiding</option>
-                  <option value="Agile Leiderschap Opleiding">Agile Leiderschap Opleiding</option>
-                  <option value="Sturen met Obeya">Sturen met Obeya</option>
-                  <option value="Facilitator in Obeya">Facilitator in Obeya</option>
-                </select>
+                />
               </div>
-            </div>
-
-            <div>
-              <label htmlFor="costCenter" className="block text-sm font-medium text-white mb-2">
-                Besluitnummer studiefaciliteiten *
-              </label>
-              <input
-                type="text"
-                id="costCenter"
-                name="costCenter"
-                value={formData.costCenter}
-                onChange={handleInputChange}
-                placeholder="Bijv. 12345"
-                required
-                className="w-full px-4 py-3 border border-white/30 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-sm bg-white/10 text-white placeholder-gray-300"
-              />
-            </div>
+            )}
 
             <div className="grid md:grid-cols-2 gap-6">
               <div>
@@ -321,7 +360,7 @@ export default function ClientSignupSection({ preselectedCourse = "" }: ClientSi
 
             <div>
               <label htmlFor="message" className="block text-sm font-medium text-white mb-2">
-                Bericht
+                {isTeamVariant ? 'Vertel ons meer over je doelstelling voor het team traject' : 'Bericht'}
               </label>
               <textarea
                 id="message"
@@ -330,7 +369,11 @@ export default function ClientSignupSection({ preselectedCourse = "" }: ClientSi
                 value={formData.message}
                 onChange={handleInputChange}
                 className="w-full px-4 py-3 border border-white/30 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-sm bg-white/10 text-white placeholder-gray-300"
-                placeholder="Vertel ons meer over je wensen of vragen..."
+                placeholder={
+                  isTeamVariant
+                    ? 'Vertel ons meer over je doelstelling team traject.'
+                    : 'Vertel ons meer over je wensen of vragen...'
+                }
               />
             </div>
 
@@ -356,7 +399,11 @@ export default function ClientSignupSection({ preselectedCourse = "" }: ClientSi
               disabled={isSubmitting}
               className="w-full bg-primary-500 hover:bg-primary-600 text-white py-3 px-6 rounded-lg font-semibold text-lg transition-all duration-200 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {isSubmitting ? 'Verzenden...' : 'Aanmelden voor training'}
+              {isSubmitting
+                ? 'Verzenden...'
+                : isTeamVariant
+                  ? 'Aanvraag indienen'
+                  : 'Aanmelden voor training'}
             </button>
           </form>
         </div>
