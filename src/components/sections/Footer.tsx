@@ -36,7 +36,7 @@ export default function Footer({ showTrainingLinks = true }: FooterProps) {
         </div>
         <div className="border-t border-gray-700 pt-8 text-center">
           <p className="text-gray-200">
-            Lean Agile Groep is onderdeel van Lean Six Sigma Groep ©2025
+            Lean Agile Groep ©2025
           </p>
         </div>
       </div>
