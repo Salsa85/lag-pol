@@ -40,6 +40,10 @@ export default function HeroSection({
     }
   };
   
+  const handleScrollToSignup = () => {
+    scrollToSignup();
+  };
+  
   // Map training date display to form value
   const getTrainingDateValue = (date: { courseName: string; dates: string; location: string }) => {
     if (date.courseName === 'Scrum Master' && date.dates === '2 & 3 maart') {
@@ -90,7 +94,7 @@ export default function HeroSection({
             {/* CTA Button */}
             <div className="mt-8">
               <button
-                onClick={scrollToSignup}
+                onClick={handleScrollToSignup}
                 className="group relative bg-primary-500 hover:bg-primary-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
               >
                 <span className="relative z-10">Direct aanmelden</span>
