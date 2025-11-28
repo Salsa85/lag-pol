@@ -119,6 +119,21 @@ Ri: Het team leert nu aan andere teams uit 'hoe zij het doen'. Ze zijn een voorb
         </div>
       </section>
 
+      {/* Community investment note */}
+      <section className="px-6 lg:px-8 pb-16">
+        <div className="max-w-4xl mx-auto bg-primary-50 border border-primary-100 rounded-3xl p-8">
+          <div className="w-12 h-1 bg-primary-500 rounded-full mb-4"></div>
+          <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+            Community vorming door Lean Agile Groep <span className="text-primary-500 text-base font-normal">(uitleg op Blue thema)</span>
+          </h3>
+          <div className="text-lg text-gray-700 leading-relaxed whitespace-pre-line">
+            {`In het nieuwe contract is gevraagd om te investeren op leren & ontwikkelen met de hele Agile community.
+
+Hierdoor zit in de prijs van training en coaching een kleine verplichte opslag zitten van 1%. Voor dit bedrag worden bijvoorbeeld extra bijeenkomsten, intervisie, workshops en leermomenten georganiseerd die iedereen kan bijwonen. Je wordt namelijk niet Agile of een goede Scrum master door een training te volgen. Het kost tijd en aandacht om je rol goed te kunnen uitvoeren of om met je team wendbaarder te ontwikkelen. Op deze manier wordt het leren naast je training laagdrempelig beschikbaar gemaakt.`}
+          </div>
+        </div>
+      </section>
+
       {/* Signup Section */}
       <ClientSignupSection preselectedCourse="Team trajecten" variant="team" />
 

@@ -14,6 +14,11 @@ interface HeroSectionProps {
     duration: string;
     certificate: string;
   };
+  trainingDates?: {
+    courseName: string;
+    dates: string;
+    location: string;
+  }[];
 }
 
 export default function HeroSection({ 
@@ -21,13 +26,29 @@ export default function HeroSection({
   subtitle, 
   className = "",
   price,
-  courseDetails
+  courseDetails,
+  trainingDates
 }: HeroSectionProps) {
-  const scrollToSignup = () => {
+  const scrollToSignup = (selectedDate?: string) => {
+    // Store the selected training date if provided
+    if (selectedDate) {
+      sessionStorage.setItem('preselectedTrainingDate', selectedDate);
+    }
     const signupSection = document.getElementById('signup-section');
     if (signupSection) {
       signupSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+  };
+  
+  // Map training date display to form value
+  const getTrainingDateValue = (date: { courseName: string; dates: string; location: string }) => {
+    if (date.courseName === 'Scrum Master' && date.dates === '2 & 3 maart') {
+      return 'Scrum Master: 2 en 3 maart in Utrecht';
+    }
+    if (date.courseName === 'Product Owner' && date.dates === '20 & 21 april') {
+      return 'Product Owner: 20 en 21 april in Utrecht';
+    }
+    return '';
   };
   return (
     <section className={`relative flex items-center overflow-hidden bg-white pt-20 lg:pt-32 ${className}`}>
@@ -89,7 +110,7 @@ export default function HeroSection({
                     € {price.basePrice.toLocaleString('nl-NL')},-
                   </div>
                   <div className="text-lg text-gray-600">
-                    op basis van {price.baseParticipants} deelnemers
+                    Prijs per deelnemer op basis van {price.baseParticipants} deelnemers
                   </div>
                 </div>
                 
@@ -98,9 +119,14 @@ export default function HeroSection({
                     <svg className="w-5 h-5 text-primary-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                     </svg>
-                    <p className="text-gray-700 text-sm">
-                      Wanneer er meer deelnemers zijn wordt de prijs lager, deze wordt namelijk doorgerekend voor het aantal deelnemers.
-                    </p>
+                    <div className="text-gray-700 text-sm space-y-2">
+                      <p>
+                        Wanneer er meer deelnemers zijn wordt de prijs lager, deze wordt namelijk doorgerekend voor het aantal deelnemers.
+                      </p>
+                      <p>
+                        De prijs hierboven is de prijs die je gebruikt in je Youforce aanvraag studiefaciliteiten.
+                      </p>
+                    </div>
                   </div>
                   <div className="flex items-start">
                     <svg className="w-5 h-5 text-primary-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -111,6 +137,45 @@ export default function HeroSection({
                     </p>
                   </div>
                 </div>
+                
+                {/* Training Dates Section */}
+                {trainingDates && trainingDates.length > 0 && (
+                  <div className="pt-6 mt-6 border-t border-gray-200">
+                    <div className="flex items-center mb-4">
+                      <svg className="w-5 h-5 text-primary-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                      <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wide">Beschikbare data</h3>
+                    </div>
+                    <div className="space-y-2 mb-4">
+                      {trainingDates.map((date, index) => (
+                        <div key={index} className="flex items-start">
+                          <svg className="w-4 h-4 text-primary-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                          </svg>
+                          <div className="text-sm text-gray-700">
+                            <span className="font-medium">{date.courseName}</span>
+                            {' · '}
+                            <span>{date.dates}</span>
+                            {' · '}
+                            <span className="text-gray-600">({date.location})</span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    <button
+                      onClick={() => {
+                        const firstDate = trainingDates && trainingDates.length > 0 
+                          ? getTrainingDateValue(trainingDates[0])
+                          : undefined;
+                        scrollToSignup(firstDate);
+                      }}
+                      className="w-full bg-primary-500 hover:bg-primary-600 text-white px-4 py-2.5 rounded-lg font-medium text-sm transition-all duration-200 shadow-md hover:shadow-lg"
+                    >
+                      Direct aanmelden
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
           )}

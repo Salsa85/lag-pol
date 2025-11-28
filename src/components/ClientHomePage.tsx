@@ -188,7 +188,7 @@ export default function ClientHomePage() {
                   Op deze landingspagina laten we zien welke trainingen we hiervoor bieden en kun je je hiervoor inschrijven.
                 </li>
                 <li>
-                  Daarnaast bieden we op maat trajecten voor operationele teams. Hiervoor kun je op deze site een contactformulier invullen.
+                  Daarnaast bieden we maatwerktrajecten voor coaching van operationele teams in de eenheden. Hiervoor kun je op deze site een contactformulier invullen.
                   We maken dan graag een afspraak om een offerte op maat te maken.
                 </li>
               </ol>
@@ -196,9 +196,7 @@ export default function ClientHomePage() {
               <div className="space-y-4 pt-4">
                 <h3 className="text-xl font-bold text-gray-900">Voor wie zijn de trainingen?</h3>
                 <p className="text-gray-700 leading-relaxed">
-                  Onze Agile trainingen zijn specifiek ontwikkeld voor operatie en bedrijfsvoering teams die direct adviseren of samenwerken (bedrijf voeren)
-                  met de operationele eenheden binnen de politieorganisatie. Teams die direct samenwerken met de operationele praktijk en wendbaarheid
-                  willen vergroten in hun dagelijkse werk.
+                  Onze Agile trainingen zijn specifiek ontwikkeld voor operationele teams. Bedrijfsvoering en dienstverlening die direct adviseren, leidinggeven of samenwerken met de operationele eenheden kunnen ook gebruik maken van deze aanbesteding. Deze trainingen zijn ook beschikbaar voor teams buiten de politieorganisatie.
                 </p>
                 <p className="text-gray-700 leading-relaxed">
                   Onze trainingen zijn praktijkgericht, interactief en nuchter, zodat teams direct zelf aan de slag kunnen

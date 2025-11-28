@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 interface ClientSignupSectionProps {
@@ -32,6 +32,21 @@ export default function ClientSignupSection({ preselectedCourse = "", variant = 
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  // Check for preselected training date from sessionStorage
+  useEffect(() => {
+    if (!isTeamVariant && typeof window !== 'undefined') {
+      const preselectedDate = sessionStorage.getItem('preselectedTrainingDate');
+      if (preselectedDate) {
+        setFormData(prev => ({
+          ...prev,
+          trainingDate: preselectedDate
+        }));
+        // Clear it after using it
+        sessionStorage.removeItem('preselectedTrainingDate');
+      }
+    }
+  }, [isTeamVariant]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value, type } = e.target;

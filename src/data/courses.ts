@@ -73,12 +73,12 @@ export const scrumMasterCourse: Course = {
     requirements: [
       'Er een beschikbaar Agile team of team is dat wil starten en waarin je je rol kan vervullen.',
       'Je affiniteit met de materie hebt en je competenties matchen met de rol waarvoor je training gaat volgen.',
-      'Je aangemeld en betrokken ben bij de community van Wendbare (Agile) politie in MS teams.',
-      'Je ontwikkeltijd hebt en tijd beschikbaar bent voor de uitvoering van de rol.',
-      'Je de quickscan en e-learning Scrum op flowsparks hebt gedaan'
+      'Je aangemeld en betrokken bent bij de community van een Wendbare (Agile) politie in MS teams.',
+      'Je ontwikkeltijd hebt en tijd beschikbaar hebt voor de uitvoering van de rol.',
+      'Je de "Hoe Agile ben jij?" quickscan en de e-learning "Scrum" op Flowsparks hebt gedaan'
     ],
     preparationTime: '2-4 uur',
-    additionalInfo: 'Na afloop van de training ontvang je een certificaat van deelname. Daarnaast ontvang je het trainingsmateriaal digitaal.'
+    additionalInfo: 'Na afloop van de training ontvang je een certificaat van deelname. Daarnaast ontvang je het trainingsmateriaal digitaal.\n\nBij de training zit de mogelijkheid om een Professional Scrum Master (PSM1) examen te doen. Het examen is in het Engels en niet verplicht voor de afronding van deze training. Wil je meer weten over dit certificaat neem dan contact op met ons.'
   },
   price: {
     basePrice: 1414,
@@ -290,7 +290,7 @@ export const agileCoachCourse: Course = {
     additionalInfo: 'Na afloop van de training ontvang je een certificaat van deelname. Daarnaast ontvang je het trainingsmateriaal digitaal, inclusief praatplaten voor Agile principes.'
   },
   price: {
-    basePrice: 2828,
+    basePrice: 3838,
     baseParticipants: 5,
     maxParticipants: 12,
     note: 'Wanneer er meer deelnemers zijn wordt de prijs lager, deze wordt namelijk doorgerekend voor het aantal deelnemers.'

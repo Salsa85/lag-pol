@@ -32,6 +32,34 @@ export default function CoursePageLayout({
   preselectedCourse,
   relatedTraining
 }: CoursePageLayoutProps) {
+  // Determine training dates based on course
+  const getTrainingDates = (course: Course) => {
+    const courseId = course.id.toLowerCase();
+    const courseTitle = course.title.toLowerCase();
+    
+    if (courseId === 'basis' && courseTitle.includes('scrum master')) {
+      return [
+        {
+          courseName: 'Scrum Master',
+          dates: '2 & 3 maart',
+          location: 'Utrecht'
+        }
+      ];
+    }
+    
+    if (courseId === 'basis' && courseTitle.includes('product owner')) {
+      return [
+        {
+          courseName: 'Product Owner',
+          dates: '20 & 21 april',
+          location: 'Utrecht'
+        }
+      ];
+    }
+    
+    return undefined;
+  };
+
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -53,6 +81,7 @@ export default function CoursePageLayout({
             duration: course.details.duration.split(',')[0].trim(),
             certificate: course.details.certificate
           }}
+          trainingDates={getTrainingDates(course)}
         />
       ))}
 

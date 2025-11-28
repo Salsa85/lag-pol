@@ -12,7 +12,7 @@ interface NavigationProps {
 
 export default function Navigation({ 
   buttonText = "BEKIJK TRAININGEN", 
-  buttonLink = "#training-section",
+  buttonLink = "/#training-section",
   showMargin = true 
 }: NavigationProps) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);

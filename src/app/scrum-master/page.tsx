@@ -27,7 +27,7 @@ export default function ScrumMasterPage() {
   return (
     <CoursePageLayout
       courses={courses}
-      heroTitle="Scrum Master Trainingen"
+      heroTitle="Scrum Master Basis"
       heroSubtitle="Ontwikkel vaardigheden om teams te begeleiden in een veeleisende praktijk. Leer hoe je als Scrum Master teams kunt helpen om effectiever samen te werken en betere resultaten te behalen."
       preselectedCourse="Scrum Master Basis / Beginner"
       relatedTraining={relatedTraining}

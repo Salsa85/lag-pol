@@ -71,7 +71,7 @@ export default function PracticalDetailsSection({ courses }: PracticalDetailsSec
                 )}
                 {course.practicalDetails.additionalInfo && (
                   <div className="bg-gray-50 rounded-lg p-4 mt-4">
-                    <p className="text-base text-gray-700 leading-relaxed">{course.practicalDetails.additionalInfo}</p>
+                    <p className="text-base text-gray-700 leading-relaxed whitespace-pre-line">{course.practicalDetails.additionalInfo}</p>
                   </div>
                 )}
               </div>
