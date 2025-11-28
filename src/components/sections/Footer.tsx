@@ -16,7 +16,7 @@ export default function Footer({ showTrainingLinks = true }: FooterProps) {
           <div>
             <h3 className="text-xl font-semibold mb-4">Contact</h3>
             <p className="text-gray-100 mb-2">📞 088-5326720</p>
-            <p className="text-gray-100">info@leanagilegroep.nl</p>
+            <p className="text-gray-100">office@lssg.nl</p>
           </div>
           {showTrainingLinks && (
             <div>

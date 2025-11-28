@@ -411,10 +411,10 @@ export const leadingWithObeyaCourse: Course = {
     additionalInfo: 'Na afloop van de training ontvang je een certificaat van deelname (LCS certificering 1a). Daarnaast ontvang je het trainingsmateriaal digitaal.'
   },
   price: {
-    basePrice: 1295,
+    basePrice: 1414,
     baseParticipants: 5,
     maxParticipants: 12,
-    note: 'Wanneer er meer deelnemers zijn wordt de prijs lager, deze wordt namelijk doorgerekend voor het aantal deelnemers. De prijs is voor de hele training (team training).'
+    note: 'Prijs gebaseerd op 5 deelnemers. Wanneer er meer deelnemers zijn wordt de prijs lager, deze wordt namelijk doorgerekend voor het aantal deelnemers.'
   }
 };
 
@@ -476,10 +476,10 @@ export const facilitatorInObeyaCourse: Course = {
     additionalInfo: 'Na afloop van de training ontvang je een certificaat van deelname (LCS certificering 1b). Daarnaast ontvang je het trainingsmateriaal digitaal.'
   },
   price: {
-    basePrice: 1295,
+    basePrice: 1414,
     baseParticipants: 5,
     maxParticipants: 12,
-    note: 'Wanneer er meer deelnemers zijn wordt de prijs lager, deze wordt namelijk doorgerekend voor het aantal deelnemers. De prijs is voor de hele training (team training).'
+    note: 'Prijs gebaseerd op 5 deelnemers. Wanneer er meer deelnemers zijn wordt de prijs lager, deze wordt namelijk doorgerekend voor het aantal deelnemers.'
   }
 };
 
