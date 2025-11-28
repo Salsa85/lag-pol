@@ -374,9 +374,9 @@ export const agileLeiderschapMetadata: CourseMetadata = {
 export const leadingWithObeyaCourse: Course = {
   id: 'leading-with-obeya',
   title: 'Sturen met Obeya de team kickstart',
-  description: 'Leer hoe je als managementteam effectief kunt werken met Obeya. Ontwikkel vaardigheden om strategie naar tactiek te vertalen en teams te begeleiden naar betere resultaten.',
+  description: 'Leer hoe je als managementteam effectief kunt werken met Obeya. Ontwikkel vaardigheden om strategie naar tactiek uitvoering te vertalen en teams te begeleiden naar betere resultaten.',
   duration: '4 dagdelen van 3,5 uur',
-  detailedDescription: 'De Sturen met Obeya team kickstart opleiding is bedoeld voor MT\'s die met Obeya gaan werken. Als start wordt de theorie van Obeya uitgelegd. Vervolgens wordt het team begeleid om zelf een Obeya bord vorm te geven. Hierna wordt de Obeya dialoog gevoerd en wordt geoefend samen deze gesprekken te blijven voeren. Hierbij betrekken we, indien mogelijk, de facilitator. Zo is het team na de training uitgerust om met Obeya te werken.\n\nOnze trainers combineren training en coaching en zijn zelf actief in het implementeren van Obeya op alle organisatieniveaus. Zo ontstaat een krachtige mix van theorie en praktijk. De opleiding helpt leiders om strategie naar tactiek te vertalen en echt praktisch te maken: in de praktijk stuurbaar. Zo worden resultaten bereikt en wordt er bijgestuurd waar dat nodig is. Hierdoor worden teams enthousiast en krijgen ze het vertrouwen om zelf resultaten te behalen.\n\nDeze training legt de relatie met Agile op MT niveau: Obeya is een manier om Agile principes en waarden toe te passen op managementniveau, waarbij transparantie, samenwerking en continue verbetering centraal staan.',
+  detailedDescription: 'De Sturen met Obeya team kickstart opleiding is bedoeld voor MT\'s die met Obeya gaan werken. Als start wordt de theorie van Obeya uitgelegd. Vervolgens wordt het team begeleid om zelf een Obeya bord vorm te geven. Hierna wordt de Obeya dialoog gevoerd en wordt geoefend samen deze gesprekken te blijven voeren. De (toekomstige) facilitator is ook aanwezig in de training. Wat ons betreft is de facilitator verplicht onderdeel van de training! Zo is het team na de training uitgerust om met Obeya te werken.\n\nOnze trainers combineren training en coaching en zijn zelf actief in het implementeren van Obeya op alle organisatieniveaus. Zo ontstaat een krachtige mix van theorie en praktijk. De opleiding helpt leiders om strategie naar tactiek te vertalen en echt praktisch te maken: in de praktijk stuurbaar. Zo worden resultaten bereikt en wordt er bijgestuurd waar dat nodig is. Hierdoor worden teams enthousiast en krijgen ze het vertrouwen om zelf resultaten te behalen.\n\nDeze training legt de relatie met Agile op MT niveau: Obeya is een manier om Agile principes en waarden toe te passen op managementniveau, waarbij transparantie, samenwerking en continue verbetering centraal staan.',
   topics: [
     'Herkomst Obeya en theoretische kennis onderdelen: strategie, doelen, prestaties, taken en moeilijke problemen, LWO referentiemodel',
     'Inrichting Obeya voor eigen werksituatie en uitvoering naar eigen team',
@@ -392,7 +392,7 @@ export const leadingWithObeyaCourse: Course = {
   target: 'Managementteams (MT\'s) die met Obeya gaan werken. Specifiek ontwikkeld voor de Politie om strategie naar tactiek te vertalen en teams te begeleiden naar betere resultaten.',
   uniqueFeatures: [
     'Het werkend krijgen van de Obeya, specifiek per MT',
-    'Terminologieën worden toegelicht: OKR\'s (doelstellingen en belangrijke resultaten) worden gebruikt in plaats van KPI\'s, omdat deze beter aansluiten bij de Obeya methodiek',
+    'Terminologieën worden toegelicht: OKR\'s (doelstellingen en belangrijke resultaten)',
     'Voordelen van Obeya: betere samenwerking en afstemming, sturen op basis van metingen en data, transparantie en snellere besluitvorming',
     'Ontwikkeld o.b.v. Politie-context',
     'Gebaseerd op \'Training from the Back of the Room\': deelnemers leren actief en ervaringsgericht door zelf te ontdekken, te doen en samen te werken, i.p.v. passief kennis te ontvangen'
@@ -405,12 +405,13 @@ export const leadingWithObeyaCourse: Course = {
   },
   practicalDetails: {
     requirements: [
-      'Onderdeel van de teamtraining is de facilitator. Zijn competenties zijn gecheckt (vergelijkbaar met scrum master/agile coach)',
-      'Men heeft gecheckt of financiering van borden aanwezig is en wat ze willen aanschaffen wanneer ze hiermee verder gaan',
-      'Triage startbekwaamheid stap 1 en deels 2: bij ander team kijken is volbracht',
-      'TC\'s en hoger laten ontwikkeling actief terugkomen in R&O wat betreft ontwikkeling',
+      'Als facilitator heb je de Obeya kickstart (met je team) gevolgd',
+      'Je hebt gecheckt of financiering van de benodigdheden/borden (inrichting van de ruimte) aanwezig is',
+      'De Triage startbekwaamheid stap 1 en deels 2 is uitgevoerd waarbij je ook bij ander team gekeken hebt',
+      'Ben je een leidinggevende, zorg dan dat je persoonlijke ontwikkeling actief terugkomt in je R&O',
       'Zowel naar boven als naar beneden in de organisatie is gecommuniceerd welke verandering ingezet wordt en wat men denkt dat het effect is op de omgeving',
-      'In de toekomst: de Agile leiderschaps quick scan (komt binnenkort beschikbaar)'
+      'Je de E-learning "quickscan: Hoe Agile ben jij?" hebt afgerond (ca 30 minuten en met verdieping 1 uur)',
+      'Je de Quickscan op leiderschap hebt afgerond (komt binnenkort beschikbaar)'
     ],
     requirementsTitle: 'Deze training is geschikt voor jou wanneer',
     additionalInfo: 'Na afloop van de training ontvang je een certificaat van deelname (LCS certificering 1a). Daarnaast ontvang je het trainingsmateriaal digitaal.'
@@ -445,7 +446,7 @@ export const facilitatorInObeyaCourse: Course = {
   title: 'Facilitator in Obeya',
   description: 'Ontwikkel de vaardigheden om Obeya sessies te faciliteren en teams te begeleiden in het gebruik van de Obeya-methodiek.',
   duration: '4 dagdelen van 3,5 uur',
-  detailedDescription: 'Deze opleiding is bedoeld voor mensen die Obeya teams gaan faciliteren in het werken met Obeya. Als start wordt de theorie van Obeya uitgelegd en vervolgens wordt de rol van facilitator verheldert: je zet een Obeya ruimte op en helpt de performance dialoog met het team goed te voeren.\n\nEr wordt geleerd hoe je als facilitator het team helpt een Obeya op te zetten, welke technieken hiervoor zijn, hoe je het team leert de Obeya dialoog goed te voeren en er wordt geoefend dit te faciliteren. Facilitators leren eerst de lead te pakken en deze daarna over te geven aan het team. Zij doen dit d.m.v. voordoen, samen doen, zelf doen.\n\nDe facilitators oefenen direct in de praktijk en ze worden begeleid door ons. Onze trainers combineren training en coaching en zijn zelf actief in het implementeren van Obeya op alle organisatieniveaus. Zo ontstaat een krachtige mix van theorie en praktijk.\n\nDe opleiding zorgt ervoor dat Obeya facilitators in staat zijn een MT te begeleiden om Sturen met Obeya in de praktijk werkend te krijgen. Hierdoor worden teams enthousiast en krijgen zij het vertrouwen om dit uiteindelijk zelf te doen.\n\nAls facilitator neem je transparantie en andere Agile principes mee in het coachen. Je zorgt ervoor dat de Obeya-ruimte en overleggen openbaar zijn, zodat iedereen kan zien wat er gebeurt en leren van elkaar.',
+  detailedDescription: 'Deze opleiding is bedoeld voor mensen die Obeya teams gaan faciliteren in het werken met Obeya. Als start wordt de theorie van Obeya uitgelegd en vervolgens wordt de rol van facilitator verheldert: je zet een Obeya ruimte op en helpt de performance dialoog met het team goed te voeren.\n\nEr wordt geleerd hoe je als facilitator het team helpt een Obeya op te zetten, welke technieken hiervoor zijn, hoe je het team leert de Obeya dialoog goed te voeren en er wordt geoefend dit te faciliteren. Facilitators leren eerst de lead te pakken en deze daarna over te geven aan het team. Zij doen dit d.m.v. voordoen, samen doen, zelf doen.\n\nDe facilitators oefenen direct in de praktijk en ze worden begeleid door ons. Onze trainers combineren training en coaching en zijn zelf actief in het implementeren van Obeya op alle organisatieniveaus. Zo ontstaat een krachtige mix van theorie en praktijk.\n\nDe opleiding zorgt ervoor dat Obeya facilitators in staat zijn een MT te begeleiden om Sturen met Obeya in de praktijk werkend te krijgen. Hierdoor worden teams enthousiast en krijgen zij het vertrouwen om dit uiteindelijk zelf te doen. Als facilitator faciliteer je ook de cascadering en verbinding tussen strategie en uitvoering, zowel naar beneden (naar de uitvoering) als naar boven (naar de strategie).\n\nAls facilitator neem je transparantie en andere Agile principes mee in het coachen. Je zorgt ervoor dat de Obeya-ruimte en overleggen openbaar zijn, zodat iedereen kan zien wat er gebeurt en leren van elkaar.',
   topics: [
     'Herkomst Obeya en theoretische kennis onderdelen: strategie, doelen, prestaties, taken en moeilijke problemen',
     'Rollen en routines bij de inrichting Obeya en uitvoering naar eigen team',
@@ -455,7 +456,7 @@ export const facilitatorInObeyaCourse: Course = {
     'Transparantie en Agile principes meenemen in het coachen',
     'Zorgen dat de Obeya-ruimte en overleggen openbaar zijn'
   ],
-  target: 'Mensen die Obeya teams gaan faciliteren in het werken met Obeya. Specifiek ontwikkeld voor de Politie om teams te begeleiden in het implementeren van Obeya.',
+  target: 'Mensen die Obeya teams gaan faciliteren in het werken met Obeya. Specifiek ontwikkeld voor de Politie om teams te begeleiden in het implementeren van Obeya en de verbinding tussen strategie en uitvoering te faciliteren.',
   uniqueFeatures: [
     'Deelnemers leren een MT op proces te begeleiden i.p.v. op inhoud',
     'Deelnemers leren wat neutraliteit is: \'Wat in deze kamer gebeurt, blijft in deze kamer\'',
@@ -472,10 +473,9 @@ export const facilitatorInObeyaCourse: Course = {
   },
   practicalDetails: {
     requirements: [
-      'De facilitator was onderdeel van de Sturen met Obeya team kickstart training',
-      'Ontwikkelruimte aanwezig t.b.v. het zijn van een goede procesbegeleider/facilitator',
-      'De facilitator heeft tijd beschikbaar voor deze rol en ontwikkeling',
-      'Komt terug in R&O wat betreft ontwikkeling'
+      'Als facilitator heb je de Obeya kickstart (met je team) gevolgd',
+      'Je hebt ontwikkelruimte en tijd beschikbaar voor deze rol en ontwikkeling',
+      'Facilitator word je niet in één training. Zorg dus dat je je persoonlijke ontwikkeling actief laat terugkomen in je R&O'
     ],
     requirementsTitle: 'Deze training is geschikt voor jou wanneer',
     additionalInfo: 'Na afloop van de training ontvang je een certificaat van deelname (LCS certificering 1b). Daarnaast ontvang je het trainingsmateriaal digitaal.'

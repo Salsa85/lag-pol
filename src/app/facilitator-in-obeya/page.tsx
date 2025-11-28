@@ -33,7 +33,7 @@ export default function FacilitatorInObeyaPage() {
     <CoursePageLayout
       courses={courses}
       heroTitle="Facilitator in Obeya"
-      heroSubtitle="Ontwikkel de vaardigheden om Obeya sessies te faciliteren en teams te begeleiden in het gebruik van de Obeya-methodiek."
+      heroSubtitle="Ontwikkel de vaardigheden om Obeya sessies te faciliteren en teams te begeleiden in het gebruik van de Obeya-methodiek. Leer hoe je als facilitator de verbinding tussen strategie en uitvoering faciliteert."
       preselectedCourse="Facilitator in Obeya"
       relatedTraining={relatedTraining}
     />
