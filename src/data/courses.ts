@@ -107,8 +107,8 @@ export const productOwnerCourse: Course = {
   ],
   target: 'Product Owners die richtinggevende en waardegedreven leiders willen worden',
   uniqueFeatures: [
-    'Men werkt aan eigen backlog. Dat betekent mogelijk huiswerk vooraf waarbij ze hun eigen backlog (deels) meenemen. Goed om daar verwachtingsmanagement op te doen.',
-    'Deelnemers brengen hun eigen stakeholders in beeld (dus géén simulatie)',
+    'Je werkt aan je eigen backlog. Dat betekent mogelijk huiswerk vooraf waarbij je je eigen backlog (deels) meeneemt. Goed om daar verwachtingsmanagement op te doen.',
+    'Je brengt je eigen stakeholders in beeld (dus géén simulatie)',
     'Slide-vrij (Powerpoint-vrij)',
     'Ontwikkeld o.b.v. Politie-context',
     'Begrijpelijke metaforen uit het dagelijks leven',
@@ -124,12 +124,14 @@ export const productOwnerCourse: Course = {
     requirements: [
       'Er een beschikbaar Agile team of team is dat wil starten en waarin je je rol kan vervullen.',
       'Je affiniteit met de materie hebt en je competenties matchen met de rol waarvoor je training gaat volgen.',
+      'Je aangemeld en betrokken bent bij de community van Wendbare (Agile) politie in MS teams.',
+      'Je ontwikkeltijd hebt en tijd beschikbaar bent voor de uitvoering van de rol.',
       'Je de E-learning "quickscan: Hoe Agile ben jij?" hebt afgerond (ca 30 minuten en met verdieping 1 uur)',
       'Je de E-learning "Scrum" hebt afgerond (ca 1.5 uur tot 2 uur)',
       'Je de Quickscan op leiderschap hebt afgerond (komt binnenkort beschikbaar)'
     ],
     preparationTime: '3 uur',
-    additionalInfo: 'Na afloop van de training ontvang je een certificaat van deelname. Daarnaast ontvang je het trainingsmateriaal digitaal.'
+    additionalInfo: 'Na afloop van de training ontvang je een certificaat van deelname. Daarnaast ontvang je het trainingsmateriaal digitaal.\n\nBij de training zit de mogelijkheid om een Professional Product Owner (PSPO I) examen te doen. Het examen is in het Engels en niet verplicht voor de afronding van deze training. Wil je meer weten over dit certificaat neem dan contact op met ons.'
   },
   price: {
     basePrice: 1414,
@@ -158,7 +160,7 @@ export const productOwnerVervolgCourse: Course = {
   ],
   target: 'Ervaren Product Owners die zich willen ontwikkelen tot waardegedreven leiders',
   uniqueFeatures: [
-    'Men werkt aan eigen backlog. Dat betekent mogelijk huiswerk vooraf waarbij ze hun eigen backlog (deels) meenemen. Goed om daar verwachtingsmanagement op te doen.',
+    'Je werkt aan je eigen backlog. Dat betekent mogelijk huiswerk vooraf waarbij je je eigen backlog (deels) meeneemt. Goed om daar verwachtingsmanagement op te doen.',
     'Aandacht voor overlap tussen de rol van PO en SM',
     'Slide-vrij (Powerpoint-vrij)',
     'Ontwikkeld o.b.v. Politie-context',
@@ -179,7 +181,7 @@ export const productOwnerVervolgCourse: Course = {
       'Je de ambitie hebt om je verder te ontwikkelen als waardegedreven leider'
     ],
     requirementsTitle: 'Deze training is geschikt voor jou wanneer je',
-    additionalInfo: 'Na afloop van de training ontvang je een certificaat van deelname. Daarnaast ontvang je het trainingsmateriaal digitaal. Het is mogelijk om via Scrum.org een examen te doen als het gewenst is om het Professional Product Owner I (PSPO I) certificering te behalen.'
+    additionalInfo: 'Na afloop van de training ontvang je een certificaat van deelname. Daarnaast ontvang je het trainingsmateriaal digitaal.\n\nBij de training zit de mogelijkheid om een Professional Product Owner (PSPO I) examen te doen. Het examen is in het Engels en niet verplicht voor de afronding van deze training. Wil je meer weten over dit certificaat neem dan contact op met ons.'
   },
   price: {
     basePrice: 960,
@@ -245,27 +247,28 @@ export const agileCoachCourse: Course = {
   title: 'Agile Coach Opleiding',
   description: 'Word een ervaren Agile Coach die duurzame verandering kan begeleiden. Leer hoe je teams en organisaties kunt helpen om wendbaar te worden en betere resultaten te behalen.',
   duration: '8 dagdelen van 3,5 uur',
-  detailedDescription: 'Een Agile Coach helpt teams met het toepassen van Agile in het werk. De nadruk ligt vooral op het coachingsaspect. Als Agile Coach leer je niet alleen een productievere omgeving te creëren, maar help je ook (Scrum) teams om alles uit zichzelf te halen en maak je ze bewust van hoe Agile het team kan helpen om tot betere resultaten te komen.',
+  detailedDescription: 'Een Agile Coach helpt teams met het toepassen van Agile in het werk. De nadruk ligt vooral op het coachingsaspect. Als Agile Coach leer je niet alleen een productievere omgeving te creëren, maar help je ook (Scrum) teams om alles uit zichzelf te halen en maak je ze bewust van hoe investeren op wendbaarheid (agility) het team kan helpen om tot betere resultaten te komen.',
   topics: [
     'Agile principes en waarden (met praatplaten die digitaal gedeeld worden)',
     'Je introduceert of verbetert Agile methodieken en technieken',
     'Je brengt mensen in beweging om te veranderen',
-    'Van de Lean filosofie de Agile principes doorvoeren binnen de gehele organisatie',
+    'De lean filosofie en Agile principes doorvoeren binnen de gehele organisatie',
     'Werken op individueel, team-, afdeling- en managementniveau',
     'Advisering op Agile leiderschap en begeleiding',
     'Coachen van Scrum Masters bij hun Scrum Events',
-    'Het stimuleren van zelforganisatie en zelfsturing en het bouwen van performante teams',
+    'Het stimuleren van zelforganisatie en zelfsturing en het bouwen van performance teams',
     'Het transformeren en begeleiden van de organisatie en reflecteren op eigen handelen door zelfreflectie, feedback, intervisie en coachgesprekken',
+    'Omgaan met ondermijnende strategieën',
     'Verdieping teamdynamiek',
     'Verdieping facilitatie: het begeleiden van groepsgesprekken'
   ],
   target: 'Ervaren Scrum Masters, Product Owners en Agile professionals die teams willen begeleiden bij Agile transformaties',
   uniqueFeatures: [
-    'Aandacht voor opschaling van wendbaar werken: begrip van scaling frameworks (SaFe, Less) en wanneer deze geschikt zijn. Het IV/ICT politiemodel is gebaseerd op SaFe. Één Product Owner met verschillende Scrum teams met één backlog is al uitdagend.',
+    'Aandacht voor opschaling van wendbaar werken: begrip van scaling frameworks (SaFe, Less) en wanneer deze geschikt zijn',
     'Het gebruik van de kennisscan t.b.v. het bevorderen van multidisciplinair/functionele teams en de T-vorm',
     'Triage startbekwaamheid: toelichting en gebruik van het canvas',
     'Werkvormen en onderwerpen die praktisch toepasbaar zijn in de politiecontext',
-    'Agile team framen als: een team wat enorm goed is in leren, verbeteren & ontwikkelen (uitgangspunt voor elevator pitch)',
+    'Je leert hoe je Agile teams kunt positioneren als teams die excelleren in leren, verbeteren en ontwikkelen',
     'Competentie-gericht ("Kun je het?" i.p.v. "Weet je het?")',
     'Aandacht voor 1-op-1 coaching volgens de Coachingsboog van Lyssa Adkins',
     'Slide-vrij (Powerpoint-vrij)',
@@ -285,7 +288,7 @@ export const agileCoachCourse: Course = {
       'Je de E-learnings op flowsparks hebt afgerond',
       'Je de 15 days toolbox hebt doorlopen',
       'Je ontwikkeltijd hebt na de training om te kunnen coachen',
-      'Je mag coachen buiten je eigen team (getoetst)'
+      'Je hebt een rol waarbij je ook andere teams mag coachen'
     ],
     additionalInfo: 'Na afloop van de training ontvang je een certificaat van deelname. Daarnaast ontvang je het trainingsmateriaal digitaal, inclusief praatplaten voor Agile principes.'
   },
@@ -335,8 +338,10 @@ export const agileLeiderschapCourse: Course = {
   },
   practicalDetails: {
     requirements: [
-      'Je direct met het geleerde aan de slag kunt en wilt gaan',
-      'Je bereid bent om je eigen gedrag aan te passen om professionals meer eigenaarschap te laten nemen'
+      'Je direct met het geleerde aan de slag kunt en wilt gaan en er een beschikbaar Agile team of team is dat wil starten en waarin je je rol kan vervullen',
+      'Je bereid bent om je eigen gedrag aan te passen om professionals meer eigenaarschap te laten nemen',
+      'Je de E-learning "quickscan: Hoe Agile ben jij?" hebt afgerond (ca 30 minuten en met verdieping 1 uur)',
+      'Je de Quickscan op leiderschap hebt afgerond en de feedback kunt meenemen naar de training (komt binnenkort beschikbaar)'
     ],
     requirementsTitle: 'Deze training is geschikt voor jou wanneer je',
     additionalInfo: 'Deze training is voornamelijk zinvol wanneer je direct er mee aan de slag kan en wil. De nieuwe werkomgeving is er nog niet en leiding is onderdeel van de verandering. Sterker nog: leidinggevenden kunnen het maken of breken.\n\nNa afloop van de training ontvang je een certificaat van deelname. Daarnaast ontvang je het trainingsmateriaal digitaal.'

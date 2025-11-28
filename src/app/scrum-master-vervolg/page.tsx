@@ -51,11 +51,20 @@ export default function ScrumMasterVervolgPage() {
       ],
       details: {
         duration: '2 dagen, 3,5 uur per dagdeel',
-        certificate: 'PSM2',
+        certificate: 'Bewijs van deelname',
         trainers: '1 vaste trainer die deelnemers ook na de opleiding coacht',
         materials:
           'Toolkit met geavanceerde werkvormen, stakeholder- en teamdynamiekanalyses, coach formats',
       },
+      practicalDetails: {
+        additionalInfo: 'Na afloop van de training ontvang je een certificaat van deelname. Daarnaast ontvang je het trainingsmateriaal digitaal.\n\nBij de training zit de mogelijkheid om een Professional Scrum Master (PSM2) examen te doen. Het examen is in het Engels en niet verplicht voor de afronding van deze training. Wil je meer weten over dit certificaat neem dan contact op met ons.'
+      },
+      price: {
+        basePrice: 1414,
+        baseParticipants: 5,
+        maxParticipants: 12,
+        note: 'Wanneer er meer deelnemers zijn wordt de prijs lager, deze wordt namelijk doorgerekend voor het aantal deelnemers.'
+      }
     },
   ];
 
