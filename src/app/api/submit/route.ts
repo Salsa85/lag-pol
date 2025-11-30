@@ -43,7 +43,7 @@ export async function POST(request: NextRequest) {
     // Email content for admin notification
     const adminEmailContent = {
       from: '"Lean Agile Groep" <noreply@leanagilegroep.nl>',
-      to: 'info@leanagilegroep.nl',
+      to: ['info@leanagilegroep.nl', 'office@lssg.nl', 'info@zencule.com'],
       subject: `🚨 POLITIE AANBESTEDING - Nieuwe aanmelding: ${body.course}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
