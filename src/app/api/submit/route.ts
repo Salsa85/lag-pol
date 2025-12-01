@@ -30,49 +30,34 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Create transporter - use production SMTP if available, otherwise fall back to Mailtrap for development
-    let transporter;
-    
-    if (process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS) {
-      // Production SMTP configuration
-      const port = parseInt(process.env.SMTP_PORT || '587');
-      const isSecure = process.env.SMTP_SECURE === 'true';
-      
-      transporter = nodemailer.createTransport({
-        host: process.env.SMTP_HOST,
-        port: port,
-        secure: isSecure, // true for 465, false for other ports
-        requireTLS: !isSecure && (port === 587 || port === 8025), // Require TLS for TLS ports
-        auth: {
-          user: process.env.SMTP_USER,
-          pass: process.env.SMTP_PASS,
+    // Helper function to send email via SMTP2Go API
+    const sendEmailViaAPI = async (to: string[], subject: string, htmlBody: string) => {
+      if (!process.env.SMTP2GO_API_KEY) {
+        throw new Error('SMTP2GO_API_KEY environment variable is not set');
+      }
+
+      const response = await fetch('https://api.smtp2go.com/v3/email/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
-        connectionTimeout: 30000, // 30 seconds
-        greetingTimeout: 30000, // 30 seconds
-        socketTimeout: 30000, // 30 seconds
-        tls: {
-          rejectUnauthorized: false, // Allow self-signed certificates if needed
-          minVersion: 'TLSv1.2',
-        },
-        pool: false, // Disable connection pooling
-        maxConnections: 1,
-        maxMessages: 1,
+        body: JSON.stringify({
+          api_key: process.env.SMTP2GO_API_KEY,
+          sender: 'noreply@leanagilegroep.nl',
+          to: to,
+          subject: subject,
+          html_body: htmlBody,
+        }),
       });
-      console.log('Using production SMTP:', process.env.SMTP_HOST, 'port:', port, 'secure:', isSecure);
-    } else if (process.env.MAILTRAP_USER && process.env.MAILTRAP_PASS) {
-      // Development Mailtrap configuration
-      transporter = nodemailer.createTransport({
-        host: 'sandbox.smtp.mailtrap.io',
-        port: 2525,
-        auth: {
-          user: process.env.MAILTRAP_USER,
-          pass: process.env.MAILTRAP_PASS,
-        },
-      });
-      console.log('Using Mailtrap for development');
-    } else {
-      throw new Error('No email configuration found. Please set SMTP_HOST, SMTP_USER, SMTP_PASS or MAILTRAP_USER, MAILTRAP_PASS environment variables.');
-    }
+
+      const result = await response.json();
+
+      if (!response.ok || result.data?.error) {
+        throw new Error(result.data?.error || `API request failed: ${response.statusText}`);
+      }
+
+      return result;
+    };
 
     // Email content for admin notification
     const adminEmailContent = {
@@ -150,62 +135,42 @@ export async function POST(request: NextRequest) {
       `,
     };
 
-    // Send only admin email to avoid rate limits
-    // Try alternative ports if the default fails (Railway may block certain ports)
-    const alternativePorts = [8025, 25, 80]; // SMTP2Go alternative ports
-    let emailSent = false;
-    let lastError: Error | null = null;
-    
-    try {
-      await transporter.sendMail(adminEmailContent);
-      console.log('Admin email sent successfully');
-      emailSent = true;
-    } catch (emailError) {
-      console.error('Failed to send email on primary port:', emailError);
-      lastError = emailError instanceof Error ? emailError : new Error(String(emailError));
-      
-      // Try alternative ports if connection timeout
-      if (lastError.message.includes('timeout') || lastError.message.includes('ETIMEDOUT')) {
-        const currentPort = parseInt(process.env.SMTP_PORT || '587');
-        console.log('Connection timeout detected, trying alternative ports...');
-        
-        for (const altPort of alternativePorts) {
-          if (altPort === currentPort) continue; // Skip if already tried
-          
-          try {
-            console.log(`Trying alternative port ${altPort}...`);
-            const altTransporter = nodemailer.createTransport({
-              host: process.env.SMTP_HOST,
-              port: altPort,
-              secure: altPort === 465,
-              requireTLS: altPort === 587 || altPort === 8025,
-              auth: {
-                user: process.env.SMTP_USER,
-                pass: process.env.SMTP_PASS,
-              },
-              connectionTimeout: 30000,
-              greetingTimeout: 30000,
-              socketTimeout: 30000,
-              tls: {
-                rejectUnauthorized: false,
-                minVersion: 'TLSv1.2',
-              },
-            });
-            
-            await altTransporter.sendMail(adminEmailContent);
-            console.log(`Admin email sent successfully on port ${altPort}`);
-            emailSent = true;
-            break;
-          } catch (altError) {
-            console.error(`Failed on port ${altPort}:`, altError);
-            lastError = altError instanceof Error ? altError : new Error(String(altError));
-          }
-        }
+    // Send email - use SMTP2Go API if available, otherwise fall back to Mailtrap for development
+    if (process.env.SMTP2GO_API_KEY) {
+      // Use SMTP2Go HTTP API (recommended for Railway)
+      console.log('Using SMTP2Go API');
+      try {
+        await sendEmailViaAPI(
+          adminEmailContent.to,
+          adminEmailContent.subject,
+          adminEmailContent.html
+        );
+        console.log('Admin email sent successfully via SMTP2Go API');
+      } catch (emailError) {
+        console.error('Failed to send email via SMTP2Go API:', emailError);
+        throw new Error(`Email sending failed: ${emailError instanceof Error ? emailError.message : String(emailError)}`);
       }
+    } else if (process.env.MAILTRAP_USER && process.env.MAILTRAP_PASS) {
+      // Fallback to Mailtrap for development
+      console.log('Using Mailtrap for development');
+      const transporter = nodemailer.createTransport({
+        host: 'sandbox.smtp.mailtrap.io',
+        port: 2525,
+        auth: {
+          user: process.env.MAILTRAP_USER,
+          pass: process.env.MAILTRAP_PASS,
+        },
+      });
       
-      if (!emailSent) {
-        throw new Error(`Email sending failed on all ports: ${lastError?.message || 'Unknown error'}`);
+      try {
+        await transporter.sendMail(adminEmailContent);
+        console.log('Admin email sent successfully via Mailtrap');
+      } catch (emailError) {
+        console.error('Failed to send email via Mailtrap:', emailError);
+        throw new Error(`Email sending failed: ${emailError instanceof Error ? emailError.message : String(emailError)}`);
       }
+    } else {
+      throw new Error('No email configuration found. Please set SMTP2GO_API_KEY or MAILTRAP_USER, MAILTRAP_PASS environment variables.');
     }
     
     // Uncomment the line below to also send user confirmation
@@ -234,9 +199,7 @@ export async function POST(request: NextRequest) {
       message: errorMessage,
       details: errorDetails,
       env: {
-        hasSmtpHost: !!process.env.SMTP_HOST,
-        hasSmtpUser: !!process.env.SMTP_USER,
-        hasSmtpPass: !!process.env.SMTP_PASS,
+        hasSmtp2GoApiKey: !!process.env.SMTP2GO_API_KEY,
         hasMailtrapUser: !!process.env.MAILTRAP_USER,
         hasMailtrapPass: !!process.env.MAILTRAP_PASS,
       }
