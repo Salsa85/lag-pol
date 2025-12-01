@@ -30,15 +30,45 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Create transporter for Mailtrap
-    const transporter = nodemailer.createTransport({
-      host: 'sandbox.smtp.mailtrap.io',
-      port: 2525,
-      auth: {
-        user: process.env.MAILTRAP_USER,
-        pass: process.env.MAILTRAP_PASS,
-      },
-    });
+    // Create transporter - use production SMTP if available, otherwise fall back to Mailtrap for development
+    let transporter;
+    
+    if (process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS) {
+      // Production SMTP configuration
+      const port = parseInt(process.env.SMTP_PORT || '587');
+      const isSecure = process.env.SMTP_SECURE === 'true';
+      
+      transporter = nodemailer.createTransport({
+        host: process.env.SMTP_HOST,
+        port: port,
+        secure: isSecure, // true for 465, false for other ports
+        requireTLS: !isSecure && port === 587, // Require TLS for port 587
+        auth: {
+          user: process.env.SMTP_USER,
+          pass: process.env.SMTP_PASS,
+        },
+        connectionTimeout: 10000, // 10 seconds
+        greetingTimeout: 10000, // 10 seconds
+        socketTimeout: 10000, // 10 seconds
+        tls: {
+          rejectUnauthorized: false, // Allow self-signed certificates if needed
+        },
+      });
+      console.log('Using production SMTP:', process.env.SMTP_HOST, 'port:', port, 'secure:', isSecure);
+    } else if (process.env.MAILTRAP_USER && process.env.MAILTRAP_PASS) {
+      // Development Mailtrap configuration
+      transporter = nodemailer.createTransport({
+        host: 'sandbox.smtp.mailtrap.io',
+        port: 2525,
+        auth: {
+          user: process.env.MAILTRAP_USER,
+          pass: process.env.MAILTRAP_PASS,
+        },
+      });
+      console.log('Using Mailtrap for development');
+    } else {
+      throw new Error('No email configuration found. Please set SMTP_HOST, SMTP_USER, SMTP_PASS or MAILTRAP_USER, MAILTRAP_PASS environment variables.');
+    }
 
     // Email content for admin notification
     const adminEmailContent = {
@@ -117,7 +147,13 @@ export async function POST(request: NextRequest) {
     };
 
     // Send only admin email to avoid rate limits
-    await transporter.sendMail(adminEmailContent);
+    try {
+      await transporter.sendMail(adminEmailContent);
+      console.log('Admin email sent successfully');
+    } catch (emailError) {
+      console.error('Failed to send email:', emailError);
+      throw new Error(`Email sending failed: ${emailError instanceof Error ? emailError.message : String(emailError)}`);
+    }
     
     // Uncomment the line below to also send user confirmation
     // await transporter.sendMail(userEmailContent);
@@ -138,9 +174,26 @@ export async function POST(request: NextRequest) {
     );
 
   } catch (error) {
-    console.error('Form submission error:', error);
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+    const errorDetails = error instanceof Error ? error.stack : String(error);
+    
+    console.error('Form submission error:', {
+      message: errorMessage,
+      details: errorDetails,
+      env: {
+        hasSmtpHost: !!process.env.SMTP_HOST,
+        hasSmtpUser: !!process.env.SMTP_USER,
+        hasSmtpPass: !!process.env.SMTP_PASS,
+        hasMailtrapUser: !!process.env.MAILTRAP_USER,
+        hasMailtrapPass: !!process.env.MAILTRAP_PASS,
+      }
+    });
+    
     return NextResponse.json(
-      { error: 'Er is een fout opgetreden bij het verzenden van de e-mail. Probeer het opnieuw.' },
+      { 
+        error: 'Er is een fout opgetreden bij het verzenden van de e-mail. Probeer het opnieuw.',
+        details: process.env.NODE_ENV === 'development' ? errorMessage : undefined
+      },
       { status: 500 }
     );
   }
