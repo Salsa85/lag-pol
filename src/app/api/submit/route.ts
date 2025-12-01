@@ -42,17 +42,21 @@ export async function POST(request: NextRequest) {
         host: process.env.SMTP_HOST,
         port: port,
         secure: isSecure, // true for 465, false for other ports
-        requireTLS: !isSecure && port === 587, // Require TLS for port 587
+        requireTLS: !isSecure && (port === 587 || port === 8025), // Require TLS for TLS ports
         auth: {
           user: process.env.SMTP_USER,
           pass: process.env.SMTP_PASS,
         },
-        connectionTimeout: 10000, // 10 seconds
-        greetingTimeout: 10000, // 10 seconds
-        socketTimeout: 10000, // 10 seconds
+        connectionTimeout: 30000, // 30 seconds
+        greetingTimeout: 30000, // 30 seconds
+        socketTimeout: 30000, // 30 seconds
         tls: {
           rejectUnauthorized: false, // Allow self-signed certificates if needed
+          minVersion: 'TLSv1.2',
         },
+        pool: false, // Disable connection pooling
+        maxConnections: 1,
+        maxMessages: 1,
       });
       console.log('Using production SMTP:', process.env.SMTP_HOST, 'port:', port, 'secure:', isSecure);
     } else if (process.env.MAILTRAP_USER && process.env.MAILTRAP_PASS) {
@@ -147,12 +151,61 @@ export async function POST(request: NextRequest) {
     };
 
     // Send only admin email to avoid rate limits
+    // Try alternative ports if the default fails (Railway may block certain ports)
+    const alternativePorts = [8025, 25, 80]; // SMTP2Go alternative ports
+    let emailSent = false;
+    let lastError: Error | null = null;
+    
     try {
       await transporter.sendMail(adminEmailContent);
       console.log('Admin email sent successfully');
+      emailSent = true;
     } catch (emailError) {
-      console.error('Failed to send email:', emailError);
-      throw new Error(`Email sending failed: ${emailError instanceof Error ? emailError.message : String(emailError)}`);
+      console.error('Failed to send email on primary port:', emailError);
+      lastError = emailError instanceof Error ? emailError : new Error(String(emailError));
+      
+      // Try alternative ports if connection timeout
+      if (lastError.message.includes('timeout') || lastError.message.includes('ETIMEDOUT')) {
+        const currentPort = parseInt(process.env.SMTP_PORT || '587');
+        console.log('Connection timeout detected, trying alternative ports...');
+        
+        for (const altPort of alternativePorts) {
+          if (altPort === currentPort) continue; // Skip if already tried
+          
+          try {
+            console.log(`Trying alternative port ${altPort}...`);
+            const altTransporter = nodemailer.createTransport({
+              host: process.env.SMTP_HOST,
+              port: altPort,
+              secure: altPort === 465,
+              requireTLS: altPort === 587 || altPort === 8025,
+              auth: {
+                user: process.env.SMTP_USER,
+                pass: process.env.SMTP_PASS,
+              },
+              connectionTimeout: 30000,
+              greetingTimeout: 30000,
+              socketTimeout: 30000,
+              tls: {
+                rejectUnauthorized: false,
+                minVersion: 'TLSv1.2',
+              },
+            });
+            
+            await altTransporter.sendMail(adminEmailContent);
+            console.log(`Admin email sent successfully on port ${altPort}`);
+            emailSent = true;
+            break;
+          } catch (altError) {
+            console.error(`Failed on port ${altPort}:`, altError);
+            lastError = altError instanceof Error ? altError : new Error(String(altError));
+          }
+        }
+      }
+      
+      if (!emailSent) {
+        throw new Error(`Email sending failed on all ports: ${lastError?.message || 'Unknown error'}`);
+      }
     }
     
     // Uncomment the line below to also send user confirmation
