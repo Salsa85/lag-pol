@@ -307,6 +307,7 @@ export default function ClientSignupSection({ preselectedCourse = "", variant = 
                       <option value="Scrum Master Verdiept / Gevorderd">Scrum Master Verdiept</option>
                       <option value="Product Owner Basis / Beginner">Product Owner Basis</option>
                       <option value="Product Owner Verdiept">Product Owner Verdiept</option>
+                      <option value="PO + SM / Beginner">PO + SM</option>
                       <option value="Agile Coach Opleiding">Agile Coach Opleiding</option>
                       <option value="Agile Leiderschap Opleiding">Agile Leiderschap Opleiding</option>
                       <option value="Sturen met Obeya">Sturen met Obeya</option>
