@@ -242,6 +242,81 @@ export const productOwnerMetadata: CourseMetadata = {
   },
 };
 
+export const poPlusSmCourse: Course = {
+  id: 'po-plus-sm',
+  title: 'PO + SM',
+  duration: '2 dagen van 3,5 uur',
+  description: 'In deze training ontwikkelen Product Owners zich tot richtinggevende en waardegedreven leiders binnen hun team. Ze leren hoe wendbaar werken geen doel op zich is, maar een middel om sneller en beter bij te dragen aan resultaten die er écht toe doen.',
+  detailedDescription: 'De focus ligt op het herkennen en realiseren van waarde in een complexe praktijk, waar prioriteiten constant verschuiven en samenwerken cruciaal is. Denk aan het versnellen van besluitvorming, het vergroten van eigenaarschap en het versterken van vertrouwen, binnen én buiten het team.',
+  topics: [
+    'Hoe je Agile en Scrum uitlegt en effectief toepast in je organisatie',
+    'Scrum theorie en de verschillende rollen',
+    'Oefenen van de theorie in de praktijk met praktische oefeningen',
+    'Visie op toegevoegde waarde vertalen naar de backlog',
+    'Faciliterend leiderschap, in samenwerking met Scrum Master',
+    'Hoe je stakeholders meeneemt, je team motiveert en grip houdt op het resultaat',
+    'Wat je moet doen bij de verfijning van functionaliteit (Backlog items) (refinement)',
+    'Plannen m.b.v. sprints en inschatten (forecasting), zodat je realistische keuzes maakt en teams vooruithelpt',
+    'Feedback geven en Teamfocus creëren',
+    'Een heldere rolverdeling tussen Product Owner & Scrum Master',
+    'Samen de retrospective gebruiken als motor voor verbetering met double-loop learning',
+    'Samen door bouwen aan een sterk en wendbaar team'
+  ],
+  target: 'Product Owners die richtinggevende en waardegedreven leiders willen worden',
+  uniqueFeatures: [
+    'Je werkt aan je eigen backlog. Dat betekent mogelijk huiswerk vooraf waarbij je je eigen backlog (deels) meeneemt. Goed om daar verwachtingsmanagement op te doen.',
+    'Je brengt je eigen stakeholders in beeld (dus géén simulatie)',
+    'Slide-vrij (Powerpoint-vrij)',
+    'Ontwikkeld o.b.v. Politie-context',
+    'Begrijpelijke metaforen uit het dagelijks leven',
+    'Gebaseerd op \'Training from the Back of the Room\': deelnemers leren actief en ervaringsgericht',
+    'Je gaat aan de slag met je eigen Scrum Master in het team om te leren elkaar te versterken'
+  ],
+  details: {
+    duration: '3 dagen',
+    certificate: 'Bewijs van deelname',
+    trainers: '1 vaste trainer die deelnemers ook na de opleiding coacht',
+    materials: 'Trainingsmateriaal digitaal, inclusief digitale Politie Poker game'
+  },
+  practicalDetails: {
+    requirements: [
+      'Er een beschikbaar Agile team of team is dat wil starten en waarin je je rol kan vervullen.',
+      'Je affiniteit met de materie hebt en je competenties matchen met de rol waarvoor je training gaat volgen.',
+      'Je aangemeld en betrokken bent bij de community van Wendbare (Agile) politie in MS teams.',
+      'Je ontwikkeltijd hebt en tijd beschikbaar bent voor de uitvoering van de rol.',
+      'Je de E-learning "quickscan: Hoe Agile ben jij?" hebt afgerond (ca 30 minuten en met verdieping 1 uur)',
+      'Je de E-learning "Scrum" hebt afgerond (ca 1.5 uur tot 2 uur)',
+      'Je de Quickscan op leiderschap hebt afgerond (komt binnenkort beschikbaar)',
+      'Je hebt een Scrum Master die beschikbaar is op de derde dag van de training'
+    ],
+    preparationTime: '3 uur',
+    additionalInfo: 'Na afloop van de training ontvang je een certificaat van deelname. Daarnaast ontvang je het trainingsmateriaal digitaal.\n\nBij de training zit de mogelijkheid om een Professional Product Owner (PSPO I) examen te doen. Het examen is in het Engels en niet verplicht voor de afronding van deze training. Wil je meer weten over dit certificaat neem dan contact op met ons.'
+  },
+  price: {
+    basePrice: 1899,
+    baseParticipants: 5,
+    maxParticipants: 12,
+    note: 'Wanneer er meer deelnemers zijn wordt de prijs lager, deze wordt namelijk doorgerekend voor het aantal deelnemers.'
+  }
+};
+
+export const poPlusSmMetadata: CourseMetadata = {
+  title: 'PO + SM Training - Politie',
+  description: 'Ontwikkel je tot richtinggevende en waardegedreven leider. 2 dagen praktijkgerichte PO + SM training speciaal voor de politie.',
+  keywords: [
+    'PO + SM training politie',
+    'Product Owner Scrum Master training',
+    'PSPO1 certificering',
+    'waarde creatie politie',
+    'stakeholder management'
+  ],
+  openGraph: {
+    title: 'PO + SM Training - Politie',
+    description: 'Ontwikkel je tot richtinggevende en waardegedreven leider. 2 dagen praktijkgerichte PO + SM training.',
+    type: 'website',
+  },
+};
+
 export const agileCoachCourse: Course = {
   id: 'agile-coach',
   title: 'Agile Coach Opleiding',

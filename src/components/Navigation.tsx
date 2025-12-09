@@ -74,7 +74,8 @@ export default function Navigation({
       color: "primary",
       courses: [
         { name: "Product Owner Basis", link: "/product-owner", duration: "2 dagen" },
-        { name: "Product Owner Verdiept", link: "/product-owner-vervolg", duration: "2 dagen" }
+        { name: "Product Owner Verdiept", link: "/product-owner-vervolg", duration: "2 dagen" },
+        { name: "PO + SM", link: "/po-plus-sm", duration: "2 dagen" }
       ]
     },
     {
