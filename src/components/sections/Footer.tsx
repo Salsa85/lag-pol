@@ -22,14 +22,15 @@ export default function Footer({ showTrainingLinks = true }: FooterProps) {
             <div>
               <h3 className="text-xl font-semibold mb-4">Trainingen</h3>
               <ul className="text-gray-100 space-y-2">
-                <li><Link href="/scrum-master" className="hover:text-white">Scrum Master Basis</Link></li>
-                <li><Link href="/scrum-master-vervolg" className="hover:text-white">Scrum Master Verdiept</Link></li>
-                <li><Link href="/product-owner" className="hover:text-white">Product Owner Basis</Link></li>
-                <li><Link href="/product-owner-vervolg" className="hover:text-white">Product Owner Verdiept</Link></li>
-                <li><Link href="/agile-coach" className="hover:text-white">Agile Coach</Link></li>
-                <li><Link href="/agile-leiderschap" className="hover:text-white">Agile Leiderschap</Link></li>
-                <li><Link href="/leading-with-obeya" className="hover:text-white">Sturen met Obeya</Link></li>
-                <li><Link href="/facilitator-in-obeya" className="hover:text-white">Facilitator in Obeya</Link></li>
+                <li><Link href="/scrum-master" className="hover:text-white transition-colors">Scrum Master Basis</Link></li>
+                <li><Link href="/scrum-master-vervolg" className="hover:text-white transition-colors">Scrum Master Verdiept</Link></li>
+                <li><Link href="/product-owner" className="hover:text-white transition-colors">Product Owner Basis</Link></li>
+                <li><Link href="/product-owner-vervolg" className="hover:text-white transition-colors">Product Owner Verdiept</Link></li>
+                <li><Link href="/agile-coach" className="hover:text-white transition-colors">Agile Coach</Link></li>
+                <li><Link href="/agile-leiderschap" className="hover:text-white transition-colors">Agile Leiderschap</Link></li>
+                <li><Link href="/leading-with-obeya" className="hover:text-white transition-colors">Sturen met Obeya</Link></li>
+                <li><Link href="/facilitator-in-obeya" className="hover:text-white transition-colors">Facilitator in Obeya</Link></li>
+                <li><Link href="/team-trajecten" className="hover:text-white transition-colors">Team Trajecten</Link></li>
               </ul>
             </div>
           )}

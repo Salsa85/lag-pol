@@ -6,6 +6,7 @@ import ClickSpark from './ClickSpark';
 import Navigation from './Navigation';
 import ClientSignupSection from './ClientSignupSection';
 import CardSwap, { Card } from './CardSwap';
+import Footer from './sections/Footer';
 
 export default function ClientHomePage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -550,45 +551,7 @@ export default function ClientHomePage() {
 
 
         {/* Footer */}
-        <footer className="bg-gray-900 text-white py-16 px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-3 gap-8 mb-8">
-              <div>
-                <h3 className="text-xl font-semibold mb-4">Lean Agile Groep</h3>
-                <p className="text-gray-300 mb-4">Praktijkgerichte Agile trainingen voor de politie.</p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-4">Contact</h3>
-                <p className="text-gray-300 mb-2">📞 088-5326720</p>
-                <p className="text-gray-300">info@leanagilegroep.nl</p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-4">Trainingen</h3>
-                <ul className="text-gray-300 space-y-2">
-                  <li><Link href="/scrum-master" className="hover:text-white transition-colors">Scrum Master Basis</Link></li>
-                  <li><Link href="/scrum-master-vervolg" className="hover:text-white transition-colors">Scrum Master Verdiept</Link></li>
-                  <li><Link href="/product-owner" className="hover:text-white transition-colors">Product Owner Basis</Link></li>
-                  <li><Link href="/product-owner-vervolg" className="hover:text-white transition-colors">Product Owner Verdiept</Link></li>
-                  <li><Link href="/agile-coach" className="hover:text-white transition-colors">Agile Coach</Link></li>
-                  <li><Link href="/agile-leiderschap" className="hover:text-white transition-colors">Agile Leiderschap</Link></li>
-                  <li><Link href="/leading-with-obeya" className="hover:text-white transition-colors">Sturen met Obeya</Link></li>
-                  <li><Link href="/facilitator-in-obeya" className="hover:text-white transition-colors">Facilitator in Obeya</Link></li>
-                  <li><Link href="/team-trajecten" className="hover:text-white transition-colors">Team Trajecten</Link></li>
-                </ul>
-              </div>
-            </div>
-            <div className="border-t border-gray-700 pt-8 text-center">
-              <p className="text-gray-400 mb-4">
-                Lean Agile Groep is onderdeel van Lean Six Sigma Groep ©2025
-              </p>
-              <div className="flex justify-center space-x-6 text-sm">
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">Privacy policy</a>
-                <span className="text-gray-600">|</span>
-                <span className="text-gray-400">Contact: 088-5326720</span>
-              </div>
-            </div>
-          </div>
-        </footer>
+        <Footer />
       </div>
 
       {/* Contact Modal */}
