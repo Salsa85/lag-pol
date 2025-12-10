@@ -339,7 +339,7 @@ export default function ClientHomePage() {
                     </div>
                   </a>
                   <a href="/po-plus-sm" className="flex items-center justify-between bg-white/20 p-4 rounded-lg hover:bg-primary-500/30 hover:border-primary-400 border border-white/30 transition-all duration-200 group">
-                    <span className="font-medium text-white group-hover:text-primary-200">PO + SM</span>
+                    <span className="font-medium text-white group-hover:text-primary-200">Product Owner ism Scrum Master</span>
                     <div className="flex items-center space-x-3">
                       <span className="text-sm bg-primary-500 text-white px-3 py-1 rounded-full font-medium">3 dagen</span>
                       <svg className="w-4 h-4 text-gray-400 group-hover:text-primary-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">

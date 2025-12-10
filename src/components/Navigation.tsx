@@ -75,7 +75,7 @@ export default function Navigation({
       courses: [
         { name: "Product Owner Basis", link: "/product-owner", duration: "2 dagen" },
         { name: "Product Owner Verdiept", link: "/product-owner-vervolg", duration: "2 dagen" },
-        { name: "PO + SM", link: "/po-plus-sm", duration: "3 dagen" }
+        { name: "Product Owner ism Scrum Master", link: "/po-plus-sm", duration: "3 dagen" }
       ]
     },
     {

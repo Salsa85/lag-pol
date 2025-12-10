@@ -11,7 +11,7 @@ const courses = [
   'Scrum Master Verdiept / Gevorderd',
   'Product Owner Basis / Beginner',
   'Product Owner Basis / Gevorderd',
-  'PO + SM / Beginner',
+  'Product Owner ism Scrum Master / Beginner',
   'Agile Coach',
   'Agile Leiderschap Opleiding',
   'Sturen met Obeya',
