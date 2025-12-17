@@ -73,7 +73,7 @@ export default function HeroSection({
               </span>
               {' ' + title.split(' ').slice(1).join(' ')}
             </h1>
-            <p className="text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed max-w-3xl font-light">
+            <p className="text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed max-w-3xl font-light whitespace-pre-line">
               {subtitle}
             </p>
             

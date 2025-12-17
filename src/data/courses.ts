@@ -96,13 +96,17 @@ export const productOwnerCourse: Course = {
   detailedDescription: 'De focus ligt op het herkennen en realiseren van waarde in een complexe praktijk, waar prioriteiten constant verschuiven en samenwerken cruciaal is. Denk aan het versnellen van besluitvorming, het vergroten van eigenaarschap en het versterken van vertrouwen, binnen én buiten het team.',
   topics: [
     'Hoe je Agile en Scrum uitlegt en effectief toepast in je organisatie',
-    'Scrum theorie en de verschillende rollen',
-    'Oefenen van de theorie in de praktijk met praktische oefeningen',
     'Visie op toegevoegde waarde vertalen naar de backlog',
-    'Faciliterend leiderschap, in samenwerking met Scrum Master',
+    'Refinement: Backlog items uitwerken en de Definition of Done borgen',
+    'Sprintplanning: scherpe sprintdoelen (SMART), omgaan met planbaar en onplanbaar werk',
+    'Klant betrekken (OM/Burger) en goed positioneren',
+    'Puntensysteem/Planning Poker: waarom je het doet en hoe je het inzet',
+    'Waardestromen, lean/verspilling en end-to-end verantwoordelijkheid',
+    'Plannen m.b.v. sprints en forecasting zodat je realistische keuzes maakt',
     'Hoe je stakeholders meeneemt, je team motiveert en grip houdt op het resultaat',
-    'Wat je moet doen bij de verfijning van functionaliteit (Backlog items) (refinement)',
-    'Plannen m.b.v. sprints en inschatten (forecasting), zodat je realistische keuzes maakt en teams vooruithelpt',
+    'Samenwerken met partners en herpositioneren t.b.v. meer effect',
+    'Faciliterend leiderschap, in samenwerking met Scrum Master',
+    'Oefenen van de theorie in de praktijk met praktische oefeningen',
     'Feedback geven en Teamfocus creëren'
   ],
   target: 'Product Owners die richtinggevende en waardegedreven leiders willen worden',
@@ -122,13 +126,14 @@ export const productOwnerCourse: Course = {
   },
   practicalDetails: {
     requirements: [
-      'Er een beschikbaar Agile team of team is dat wil starten en waarin je je rol kan vervullen.',
+      'Je hebt kennis van Agile en Scrum en werkt als (beginnend) Product Owner.',
+      'Je hebt een Agile basis/Scrum (PO) training gevolgd en bij voorkeur de e-learning Scrum op Flowsparks/kennisdelers via Blueportaal gedaan.',
+      'Er is een beschikbaar Agile team of een team dat wil starten en waarin je je rol kunt vervullen.',
       'Je affiniteit met de materie hebt en je competenties matchen met de rol waarvoor je training gaat volgen.',
-      'Je aangemeld en betrokken bent bij de community van Wendbare (Agile) politie in MS teams.',
-      'Je ontwikkeltijd hebt en tijd beschikbaar bent voor de uitvoering van de rol.',
-      'Je de E-learning "quickscan: Hoe Agile ben jij?" hebt afgerond (ca 30 minuten en met verdieping 1 uur)',
-      'Je de E-learning "Scrum" hebt afgerond (ca 1.5 uur tot 2 uur)',
-      'Je de Quickscan op leiderschap hebt afgerond (komt binnenkort beschikbaar)'
+      'Je bent aangemeld en betrokken bij de community van Wendbare (Agile) politie in MS Teams.',
+      'Je hebt ontwikkeltijd en tijd beschikbaar voor de uitvoering van de rol.',
+      'Je hebt de "Hoe Agile ben jij?" quickscan afgerond (ca. 30 minuten, met verdieping 1 uur).',
+      'Je hebt de Quickscan op leiderschap afgerond (komt binnenkort beschikbaar).'
     ],
     preparationTime: '3 uur',
     additionalInfo: 'Na afloop van de training ontvang je een certificaat van deelname. Daarnaast ontvang je het trainingsmateriaal digitaal.\n\nBij de training zit de mogelijkheid om een Professional Product Owner (PSPO I) examen te doen. Het examen is in het Engels en niet verplicht voor de afronding van deze training. Wil je meer weten over dit certificaat neem dan contact op met ons.'
@@ -250,17 +255,20 @@ export const poPlusSmCourse: Course = {
   detailedDescription: 'De focus ligt op het herkennen en realiseren van waarde in een complexe praktijk, waar prioriteiten constant verschuiven en samenwerken cruciaal is. Denk aan het versnellen van besluitvorming, het vergroten van eigenaarschap en het versterken van vertrouwen, binnen én buiten het team.',
   topics: [
     'Hoe je Agile en Scrum uitlegt en effectief toepast in je organisatie',
-    'Scrum theorie en de verschillende rollen',
-    'Oefenen van de theorie in de praktijk met praktische oefeningen',
-    'Visie op toegevoegde waarde vertalen naar de backlog',
-    'Faciliterend leiderschap, in samenwerking met Scrum Master',
+    'Visie op toegevoegde waarde vertalen naar de backlog en refinement (incl. Definition of Done)',
+    'Sprintplanning: scherpe sprintdoelen (SMART), planbaar/onplanbaar werk en forecasting',
+    'Klant betrekken en positioneren (OM/Burger) en samenwerken met partners',
+    'Puntensysteem/Planning Poker: waarom en hoe',
+    'Waardestromen, lean/verspilling en end-to-end verantwoordelijkheid',
     'Hoe je stakeholders meeneemt, je team motiveert en grip houdt op het resultaat',
-    'Wat je moet doen bij de verfijning van functionaliteit (Backlog items) (refinement)',
-    'Plannen m.b.v. sprints en inschatten (forecasting), zodat je realistische keuzes maakt en teams vooruithelpt',
-    'Feedback geven en Teamfocus creëren',
+    'Faciliterend leiderschap, in samenwerking met Scrum Master',
+    'Rolduidelijkheid & hitteschild: nee zeggen, prioritering bij de Product Owner, besluitvorming van push naar pull',
     'Een heldere rolverdeling tussen Product Owner & Scrum Master',
-    'Samen de retrospective gebruiken als motor voor verbetering met double-loop learning',
-    'Samen door bouwen aan een sterk en wendbaar team'
+    'Samen de retrospective gebruiken als motor voor verbetering met double-loop learning en multidisciplinaire ontwikkeling',
+    'Groepsgrootte, formatie en kennis: effect op samenwerking en resultaat',
+    'Communicatie en teamondersteuning zodat prioritering en besluitvorming bij de PO liggen',
+    'Oefenen van de theorie in de praktijk met praktische oefeningen',
+    'Feedback geven, Teamfocus creëren en samen bouwen aan een sterk en wendbaar team'
   ],
   target: 'Product Owners die richtinggevende en waardegedreven leiders willen worden',
   uniqueFeatures: [
@@ -280,14 +288,15 @@ export const poPlusSmCourse: Course = {
   },
   practicalDetails: {
     requirements: [
-      'Er een beschikbaar Agile team of team is dat wil starten en waarin je je rol kan vervullen.',
+      'Je hebt kennis van Agile en Scrum en werkt als (beginnend) Product Owner.',
+      'Je hebt een Agile basis/Scrum (PO) training gevolgd en bij voorkeur de e-learning Scrum op Flowsparks/kennisdelers via Blueportaal gedaan.',
+      'Er is een beschikbaar Agile team of een team dat wil starten en waarin je je rol kunt vervullen.',
       'Je affiniteit met de materie hebt en je competenties matchen met de rol waarvoor je training gaat volgen.',
-      'Je aangemeld en betrokken bent bij de community van Wendbare (Agile) politie in MS teams.',
-      'Je ontwikkeltijd hebt en tijd beschikbaar bent voor de uitvoering van de rol.',
-      'Je de E-learning "quickscan: Hoe Agile ben jij?" hebt afgerond (ca 30 minuten en met verdieping 1 uur)',
-      'Je de E-learning "Scrum" hebt afgerond (ca 1.5 uur tot 2 uur)',
-      'Je de Quickscan op leiderschap hebt afgerond (komt binnenkort beschikbaar)',
-      'Je hebt een Scrum Master die beschikbaar is op de derde dag van de training'
+      'Je bent aangemeld en betrokken bij de community van Wendbare (Agile) politie in MS Teams.',
+      'Je hebt ontwikkeltijd en tijd beschikbaar voor de uitvoering van de rol.',
+      'Je hebt de "Hoe Agile ben jij?" quickscan afgerond (ca. 30 minuten, met verdieping 1 uur).',
+      'Je hebt de Quickscan op leiderschap afgerond (komt binnenkort beschikbaar).',
+      'Je hebt een Scrum Master die beschikbaar is op de derde dag van de training.'
     ],
     preparationTime: '3 uur',
     additionalInfo: 'Na afloop van de training ontvang je een certificaat van deelname. Daarnaast ontvang je het trainingsmateriaal digitaal.\n\nBij de training zit de mogelijkheid om een Professional Product Owner (PSPO I) examen te doen. Het examen is in het Engels en niet verplicht voor de afronding van deze training. Wil je meer weten over dit certificaat neem dan contact op met ons.'

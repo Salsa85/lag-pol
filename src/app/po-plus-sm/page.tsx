@@ -37,8 +37,10 @@ export default function PoPlusSmPage() {
   return (
     <CoursePageLayout
       courses={courses}
-      heroTitle="Product Owner Basis & Samenwerking Scrum Master"
-      heroSubtitle="Ontwikkel je tot richtinggevende en waardegedreven leider met faciliterend leiderschap. Leer hoe je als Product Owner teams kunt helpen om effectiever samen te werken en betere resultaten te behalen. Vervolgens ga je aan de slag met je Scrum Master om dezelfde taal te leren spreken en te zorgen dat jullie hetzelfde beeld hebben van jullie rol in het team"
+      heroTitle="Product Owner & Samenwerking Scrum Master"
+      heroSubtitle={
+        "Op dag 1 & 2 volg je de Product Owner training.\n\nOp dag 3 ga je aan de slag samen met je Scrum Master om dezelfde taal te leren spreken. Jullie weten hoe je samen richting geeft én ruimte laat, en hoe je bewuster stuurt op waarde, wendbaarheid en eigenaarschap in het team.\n\nJe gaat naar huis met een concreet actieplan waar je direct mee aan de slag kunt. En misschien wel het belangrijkste: jullie hebben elkaar echt gevonden als sparringpartner. Vanaf nu werken de Product Owner en Scrum Master niet naast elkaar, maar nog sterker mét elkaar."
+      }
       preselectedCourse="PO + SM / Beginner"
       relatedTraining={relatedTraining}
     />
