@@ -80,7 +80,7 @@ export default function ClientSignupSection({ preselectedCourse = "", variant = 
 
     if (!isTeamVariant) {
       if (!formData.costCenter.trim()) {
-        alert('Besluitnummer studiefaciliteiten is verplicht.');
+        alert('Kostenplaats is verplicht.');
         return;
       }
       if (!formData.trainingDate.trim()) {
@@ -338,7 +338,7 @@ export default function ClientSignupSection({ preselectedCourse = "", variant = 
 
                 <div>
                   <label htmlFor="costCenter" className="block text-sm font-medium text-white mb-2">
-                    Besluitnummer studiefaciliteiten *
+                    Kostenplaats *
                   </label>
                   <input
                     type="text"

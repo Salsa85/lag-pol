@@ -213,7 +213,7 @@ export default function SignupSection({ preselectedCourse = '' }: SignupSectionP
 
             <div>
               <label htmlFor="costCenter" className="block text-sm font-semibold text-gray-700 mb-2">
-                Besluitnummer studiefaciliteiten
+                Kostenplaats
               </label>
               <input
                 type="text"
@@ -222,7 +222,7 @@ export default function SignupSection({ preselectedCourse = '' }: SignupSectionP
                 value={formData.costCenter}
                 onChange={handleInputChange}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-sm transition-all"
-                placeholder="Besluitnummer studiefaciliteiten"
+                placeholder="Kostenplaats"
               />
             </div>
 

@@ -213,7 +213,7 @@ export default function SignupModal({ isOpen, onClose, preselectedCourse = '' }:
 
             <div>
               <label htmlFor="costCenter" className="block text-lg font-semibold text-gray-800 mb-3">
-                Besluitnummer studiefaciliteiten
+                Kostenplaats
               </label>
               <input
                 type="text"
@@ -222,7 +222,7 @@ export default function SignupModal({ isOpen, onClose, preselectedCourse = '' }:
                 value={formData.costCenter}
                 onChange={handleInputChange}
                 className="w-full px-6 py-4 border-2 border-black shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-lg transition-all rounded-lg"
-                placeholder="Besluitnummer studiefaciliteiten"
+                placeholder="Kostenplaats"
               />
             </div>
 
